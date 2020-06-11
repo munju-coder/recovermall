@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
 body { font-family: 'Noto Sans KR', sans-serif; }
 ul { overflow: hidden; }
 cursor { cursor: pointer; }
@@ -8,6 +9,8 @@ cursor { cursor: pointer; }
 .word_break { word-break: keep-all; }
 .dw_1200px { width: 100%; max-width: 1200px; margin: 0 auto; }
 .dw_100per { width: 100%; margin: 0 auto; }
+section { overflow: hidden; }
+.over_hidden { overflow: hidden; }
 
 
 /*text-align*/
@@ -34,15 +37,18 @@ cursor { cursor: pointer; }
 .mt10px { margin-top: 10px; }
 .mt20px { margin-top: 20px; }
 .mt30px { margin-top: 30px; }
+.mt40px { margin-top: 40px; }
 .mt3per { margin-top: 3%; }
 .mt5per { margin-top: 5%; }
 .mt10per { margin-top: 10%; }
 
 .mr5px { margin-right: 5px; }
 .mr10px { margin-right: 10px; }
+.mr15px { margin-right: 15px; }
 .ml5px { margin-left: 5px; }
 .ml10px { margin-left: 10px; }
 
+.mb5px { margin-bottom: 5px; }
 .mb10px { margin-bottom: 10px; }
 .mb20px { margin-bottom: 20px; }
 .mb30px { margin-bottom: 30px; }
@@ -69,6 +75,7 @@ cursor { cursor: pointer; }
 .pb30px { padding-bottom: 30px; }
 .pb5per { padding-bottom: 5%; }
 .pb10per { padding-bottom: 10%; }
+.ptb10px { padding: 10px 0; }
 .ptb20px { padding: 20px 0; }
 
 /*width*/
