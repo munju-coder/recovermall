@@ -35,14 +35,13 @@
     <link rel="icon" type="image/png" sizes="32x32" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
     <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
+
+    <style>
+        aside , .menu_bg  { display: none; }
+    </style>
     
 </head>
-<script>
-    $(document).ready( function(){
 
-
-    });
-</script>
 <body>
     <!--wrap {-->
     <div class="wrap">
@@ -132,8 +131,7 @@
                 .wrap header .header_middle .hd_middle { float: left; width: 33.3%; }
                 .wrap header .header_middle .hd_right { float: right; width:33.3%; }
                 .wrap header .header_middle .hd_right .hdr_wrap a { margin-right: 10px; }
-                .wrap header .header_bottom_wrap { padding: 20px 0; }
-                
+                .wrap header .header_bottom_wrap { padding: 20px 0; background-color: #f1758d; }
                 .wrap header .header_bottom_wrap .header_bottom .menu_cate a:first-child { float: left; width: 13%; }
                 .wrap header .header_bottom_wrap .header_bottom .menu_cate a:last-child { float: right; width: 87%; margin-top: 3px; }
                 .wrap header nav { position: relative; display: none; }
@@ -143,33 +141,34 @@
                 .wrap header nav .nav_wrap div img { width: 60px; height: 60px; display: block; margin: 5px auto 10px auto; }
                 .wrap header nav .nav_wrap::after { content: ''; display: block; overflow: hidden; clear: both; }
                 .wrap header nav .nav_wrap div img:last-of-type { display: none; }
-
                 .wrap header nav .nav_wrap div:hover img:first-child { display: none; }
                 .wrap header nav .nav_wrap div:hover img:nth-child(2) { display: block; transition: 1s; } 
-                .wrap header nav .nav_wrap div:hover { background-color: #ff00004b; padding: 10px;}
+                .wrap header nav .nav_wrap div:hover { background-color: #ff00004b; padding: 10px; } 
                 .wrap header nav .nav_wrap div:hover p { color: white; }
 
-                .wrap header .header_bottom_wrap { background-color: #f1758d; }
-
                 .wrap .main_slide div img { width: 100%; }
-                .wrap .header_bottom_wrap .header_bottom .nav_menu .main_menu-container a { float: left; width: 40%; }
                 .wrap .header_bottom_wrap .header_bottom .nav_menu .main_menu-container::after { content: ''; display: block; overflow: hidden; clear: both; }
                 .wrap .header_bottom_wrap .header_bottom .nav_menu .main_menu-container .swiper-wrapper { float: left; width: 60%; }
-  
-                
+                .wrap .header_bottom_wrap .header_bottom .nav_menu .main_menu_icon { float:left; width:50px; }
+                .wrap .header_bottom_wrap .header_bottom .nav_menu::after { content: ''; display: block; overflow: hidden; clear: both; }
+                .wrap .header_bottom_wrap .header_bottom .nav_menu .main_menu-container .swiper-slide { justify-content:left; }
 
             </style>
             
             <div class="header_bottom_wrap">
                 <div class="header_bottom dw_1200px">
                     <div class="nav_menu">
+                        <div class="main_menu_icon">
+                            <a href="#"><img src="../recovermall/images/all.png" alt="menu_icon"></a>                           
+                        </div>
+
                         <div class="main_menu-container">
-                            <a href=""><img src="../recovermall/images/all.png" alt="menu_icon"></a>
                             <div class="header_menu swiper-wrapper">
                                 <div class="swiper-slide"><a href="#">투데이특가</a></div>
                                 <div class="swiper-slide"><a href="#">핫 딜</a></div>
                                 <div class="swiper-slide"><a href="#">여름생활가전</a></div>
                                 <div class="swiper-slide"><a href="#">건강검진이벤트</a></div>
+                                <div class="swiper-slide"><a href="#">건강검진이벤트123</a></div>
                             </div>
                         </div>
                     </div>
@@ -230,8 +229,6 @@
         <style>
             /* aside,.menu_bg { display: none; } */
              .swiper-slide {
-
-
                 /* Center slide text vertically */
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -248,166 +245,233 @@
                 }
             .wrap aside.left_menu_wrap { position: absolute; top: 0; background-color: white; width: 50%; height: 100%; z-index: 10; overflow: hidden; }
             .wrap aside.left_menu_wrap .left_logo { background-color: #f098a9; }
-
             .wrap aside.left_menu_wrap { position: absolute; top: 0; z-index: 11; }
             .wrap aside.left_menu_wrap .left_menu .left_menu-container { width: 100%; height:100%; margin-top: 20px; }
-            /* .wrap aside.left_menu_wrap .left_menu .left_menu-container .swiper-pagination { top: 330px; } */
-
             .wrap aside.left_menu_wrap .left_menu .left_menu-container .swiper-slide a img { width: 100%; } 
             .wrap aside.left_menu_wrap .left_menu .left_menu-container .swiper-slide-duplicate-active { margin-right: 0; }
-
-            .wrap aside.left_menu_wrap .left_menu .close_btn {
+            .wrap aside.left_menu_wrap .left_logo .close_btn {
                 background: url(../recovermall/images/top_banner_closeBTN.png) no-repeat center center;
-                position: absolute;
-                top: 4px;
-                z-index: 11;
-                left: 95%;
+                float: right;
                 padding: 20px 25px;
-                background-size: 40%;
+                background-size: 50%;
             }
             .wrap aside.left_menu_wrap .left_menu .left_login_box { background-color: #d4d4d4; padding: 20px 0; margin-top: 20px; }
             .wrap aside.left_menu_wrap .left_menu .left_login_box .llb_left { border-right: 2px solid #eeeded; }
             .wrap aside.left_menu_wrap .left_menu .left_login_box { color: #767676; }
 
 
-            /* .wrap aside.left_menu_wrap .left_menu .left_menu-container { padding: 0 0 0 55px; } */
         </style>
 
         <!--aside {-->
         <aside class="left_menu_wrap">
-            <div class="left_logo t_center ptb10px">
+            <div class="left_logo t_left ptb10px">
                 <img src="../recovermall/images/aside_logo.png" alt="aside_logo">
+                <div class="close_btn cursor"></div>
             </div>
 
             <div class="left_menu">
-                <div class="close_btn"></div>
-
                 <div class="left_menu-container">
                     <div class="aside_banner swiper-wrapper">
-                        <div class="swiper-slide"><a href=""><img src="../recovermall/images/aside_banner1.png" alt="aside_banner1"></a></div>
-                        <div class="swiper-slide"><a href=""><img src="../recovermall/images/aside_banner2.png" alt="aside_banner2"></a></div>
-                        <div class="swiper-slide"><a href=""><img src="../recovermall/images/aside_banner3.png" alt="aside_banner3"></a></div>
-                        <div class="swiper-slide"><a href=""><img src="../recovermall/images/aside_banner4.png" alt="aside_banner4"></a></div>
-                        <div class="swiper-slide"><a href=""><img src="../recovermall/images/aside_banner5.png" alt="aside_banner5"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../recovermall/images/aside_banner1.png" alt="aside_banner1"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../recovermall/images/aside_banner2.png" alt="aside_banner2"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../recovermall/images/aside_banner3.png" alt="aside_banner3"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../recovermall/images/aside_banner4.png" alt="aside_banner4"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../recovermall/images/aside_banner5.png" alt="aside_banner5"></a></div>
                     </div>
                 </div>
 
                 <div class="left_login_box over_hidden">
-                    <div class="llb_left col-sm-6 t_center"><i class="mr5px fas fa-sign-in-alt"></i>로그인</div>
-                    <div class="llb_right col-sm-6 t_center"><i class="mr5px fas fa-file-signature"></i>회원가입</div>
+                    <div class="llb_left col-sm-6 t_center f22"><i class="mr5px fas fa-sign-in-alt"></i>로그인</div>
+                    <div class="llb_right col-sm-6 t_center f22"><i class="mr5px fas fa-file-signature"></i>회원가입</div>
                 </div>
 
+                <script>
+                    $(document).ready( function(){
+
+                        //메뉴아이콘 클릭시 left_menu toggle
+                        $('.main_menu_icon,.menu_bg,.close_btn').click( function(){
+                            $("aside,.menu_bg").toggle()
+                        });
+
+                    });
+                </script>
                 <style>
-                    .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject { background-color: red; padding: 20px 0; }
+                    /* aside , .menu_bg  { display: none; } */
+                    /* aside, .menu_bg { display: none; } */
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject { border-bottom: 4px solid #efbbc5; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li { padding: 20px 0; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li a { color: rgb(95, 95, 95); }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li:hover a { color: #f7758f; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb { overflow: auto; position: relative; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul > li > a::after {
+                        position: absolute;
+                        content: '';
+                        background: url(../recovermall/images/mo_down.png) no-repeat center center;
+                        background-size: contain;
+                        width: 15px;
+                        height: 15px;
+                        right: 25px;
+                        top: 50%;
+                        margin-top: -7.5px;
+                    }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul > li > a.on::after {
+                        content: '';
+                        background: url(../recovermall/images/mo_up.png) no-repeat center center;
+                        background-size: contain;
+                    }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_main_menu {
+                        position: relative;
+                        display: block;
+                        color: rgba(60,61,60,0.45);
+                        height: 45px;
+                        line-height: 45px;
+                        padding: 0 25px;
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li ul { padding: 0 25px; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li ul li { margin-bottom: 10px; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li .left_sub_menu { background-color: #f2f2f2; padding: 10px 25px; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li .left_sub_menu li a { color: rgba(60,61,60,0.45); }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li .left_sub_menu li a:hover { color: #f7758f; }
+                    .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul li .left_sub_menu { display: none; }
+                    .left_tab { display: none; }
+                    .left_tab_active { display: block; }
+                    
+
+                    
                 </style>
+
+                <script>
+                    $(document).ready( function(){
+
+                        //catego_menu sub_slide 
+                        $('.cate_gnb .left_tab_contents ul li a').on('click', function(){
+                            $(this).parent().siblings().children('a').removeClass('on');
+                            $(this).parent().siblings().find('.left_sub_menu').stop().slideUp(400);
+
+                            var chk = $(this).next().length;
+
+                            if(chk > 0)
+                            {
+                                if($(this).hasClass('on')){
+                                    $(this).removeClass('on');
+                                    $(this).next().stop().slideUp(400);
+                                }else{
+                                    $(this).addClass('on');
+                                    $(this).next().stop().slideDown(400);
+                                }
+                            }                            
+                        });
+
+                        //aside left_menu tab
+                        $('.left_tablinks').each( function(){
+                            $(this).click( function(){
+
+                                $(".left_tablinks").removeClass("catego_active");
+                                $(this).addClass("catego_active");
+
+                                $(".cate_gnb .left_tab").removeClass("left_tab_active");
+                                $(".cate_gnb .left_tab").css("display", "none");
+
+                                var chk = $(this).attr("tab_name");
+                                $('#' + chk).css("display", "block");
+                            });
+
+                        });
+
+                    });
+
+
+
+                </script>
 
                 <!--catego_menu {-->
                 <div class="catego_menu">
                     <div class="left_tab_subject">
-                        <ul class="mb10px">
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor catego_active" tab_name="left_tab1"><a href="#">카테고리</a></li>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="#">프로모션</a></li>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="#">마이페이지</a></li>
+                        <ul>
+                            <li class="t_center col-sm-4 left_tablinks f14 cursor catego_active" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f18">카테고리</a></li>
+                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f18">프로모션</a></li>
+                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f18">마이페이지</a></li>
                         </ul>
                     </div>
-                
-                    <div class="left_tab left_tab_active" id="left_tab1">
-                        <ul class="t_left">
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="">패션</a>
-                                    <i class="fas fa-plus"></i>
-                                    <i class="fas fa-minus"></i>
-                                </div>
+
+                    <div class="cate_gnb">
+                        <div class="left_tab_contents left_tab_active left_tab" id="left_tab1">
+                            <ul class="t_left">
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">패션</a>
+                                    
+                                    <ul class="left_sub_menu">
+                                        <li><a href="#">-의류</a></li>
+                                        <li><a href="#">-액세서리</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">뷰티</a>
+                                </li>
                                 
-                                <ul>
-                                    <li>-의류</li>
-                                    <li>-액세서리</li>
-                                </ul>                            
-                            </li>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">식품</a>
+                                    
+                                    <ul class="left_sub_menu">
+                                        <li>-농수산</li>
+                                        <li>-축산</li>
+                                        <li>-가공식품</li>
+                                        <li>-반찬류</li>
+                                        <li>-음료</li>
+                                    </ul>
+                                </li>
 
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">뷰티</a>
-                                </div>
-                            </li>
-                            
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">식품</a>
-                                    <i class="fas fa-plus"></i>
-                                    <i class="fas fa-minus"></i>
-                                </div>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">건강</a>
+                                </li>
                                 
-                                <ul>
-                                    <li>-농수산</li>
-                                    <li>-축산</li>
-                                    <li>-가공식품</li>
-                                    <li>-반찬류</li>
-                                    <li>-음료</li>
-                                </ul>
-                            </li>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">생활용품</a>
+                                </li>
 
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">건강</a>
-                                </div>
-                            </li>
-                            
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">생활용품</a>
-                                </div>
-                            </li>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">인테리어</a>
+                                </li>
 
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">인테리어</a>
-                                </div>
-                            </li>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">생활가전</a>
+                                </li>
 
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">생활가전</a>
-                                </div>
-                            </li>
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">잡화</a>
+                                </li>
+                                
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">기타</a>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="left_tab" id="left_tab2">
+                            <ul class="t_left">
+                                <li><a class="left_main_menu" href="#">투데이특가</a></li>
+                                <li><a class="left_main_menu" href="#">타임세일</a></li>
+                                <li><a class="left_main_menu" href="#">여름생활가전</a></li>
+                                <li><a class="left_main_menu" href="#">선착순이벤트</a></li>
+                                <li><a class="left_main_menu" href="#">리커버랭킹</a></li>
+                            </ul>
+                        </div>
 
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">잡화</a>
-                                </div>
-                            </li>
-                            
-                            <li class="mb5per f14">
-                                <div class="">
-                                    <a href="#">기타</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                
-                    <div class="left_tab" id="left_tab2">
-                        <ul class="t_left">
-                            <li><a href="">투데이특가</a></li>
-                            <li><a href="">타임세일</a></li>
-                            <li><a href="">여름생활가전</a></li>
-                            <li><a href="">선착순이벤트</a></li>
-                            <li><a href="">리커버랭킹</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="left_tab" id="left_tab3">
-                        <ul class="t_left">
-                            <li class="mb5per f14"><a href="#">마이페이지</a></li>
-                            <li class="mb5per f14"><a href="#">주문내역</a></li>
-                            <li class="mb5per f14"><a href="#">주문배송조회</a></li>
-                            <li class="mb5per f14"><a href="#">공지사항</a></li>
-                            <li class="mb5per f14"><a href="#">1:1문의</a></li>
-                            <li class="mb5per f14"><a href="#">입금계좌안내</a></li>
-                        </ul>
-                    </div>
-                
-                </div>  
+                        <div class="left_tab" id="left_tab3">
+                            <ul class="t_left">
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">마이페이지</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">주문내역</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">주문배송조회</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">공지사항</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">1:1문의</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">입금계좌안내</a></li>
+                            </ul>
+                        </div>
+                    </div>  
+                </div>
                 <!--} catego_menu-->
             </div>
         
@@ -879,7 +943,6 @@
             .wrap footer .footer_top img { width: 100%; } 
             .wrap footer .footer_middle { background-color: #f4adb7; }
             .wrap footer .footer_middle .ftm_top { padding: 20px 0; }
-            /* .wrap footer .footer_middle .ftm_top a { display: flex;  } */
             .wrap footer .footer_middle .ftm_top { width: 100%; max-width: 1200px; margin: 0 auto; }
             .wrap footer .footer_middle .ftm_top a { display: inline-block; margin-right: 20px; text-align: left; color: #4e4e4e; font-weight: 600; }
             .wrap footer .footer_bottom_wrap { padding: 32px 0; }     

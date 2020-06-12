@@ -1,7 +1,7 @@
 $(document).ready( function(){
     //menu_slide
     var mainMenuSlide = new Swiper('.main_menu-container', {
-        slidesPerView: 4,
+        slidesPerView: 6,
 
         breakpoints: {
 
@@ -96,14 +96,18 @@ $(document).ready( function(){
         
     //   });
 
-      var swiper = new Swiper('.left_menu-container', {
+    var swiper = new Swiper('.left_menu-container', {
         pagination: '.swiper-pagination',
         loop: true,
         slidesPerView: 2,
         paginationClickable: true,
         spaceBetween: 10,
-        autoplay: 3000
+        autoplay: 3000,
+        observer: true,
+        observeParents: true
     });
+
+    /* swiper.update(); */
 
     //main_banner slide
     var mainswiper = new Swiper('.main-container', {
