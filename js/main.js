@@ -1,8 +1,8 @@
 $(document).ready( function(){
     //menu_slide
     var mainMenuSlide = new Swiper('.main_menu-container', {
-        slidesPerView: 6,
-
+        slidesPerView: 5,
+        spaceBetween: 0,
         breakpoints: {
 
             1200: {
@@ -10,38 +10,35 @@ $(document).ready( function(){
                 spaceBetween: 30,
             }, 
             768: {
-                slidesPerView: 4,
-                spaceBetween: 20,
-            },
-            500: {
-                slidesPerView: 3, 
+                slidesPerView: 3,
                 spaceBetween: 20,
             },
             300: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 20,
             }
-        }
+        }  
     }); 
-
-    var swiper = new Swiper('.left_menu-container', {
-        /* pagination: '.swiper-pagination', */
-        loop: true,
-        slidesPerView: 2,
-        paginationClickable: true,
-        spaceBetween: 10,
-        autoplay: 3000,
-        observer: true,
-        observeParents: true
-    });
-
+ 
     //main_banner slide
     var mainswiper = new Swiper('.main-container', {
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
+        autoplay: 3000,
         effect: 'fade',
-        autoplay: 3000
+        
+    });
+
+    var swiper = new Swiper('.left_menu-container', {
+        /* pagination: '.swiper-pagination', */
+        loop: true,
+        autoplay: 3000,
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 10,
+        observer: true,
+        observeParents: true
     });
 
     //circleSlide
@@ -67,6 +64,39 @@ $(document).ready( function(){
             }
         }
     }); 
+    
+
+    /* $(".circle_slide-container").mouseenter(function(){
+        circleSlide.stopAutoplay();
+
+        
+    });
+ */
+    // $(".circle_slide-container").find(".swiper-slide").each(function(){
+    //     $(this).mouseenter(function(){
+    //         //circleSlide.stopAutoplay();
+    //         //var name = $(this).attr("name");
+    //         //$(this).css("background-color","red");
+    //     });        
+    // });    
+    
+    // $(".circle_slide-container").mouseleave(function(){
+    //     //circleSlide.startAutoplay();
+    // });
+
+    // $(".start").on('click', function () {
+    //     circleSlide.startAutoplay();
+    // });
+
+    // $(".stop").on('click', function () {
+    //     circleSlide.stopAutoplay();
+    // });
+
+
+  
+
+
+
 
 });
     
