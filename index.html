@@ -16,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <!-- swiper slide -->
+    <link rel="stylesheet" href="../recovermall/css/swiper.css">
     <link rel="stylesheet" href="../recovermall/css/swiper.min.css">
     <script src="../recovermall/js/swiper.min.js"></script>
     <!--js-->
@@ -75,10 +76,18 @@
 
         });
 
-        $('.wrap nav').mouseleave( function(){
+        $('nav').mouseleave( function(){
             
             $('nav').css({'display':'none'});
         });
+
+
+        // $('.left_tab_subject ul li').click( function(){
+        //     $('.left_tab_subject ul li').each( function(){
+        //         $('.left_tab_subject ul li').addClass('active');
+
+        //     });
+        // });
 
         //aside fixed_top_btn click event
         $("aside.fixed_top_btn a img").click(function () {
@@ -111,8 +120,9 @@
         $('.left_tablinks').each( function(){
             $(this).click( function(){
 
-                $(".left_tablinks").removeClass("catego_active");
-                $(this).addClass("catego_active");
+                $(".left_tablinks").removeClass("catego_active current");
+                $(this).addClass("catego_active current");
+                //$(this).addClass('current');
 
                 $(".cate_gnb .left_tab").removeClass("left_tab_active");
                 $(".cate_gnb .left_tab").css("display", "none");
@@ -120,8 +130,13 @@
                 var chk = $(this).attr("tab_name");
                 $('#' + chk).css("display", "block");
             });
+            
 
         });
+
+        // $('.left_menu .catego_menu .left_tab_subject ul li').click( function(){
+        //     $('.catego_menu .left_tab_subject ul li').addClass('active');
+        // });
 
         
         // $('.main_menu_icon').click( function(){
@@ -143,10 +158,11 @@
         // });
         
         //aside_left click event
-        $('.main_menu_icon').click( function(){
+        $('.main_menu_icon, .M_menu_icon').click( function(){
 
             $('.menu_bg').fadeIn('slow');
             $('aside.left_menu_wrap').addClass('active');
+
             /*.main_menu_icon mouseenter event delete*/
             $('nav').css({'display':'none'});
         });
@@ -163,6 +179,7 @@
             $('.menu_bg').fadeOut('slow');
         });
 
+        //aside left close_btn transition event
         $('.left_logo .close_btn a i').mouseenter( function(){
 
             $(this).stop().transition({'rotate':'180deg'},700); 
@@ -171,6 +188,13 @@
         $('.left_logo .close_btn a i').mouseleave( function(){
 
             $(this).stop().transition({'rotate':0},700);
+        });
+
+        //Mobile search icon click event
+        $('.M_hdr_wrap .M_search_a,.Msb_top_close').click( function(){
+
+            $('.M_search_box').slideToggle();
+        
         });
 
     });
@@ -193,7 +217,65 @@
                 <a href="#"><img src="../recovermall/images/top_banner_closeBTN.png" alt="top_closeBTN"></a>
             </div>
 
+            <style>
+                .wrap header .header_middle .hd_left form .M_menu_icon { display: none; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap { display: none; }
+                .wrap header .header_middle .M_search_box { display: none; }
+
+                @media (max-width:1200px) {
+                .dw_1200px { width: 90%; }
+                .wrap header .header_middle .hd_right .hdr_wrap a { font-size: 14px; }
+                .wrap header .header_middle .hd_middle h1 a img { width: 200px; }
+                
+
+                }
+                @media (max-width:992px) {
+                    .wrap header .header_middle .hd_right .hdr_wrap a:last-child { display: none; }
+                    .wrap header .header_middle .hd_right .hdr_wrap { margin-top: 20px; }
+                    .wrap header .header_middle .hd_right .hdr_wrap a:nth-child(3) { margin-right: 0; }
+
+                }
+                @media (max-width:768px) {
+                
+                .wrap header .header_top { display: none; }
+                .wrap header .header_middle .hd_left form .M_menu_icon { display: block; }
+                .wrap header .header_middle .hd_left form .search_input { display: none; }
+                .wrap header .header_middle .hd_left form .search_button { display: none; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap { display: block; } 
+                .wrap header .header_middle .hd_right .hdr_wrap { display: none; }
+                .wrap header .header_middle .M_search_box 
+                { width: 100%; position: absolute; top: 0; text-align: center; z-index: 11; background-color: #fff7f7; padding: 20px; box-shadow: 0 10px 20px #b1b1b1b0; }
+                .wrap header .header_middle .M_search_box .Msb_top a:first-child { float: left; }
+                .wrap header .header_middle .M_search_box .Msb_top a:first-child span { color: grey; }
+                .wrap header .header_middle .M_search_box .Msb_top a:last-child { float: right; }
+                .wrap header .header_middle .M_search_box .Msb_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+                .wrap header .header_middle .M_search_box form.Msb_middle input { width: 80%; padding: 3px; outline: none; border: 2px solid #f1758d; border-radius: 10px; }
+                .wrap header .header_middle .M_search_box form.Msb_middle input::placeholder { padding-left: 10px; color: #b8b8b8; }
+                .wrap header .header_middle .M_search_box form.Msb_middle button { border: none; color: #ffffff; background-color: #f1758d; border-radius: 10px; padding: 9px; }
+                .wrap header .header_middle .M_search_box form.Msb_middle  { padding-bottom: 32px; }
+                .wrap header .header_bottom_wrap .header_bottom .main_menu_icon { display: none; }
+
+                }
+
+
+            </style>
+
             <div class="header_middle dw_1200px ptb30px">
+
+                <!--Mobile search toggle-->
+                <div class="M_search_box">
+                    <div class="Msb_top mb30px">
+                        <a href="#"><img src="../recovermall/images/M_search_icon.png" alt="mobile search icon"><span class="ml10px f24">SEARCH</span></a>
+                        <a class="Msb_top_close" href="#"><img src="../recovermall/images/M_close_btn.png" alt="mobile close button"></a>
+                    </div>
+                    
+                    <form action="" class="Msb_middle">
+                        <input type="text" placeholder="상품을 검색해보세요.">
+                        <button>검색</button>
+                    </form>
+                </div>
+
+
                 <div class="hd_left t_left">
                     <form action="http://naver.com">
                         <div class="search_input" id="search_input">
@@ -205,30 +287,32 @@
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
+
+                        <div class="M_menu_icon">
+                            <a href="#"><img src="../recovermall/images/M_menu_icon.png" alt="mobile menu icon"></a>
+                        </div>
                     </form>
                 </div>
 
                 <div class="hd_middle t_center">
-                    <h1><img src="../recovermall/images/recovermall_logo.png" alt="recovermall_logo"></h1>
+                    <h1><a href="index.html"><img src="../recovermall/images/recovermall_logo.png" alt="recovermall_logo"></a></h1>
                 </div>
             
                 <div class="hd_right t_right">
                     <div class="hdr_wrap">
                         <!--로그인 전-->
-                        <!-- <a class="login_before" href="#">로그인</a> -->
-                        <!--로그인 후 (추가해주세요)-->
-                        <a class="login_after" href="#">
-                            로그아웃<i class="fas fa-sort-down ml5px"></i>
-                            
-                            <!-- <ul class="">
-                                <li><a href="#"><span class="mr5px">1,000</span><i class="fas fa-won-sign"></i></a></li>
-                                <li><a href="#"><span class="mr5px">20,000</span><i class="fas fa-coins"></i></a></li>
-                                <li><a href="#"><span class="mr5px">4,578,000</span><i class="fas fa-share-alt"></i></a></li>
-                            </ul> -->
-                        </a>
+                        <a class="login_before" href="#">로그인</a>
+                        <!--로그인 후 추가해주세요-->
+                        <!-- <a class="login_after" href="#">로그아웃<i class="fas fa-sort-down ml5px"></i></a> -->
                         <a href="#">회원가입</a>
                         <a href="#">장바구니</a>
                         <a href="#">고객센터</a>
+                    </div>
+
+                    <!--Mobile header icon-->
+                    <div class="M_hdr_wrap">
+                        <a class="M_search_a" href="#"><img src="../recovermall/images/M_search_icon.png" alt="search icon"></a>
+                        <a href="#"><img src="../recovermall/images/cart_icon_img2.png" alt="cart icon"></a>
                     </div>
 
                     <div class="t_left mt20px login_after_contents">
@@ -248,7 +332,7 @@
 
                     <div class="main_menu-container">
                         <div class="header_menu swiper-wrapper">
-                            <div class="mt5px swiper-slide main_all_cate"><a href="#">전체카테고리</a></div>
+                            <!-- <div class="mt5px swiper-slide main_all_cate"><a href="#">전체카테고리</a></div> -->
                             <div class="mt5px swiper-slide"><a href="#">투데이특가</a></div>
                             <div class="mt5px swiper-slide"><a href="#">핫 딜</a></div>
                             <div class="mt5px swiper-slide"><a href="#">여름생활가전</a></div>
@@ -335,14 +419,14 @@
                 <div class="catego_menu">
                     <div class="left_tab_subject">
                         <ul>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor catego_active" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
+                            <li class="t_center col-sm-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
                             <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
                             <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
                         </ul>
                     </div>
 
                     <div class="cate_gnb">
-                        <div class="left_tab_contents left_tab_active left_tab" id="left_tab1">
+                        <div class="left_tab_contents left_tab_active left_tab current" id="left_tab1">
                             <ul class="t_left">
                                 <li class="mb5per f14">
                                     <a class="left_main_menu" href="javascript:;">패션</a>
@@ -520,15 +604,141 @@
                             <h2 class="">리커버랭킹</h2>
                         </div> 
                         
-                        <div class="ct_middle">
-                            <div class="col-md-3 col-sm-3 col-xs-6">
-                                <img src="../recovermall/images/product1.png" alt="product1">
-                                <p>[한경희]모기퇴치기</p>
-                                <p>74,410원</p>
-                                <p>3,344 P</p>
-                            </div>
+                        <div class="ct_middle t_center">
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product1.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
 
-                            <div class="col-md-3 col-sm-3 col-xs-6">
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product2.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product11.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product4.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product5.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product6.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product7.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product2.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product9.png" alt="product image">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product10.png" alt="product1">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product11.png" alt="product1">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                                <img src="../recovermall/images/product12.png" alt="product1">
+                                <figcaption class="t_center">
+                                    <a href="#">
+                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h4 class="mb10px">74,410원</h4>
+                                        <span>3,344 P</span>
+                                    </a>
+                                </figcaption>
+                            </figure>
+
+                            <!-- <div class="col-md-3 col-sm-3 col-xs-6">
                                 <img src="../recovermall/images/product2.png" alt="product2">
                                 <p>[한경희]모기퇴치기</p>
                                 <p>74,410원</p>
@@ -603,7 +813,7 @@
                                 <p>[한경희]모기퇴치기</p>
                                 <p>74,410원</p>
                                 <p>3,344 P</p>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </section>
@@ -622,7 +832,7 @@
                         </div> 
 
                         <div class="cb_middle">
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal1.png" alt="hot_deal1 image">
@@ -642,17 +852,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal2.png" alt="hot_deal2 image">
@@ -672,17 +882,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal3.png" alt="hot_deal3 image">
@@ -702,17 +912,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal4.gif" alt="hot_deal4 image">
@@ -732,17 +942,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal5.gif" alt="hot_deal5 image">
@@ -762,17 +972,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal6.gif" alt="hot_deal6 image">
@@ -792,17 +1002,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal7.gif" alt="hot_deal7 image">
@@ -822,17 +1032,17 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm-6 col-md-3 cbm_box">
+                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal1.png" alt="hot_deal8 image">
@@ -852,22 +1062,20 @@
                                 <div class="cbm_bottom">
                                     <ul>
                                         <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="#"><p>바로구매</p></a></li>
+                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
 
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="#"><p>장바구니</p></a></li>
+                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
                                     </ul>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-
                 </section>
                 <!--} section.contetns_bottom-->
-
             </div>
             <!--} contents-->
         </div>
@@ -891,7 +1099,7 @@
             <div class="footer_bottom_wrap">
                 <div class="footer_bottom dw_1200px">
                     <div class="ftb_left t_left w20">
-                        <a href="#"><img src="../recovermall/images/footer_logo.png" alt="footer_logo"></a>
+                        <a href="index.html"><img src="../recovermall/images/footer_logo.png" alt="footer_logo"></a>
                     </div>
                     
                     <div class="ftb_middle w50">

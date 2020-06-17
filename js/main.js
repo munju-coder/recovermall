@@ -1,20 +1,20 @@
 $(document).ready( function(){
     //menu_slide
     var mainMenuSlide = new Swiper('.main_menu-container', {
-        slidesPerView: 5,
-        spaceBetween: 0,
+        slidesPerView: 6,		  
+        loop: true,
         breakpoints: {
 
             1200: {
-                slidesPerView: 4,
-                spaceBetween: 30,
+                slidesPerView: 6,
+                spaceBetween: 10,
             }, 
             768: {
-                slidesPerView: 3,
+                slidesPerView: 5,
                 spaceBetween: 20,
             },
             300: {
-                slidesPerView: 2,
+                slidesPerView: 4,
                 spaceBetween: 20,
             }
         }  
@@ -25,15 +25,19 @@ $(document).ready( function(){
         slidesPerView: 1,
         spaceBetween: 30,
         loop: true,
-        autoplay: 3000,
+        autoplay: {
+            delay: 4000,
+        },
         effect: 'fade',
         
     });
 
-    var swiper = new Swiper('.left_menu-container', {
+    var leftswiper = new Swiper('.left_menu-container', {
         /* pagination: '.swiper-pagination', */
         loop: true,
-        autoplay: 3000,
+        autoplay: {
+            delay: 3000,
+        },
         slidesPerView: 1,
         paginationClickable: true,
         spaceBetween: 10,
@@ -43,11 +47,16 @@ $(document).ready( function(){
 
     //circleSlide
     var circleSlide = new Swiper('.circle_slide-container', {
-        slidesPerView: 4,
+        slidesPerView: 5,
+        spaceBetween: 300,
         loop: true,
-        autoplay: 3000,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
+        autoplay: {
+            delay: 3000,
+        },
+        navigation : {
+            nextEl : '.swiper-button-next', 
+            prevEl : '.swiper-button-prev', 
+        },
         breakpoints: {
 
             1200: {

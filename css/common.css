@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
 body { font-family: 'Noto Sans KR', sans-serif; }
-ul { overflow: hidden; }
-.wrap { overflow: hidden; }
+ul ,form, .wrap , section  { overflow: hidden; }
 cursor { cursor: pointer; }
 .text_hidden { display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .fw_bold { font-weight: bold; }
@@ -10,7 +9,6 @@ cursor { cursor: pointer; }
 .word_break { word-break: keep-all; }
 .dw_1200px { width: 100%; max-width: 1200px; margin: 0 auto; }
 .dw_100per { width: 100%; margin: 0 auto; }
-section { overflow: hidden; }
 .over_hidden { overflow: hidden; }
 .display_none { display: none; }
 
