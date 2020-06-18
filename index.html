@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
     <!-- swiper slide -->
     <link rel="stylesheet" href="../recovermall/css/swiper.css">
-    <link rel="stylesheet" href="../recovermall/css/swiper.min.css">
+    <!-- <link rel="stylesheet" href="../recovermall/css/swiper.min.css"> -->
     <script src="../recovermall/js/swiper.min.js"></script>
     <!--js-->
     <script src="../recovermall/js/main.js"></script>
@@ -122,6 +122,7 @@
 
                 $(".left_tablinks").removeClass("catego_active current");
                 $(this).addClass("catego_active current");
+                
                 //$(this).addClass('current');
 
                 $(".cate_gnb .left_tab").removeClass("left_tab_active");
@@ -191,12 +192,20 @@
         });
 
         //Mobile search icon click event
-        $('.M_hdr_wrap .M_search_a,.Msb_top_close').click( function(){
-
+        $('.M_search_a,.Msb_top_close').click( function(){
+            console.log('a');
+            // $('.M_search_box').slideToggle();
             $('.M_search_box').slideToggle();
+            
         
         });
 
+        $( window ).resize(function() {
+            var width = $( window ).width();
+            if( width > 768 ) {
+                $('.M_search_box').css({'display':'none'});
+            }
+        }); 
     });
 
 </script>
@@ -221,30 +230,60 @@
                 .wrap header .header_middle .hd_left form .M_menu_icon { display: none; }
                 .wrap header .header_middle .hd_right .M_hdr_wrap { display: none; }
                 .wrap header .header_middle .M_search_box { display: none; }
+                .main_menu-container .swiper-slide { width: auto !important; margin-right: 30px !important; }
+                /* .circle_slide-container .swiper-slide { width: auto !important; margin-right: 99px !important; } */
 
                 @media (max-width:1200px) {
                 .dw_1200px { width: 90%; }
                 .wrap header .header_middle .hd_right .hdr_wrap a { font-size: 14px; }
                 .wrap header .header_middle .hd_middle h1 a img { width: 200px; }
+                .wrap footer .footer_middle .ftm_top { width: 90%; }
+                .wrap footer .footer_bottom_wrap .footer_bottom div:first-child { display: none; }
+                .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle { width: 70%; } 
+                .wrap section.contents_middle p { font-size: 50px; }
+
+                
+
                 
 
                 }
+                
+                @media (max-width:1200px) and (min-width:992px) {
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 13px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 16px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a i { display: none; }
+                 
+                }
+
                 @media (max-width:992px) {
+                    
                     .wrap header .header_middle .hd_right .hdr_wrap a:last-child { display: none; }
                     .wrap header .header_middle .hd_right .hdr_wrap { margin-top: 20px; }
                     .wrap header .header_middle .hd_right .hdr_wrap a:nth-child(3) { margin-right: 0; }
+                    .wrap section.circle_slide-container { margin: 30px auto; }
+                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 13px; }
+                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 16px; }
+                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
+
+                    .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 90%; }
+                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img:hover { transform: none; }
+                    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
 
                 }
                 @media (max-width:768px) {
                 
                 .wrap header .header_top { display: none; }
+                
                 .wrap header .header_middle .hd_left form .M_menu_icon { display: block; }
                 .wrap header .header_middle .hd_left form .search_input { display: none; }
                 .wrap header .header_middle .hd_left form .search_button { display: none; }
-                .wrap header .header_middle .hd_right .M_hdr_wrap { display: block; } 
+                .wrap header .header_middle .hd_middle h1 a img { width: 100%; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap { display: block; margin-top: 10px; } 
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:last-child img { width: 33px; }
                 .wrap header .header_middle .hd_right .hdr_wrap { display: none; }
                 .wrap header .header_middle .M_search_box 
-                { width: 100%; position: absolute; top: 0; text-align: center; z-index: 11; background-color: #fff7f7; padding: 20px; box-shadow: 0 10px 20px #b1b1b1b0; }
+                { width: 100%; position: absolute; top: 0; left: 0; text-align: center; z-index: 11; background-color: #fff7f7; padding: 20px; box-shadow: 0 10px 20px #b1b1b1b0; }
                 .wrap header .header_middle .M_search_box .Msb_top a:first-child { float: left; }
                 .wrap header .header_middle .M_search_box .Msb_top a:first-child span { color: grey; }
                 .wrap header .header_middle .M_search_box .Msb_top a:last-child { float: right; }
@@ -254,6 +293,37 @@
                 .wrap header .header_middle .M_search_box form.Msb_middle button { border: none; color: #ffffff; background-color: #f1758d; border-radius: 10px; padding: 9px; }
                 .wrap header .header_middle .M_search_box form.Msb_middle  { padding-bottom: 32px; }
                 .wrap header .header_bottom_wrap .header_bottom .main_menu_icon { display: none; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom ul { width: auto; }
+                .wrap .contents_wrap .contents section h2 { font-size: 24px; }
+                /* .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap div { float: left; width: 50%; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap::after { content: ''; display: block; overflow: hidden; clear: both; } */
+                /* .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_box { margin-bottom: 20px; } */
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap { padding-bottom: 0; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img { margin-bottom: 10px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap { padding: 10px; }
+
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 16px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 18px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 17px; } 
+
+                .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 75%; }
+                .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right { width: 100%; }
+                .wrap footer .footer_middle .ftm_top { text-align: center; font-size: 14px;  padding: 15px 0; }
+                .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.footer_bottom_wrap .footer_bottom .ftb_right { text-align: center; }
+                .footer_bottom_wrap .footer_bottom .ftb_right { margin-top: 30px; }
+                
+                
+
+
+
+
+                }
+
+                @media (max-width:400px) {
+                    .wrap .contents_wrap .contents section.contents_bottom div.contents_bottom_wrap { width: 100%; }
+                    .wrap footer .footer_middle .ftm_top a { margin-right: 10px; font-size: 12px; }
+                    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 12px; }
+
 
                 }
 
@@ -311,7 +381,7 @@
 
                     <!--Mobile header icon-->
                     <div class="M_hdr_wrap">
-                        <a class="M_search_a" href="#"><img src="../recovermall/images/M_search_icon.png" alt="search icon"></a>
+                        <a class="M_search_a mr10px" href="#"><img src="../recovermall/images/M_search_icon.png" alt="search icon"></a>
                         <a href="#"><img src="../recovermall/images/cart_icon_img2.png" alt="cart icon"></a>
                     </div>
 
@@ -340,6 +410,7 @@
                             <div class="mt5px swiper-slide"><a href="#">리커버랭킹</a></div>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -419,9 +490,9 @@
                 <div class="catego_menu">
                     <div class="left_tab_subject">
                         <ul>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
-                            <li class="t_center col-sm-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
                         </ul>
                     </div>
 
@@ -518,7 +589,7 @@
         <!--} main_slide-->
 
         <!--circle_menu {-->
-        <section class="circle_slide-container mtb30px">
+        <section class="circle_slide-container mtb30px dw_1200px">
             <div class="circle_menu swiper-wrapper">
                 <div class="swiper-slide">
                     <a href="#"><img src="../recovermall/images/fashion_circle1.png" alt="fashion_circle1"></a>
@@ -605,110 +676,110 @@
                         </div> 
                         
                         <div class="ct_middle t_center">
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product1.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product2.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product11.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product4.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product5.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product6.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product7.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product2.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product9.png" alt="product image">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product10.png" alt="product1">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
@@ -716,22 +787,22 @@
                             </figure>
 
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product11.png" alt="product1">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
                                 </figcaption>
                             </figure>
 
-                            <figure class="col-md-3 col-sm-4 col-xs-6">
+                            <figure class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                                 <img src="../recovermall/images/product12.png" alt="product1">
                                 <figcaption class="t_center">
                                     <a href="#">
-                                        <h3>[한경희]모기퇴치기</h3><br>
+                                        <h3>[한경희] 모기퇴치기</h3><br>
                                         <h4 class="mb10px">74,410원</h4>
                                         <span>3,344 P</span>
                                     </a>
@@ -826,22 +897,22 @@
 
                 <!--section.contetns_bottom {-->
                 <section class="contents_bottom mb40px">
-                    <div class="dw_1200px">
+                    <div class="dw_1200px contents_bottom_wrap">
                         <div class="cb_top">
                             <h2>핫 딜</h2>
                         </div> 
 
                         <div class="cb_middle">
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal1.png" alt="hot_deal1 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -849,8 +920,33 @@
                                     <img class="badge_icon" src="../recovermall/images/badge_hotdeal.png" alt="badge_hotdeal">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
+                                <style>
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom 
+                                    { background-color: #f2f2f2; /* padding: 20px; */ border: 1px solid #ddd; border-top: none; margin-bottom: 20px; }
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div { float: left; width: 50%; background-color: #f2f2f2; padding: 15px; }
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                    /* .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div {  } */
+
+
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div.cbmb_left { border-right: 1px solid #bbb; }
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div:hover { background-color: #5d5d5d; /* color: white; */ }
+                                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div:hover a { color: white; }
+
+                                    
+                                </style>
+
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
+
+                                    
+
+                                    <!-- <ul>
                                         <li><i class="far fa-credit-card"></i></li>
                                         <li><a href="javascript:;"><p>바로구매</p></a></li>
                                     </ul>
@@ -858,20 +954,20 @@
                                     <ul>
                                         <li><i class="fas fa-shopping-cart"></i></li>
                                         <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                    </ul> -->
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal2.png" alt="hot_deal2 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -879,29 +975,27 @@
                                     <img class="badge_icon" src="../recovermall/images/badge_hotdeal.png" alt="badge_hotdeal">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal3.png" alt="hot_deal3 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -909,29 +1003,27 @@
                                     <img class="badge_icon" src="../recovermall/images/badge_hotdeal.png" alt="badge_hotdeal">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal4.gif" alt="hot_deal4 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -939,29 +1031,27 @@
                                     <img class="badge_icon" src="../recovermall/images/best_btn.png" alt="badge_best">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal5.gif" alt="hot_deal5 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -969,29 +1059,27 @@
                                     <img class="badge_icon" src="../recovermall/images/best_btn.png" alt="badge_best">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal6.gif" alt="hot_deal6 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -999,29 +1087,27 @@
                                     <img class="badge_icon" src="../recovermall/images/best_btn.png" alt="badge_best">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal7.gif" alt="hot_deal7 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -1029,29 +1115,27 @@
                                     <img class="badge_icon" src="../recovermall/images/badge_hotdeal.png" alt="badge_hotdeal">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="col-xs-12 col-sm- col-md-3 cbm_box">
+                            <div class="col-md-3 col-sm-6 col-xs-12 cbm_box">
                                 <div class="cbm_wrap">
                                     <div class="cbm_top">
                                         <img src="../recovermall/images/hot_deal1.png" alt="hot_deal8 image">
                                     </div>
 
                                     <div class="cbm_middle">
-                                        <p>통팥앙금과 찐 동부콩에</p>
-                                        <p>품질 좋은 호두가 듬뿍!</p>
-                                        <h3>[코스마미] 프리미엄 호두 찹</h3>
+                                        <p class="hot_deal_p_color">통팥앙금과 찐 동부콩에</p>
+                                        <p class="hot_deal_p_color">품질 좋은 호두가 듬뿍!</p>
+                                        <h3 class="word_break">[코스마미] 프리미엄 호두 찹</h3>
                                         <p>33,000 원</p>
                                         <p>3,344 P</p>
                                     </div>
@@ -1059,16 +1143,14 @@
                                     <img class="badge_icon" src="../recovermall/images/badge_hotdeal.png" alt="badge_hotdeal">
                                 </div>
 
-                                <div class="cbm_bottom">
-                                    <ul>
-                                        <li><i class="far fa-credit-card"></i></li>
-                                        <li><a href="javascript:;"><p>바로구매</p></a></li>
-                                    </ul>
-
-                                    <ul>
-                                        <li><i class="fas fa-shopping-cart"></i></li>
-                                        <li><a href="javascript:;"><p>장바구니</p></a></li>
-                                    </ul>
+                                <div class="cbm_bottom t_center">
+                                    <div class="cbmb_left">
+                                        <a class="" href="javascript:;"><i class="far fa-credit-card"></i>바로구매</a>
+                                    </div>
+                                    
+                                    <div class="cbmb_right">
+                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                    </div>
                                 </div>
                             </div>
 
@@ -1095,6 +1177,10 @@
                     <a href="#">입점상담</a>
                 </div>
             </div>
+
+            <style>
+
+            </style>
   
             <div class="footer_bottom_wrap">
                 <div class="footer_bottom dw_1200px">
@@ -1103,7 +1189,7 @@
                     </div>
                     
                     <div class="ftb_middle w50">
-                        <ul>
+                        <ul class="word_break">
                             <li class="mb5px"><strong class="fw_bold">주식회사 예원엠엔디</strong></li>
                             <li class="mb5px">주소 : 경기도 광명시 오리로길 619번길 11 (하안동 232번지) 예원이케이빌딩</li>
                             <li class="mb5px">사업자 등록번호 : 835-87-00673 대표 : 박정임  팩스 : 02-897-8952 </li>

@@ -2,7 +2,8 @@ $(document).ready( function(){
     //menu_slide
     var mainMenuSlide = new Swiper('.main_menu-container', {
         slidesPerView: 6,		  
-        loop: true,
+        /* loop: true, */
+        spaceBetween: 10,
         breakpoints: {
 
             1200: {
@@ -13,8 +14,12 @@ $(document).ready( function(){
                 slidesPerView: 5,
                 spaceBetween: 20,
             },
-            300: {
-                slidesPerView: 4,
+            500: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
+            400: {
+                slidesPerView: 3,
                 spaceBetween: 20,
             }
         }  
@@ -47,7 +52,7 @@ $(document).ready( function(){
 
     //circleSlide
     var circleSlide = new Swiper('.circle_slide-container', {
-        slidesPerView: 5,
+        slidesPerView: 3,
         spaceBetween: 300,
         loop: true,
         autoplay: {
@@ -60,17 +65,22 @@ $(document).ready( function(){
         breakpoints: {
 
             1200: {
-                slidesPerView: 4,
+                slidesPerView: 3,
                 spaceBetween: 30,
             }, 
             768: {
                 slidesPerView: 3,
                 spaceBetween: 20,
             },
+            500: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+            },
             300: {
-                slidesPerView: 2,
+                slidesPerView: 1,
                 spaceBetween: 20,
             }
+
         }
     }); 
     

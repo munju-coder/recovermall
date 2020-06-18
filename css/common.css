@@ -28,9 +28,11 @@ cursor { cursor: pointer; }
 
 /*color*/
 .white_color { color: white; }
+.hot_deal_p_color { color:#8b343b; }
 
 /*background-color*/
 .white_bg { background-color: white; }
+
 
 /*margin*/
 .mt5px { margin-top: 5px; }
