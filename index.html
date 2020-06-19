@@ -70,16 +70,15 @@
         });
 
         //header_bottom  main_menu mouseenter event
-        $('.main_menu_icon, .main_menu-container .main_all_cate').mouseenter( function(){
-            // console.log('a');
-            $('nav').css({'display':'block'});
+        // $('.main_menu_icon, .main_menu-container .main_all_cate').mouseenter( function(){
+        //     $('nav').css({'display':'block'});
 
-        });
+        // });
 
-        $('nav').mouseleave( function(){
+        // $('nav').mouseleave( function(){
             
-            $('nav').css({'display':'none'});
-        });
+        //     $('nav').css({'display':'none'});
+        // });
 
 
         // $('.left_tab_subject ul li').click( function(){
@@ -193,7 +192,7 @@
 
         //Mobile search icon click event
         $('.M_search_a,.Msb_top_close').click( function(){
-            console.log('a');
+            // console.log('a');
             // $('.M_search_box').slideToggle();
             $('.M_search_box').slideToggle();
             
@@ -206,9 +205,69 @@
                 $('.M_search_box').css({'display':'none'});
             }
         }); 
-    });
 
+        // var onOff=false;
+        // $('.fixed_menu_btn div').click( function(){
+        //     console.log('a');
+            
+        //     onOff=!onOff;
+        //     if(onOff){
+        //         $('.fixed_menu_btn ul li').each(function (i) {
+        //             $(this).animate({'top': -120*( i+1) });  
+        //         });
+        //     }else{
+        //         $('.fixed_menu_btn ul li').each(function (i) {
+        //             $(this).animate({'top': 0 });  
+        //         });
+        //     }
+            
+        // });  
+    });
+    
+    
 </script>
+<style>
+    /* .wrap header nav { position: relative; display: none; width: 1275px; margin: 0 auto;  }
+    .wrap header nav .nav_wrap 
+    { position: absolute; left: 3%; width: 100%; display: flex; justify-content: center; z-index: 2; box-shadow: 0 10px 10px rgba(0, 0, 0, .2); background-color: #ffffff; }
+    .wrap header nav .nav_wrap div { width: 100%; padding-bottom: 20px; }
+    .wrap header nav .nav_wrap div a { display: flex; justify-content: center; user-select: none; }
+    .wrap header nav .nav_wrap div img { width: 60px; height: 60px; display: block; margin: 5px auto 10px auto; user-select: none; }
+    .wrap header nav .nav_wrap::after { content: ''; display: block; overflow: hidden; clear: both; }
+    .wrap header nav .nav_wrap div img:last-of-type { display: none; }
+    .wrap header nav .nav_wrap div:hover img:first-child { display: none; }
+    .wrap header nav .nav_wrap div:hover img:nth-child(2) { display: block; transition: 1s; } 
+    .wrap header nav .nav_wrap div:hover { background-color: #f1758ed2; padding-bottom: 20px; } 
+    .wrap header nav .nav_wrap div:hover p { color: white; } */
+    
+    /*aside fixed_menu_btn*/
+    /* .wrap aside.fixed_menu_btn { position: fixed; bottom: 17%; right: 2%; z-index: 100; }
+    .wrap aside.fixed_menu_btn div {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #525252;
+        font-size: 30px;
+        text-align: center;  
+        line-height: 70px; 
+        position: relative; 
+
+    }
+    .wrap aside.fixed_menu_btn ul { position: absolute; top: 0; }
+    .wrap aside.fixed_menu_btn ul li {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #a0a0a0;
+        text-align: center;
+        line-height: 70px;
+        font-size: 20px;
+        font-weight: 900;
+        position: absolute; 
+    } */
+
+</style>
+
 <body>
     <!--wrap {-->
     <div class="wrap">
@@ -218,6 +277,147 @@
         <aside class="fixed_top_btn">
             <a href="javascript:;"><img src="../recovermall/images/fixed_top_btn.png" alt="fixed_top_btn icon"></a>
         </aside>
+        <script>
+    
+            $(function (){
+              
+                var onOff=false;
+                $('.wrap .fixed_menu_btn div').click( function(){
+                  console.log('a');
+                    onOff=!onOff;
+                    if(onOff){
+                        $('ul li').each(function (i) {
+                          $(this).animate({'top': -120*( i+1) });  
+                        });
+                    }else{
+                        $('ul li').each(function (i) {
+                          $(this).animate({'top': 0 });  
+                        });
+                    }
+                    
+                });  
+            });
+        
+        
+        </script>
+
+        <style>
+            
+            .fixed_menu_btn {
+                width: 100px;
+                height: 100px;
+                position: fixed;
+                right: 100px;
+                bottom: 100px;
+                z-index: 1000;
+            }
+            .fixed_menu_btn div{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: #dfdfdf;
+                font-size: 30px;
+                text-align: center;   
+                line-height: 100px;  
+                position: relative; 
+                z-index: 1111;  
+                box-shadow: 0 0 20px #434343;
+            }
+            /* .fixed_menu_btn ul { position: absolute; top: 0; }  */
+            
+            .fixed_menu_btn ul li{
+                width: 100px;
+                height: 100px;
+                border-radius: 50%;
+                background-color: #cfcfcf;
+                text-align: center;
+                line-height: 100px;
+                font-size: 20px;
+                font-weight: 900;
+                position: absolute; 
+            }
+
+        </style>
+
+        <aside class="fixed_menu_btn">
+   
+            <div><i class="fas fa-plus"></i></div>
+            <ul>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/m-iconmenu-07.png" alt="pink_goods2_icon"></a></li>
+            </ul>
+            
+        </aside>
+        <!-- <aside class="fixed_menu_btn">
+            <div><a href="javascript:;"><i class="fas fa-plus"></i></a></div>
+            <ul>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li>2</li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon"></a></li>
+                <li><a href="javascript:;"><img src="../recovermall/images/m-iconmenu-07.png" alt="pink_goods2_icon"></a></li>
+            </ul>
+        </aside> -->
+        <!-- <aside class="">
+            <div class="nav_wrap">
+                <div>
+                    <img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion">
+                    <img src="../recovermall/images/white_fashion_icon.png" alt="white_icon_fashion">
+                    <a href="#"><p>패션</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty">
+                    <img src="../recovermall/images/white_beauty_icon.png" alt="white_icon_beauty">
+                    <a href="#"><p>뷰티</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli">
+                    <img src="../recovermall/images/white_home_appli.png" alt="white_home_appli">
+                    <a href="#"><p>생활가전</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon">
+                    <img src="../recovermall/images/white_food_icon.png" alt="white_food_icon">
+                    <a href="#"><p> 식품</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon">
+                    <img src="../recovermall/images/white_health_icon.png" alt="white_health_icon">
+                    <a href="#"><p>건강</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon">
+                    <img src="../recovermall/images/white_inte_icon.png" alt="white_inte_icon">
+                    <a href="#"><p>인테리어</p></a>
+                </div>
+
+                <div>
+                    <img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon">
+                    <img src="../recovermall/images/white_goods_icon.png" alt="white_goods_icon">
+                    <a href="#"><p>잡화</p></a>
+                </div>
+
+            </div>
+        </aside> -->
+
         <!--header {-->
         <header>
             <div class="header_top">
@@ -227,11 +427,13 @@
             </div>
 
             <style>
+                .wrap header .header_middle { height: 100%; max-height: 120px; }
                 .wrap header .header_middle .hd_left form .M_menu_icon { display: none; }
                 .wrap header .header_middle .hd_right .M_hdr_wrap { display: none; }
                 .wrap header .header_middle .M_search_box { display: none; }
                 .main_menu-container .swiper-slide { width: auto !important; margin-right: 30px !important; }
                 /* .circle_slide-container .swiper-slide { width: auto !important; margin-right: 99px !important; } */
+                .swiper-button-prev, .swiper-container-rtl .swiper-button-next,.swiper-button-next, .swiper-container-rtl .swiper-button-prev { top: 100%; outline: none; }
 
                 @media (max-width:1200px) {
                 .dw_1200px { width: 90%; }
@@ -242,9 +444,6 @@
                 .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle { width: 70%; } 
                 .wrap section.contents_middle p { font-size: 50px; }
 
-                
-
-                
 
                 }
                 
@@ -258,27 +457,31 @@
 
                 @media (max-width:992px) {
                     
-                    .wrap header .header_middle .hd_right .hdr_wrap a:last-child { display: none; }
-                    .wrap header .header_middle .hd_right .hdr_wrap { margin-top: 20px; }
-                    .wrap header .header_middle .hd_right .hdr_wrap a:nth-child(3) { margin-right: 0; }
-                    .wrap section.circle_slide-container { margin: 30px auto; }
-                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 13px; }
-                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 16px; }
-                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
+                .wrap header .header_middle .hd_right .hdr_wrap a:last-child { display: none; }
+                .wrap header .header_middle .hd_right .hdr_wrap { margin-top: 20px; }
+                .wrap header .header_middle .hd_right .hdr_wrap a:nth-child(3) { margin-right: 0; }
 
-                    .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 90%; }
-                    .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img:hover { transform: none; }
-                    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
+                .wrap section.circle_slide-container { margin: 30px auto; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 13px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 16px; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
+
+                .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 90%; }
+                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img:hover { transform: none; }
+                .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
 
                 }
                 @media (max-width:768px) {
                 
                 .wrap header .header_top { display: none; }
-                
+                .wrap header .header_middle { padding: 20px 0; }
+                .wrap header .header_middle .hd_left { margin-top: 10px; }
                 .wrap header .header_middle .hd_left form .M_menu_icon { display: block; }
                 .wrap header .header_middle .hd_left form .search_input { display: none; }
                 .wrap header .header_middle .hd_left form .search_button { display: none; }
-                .wrap header .header_middle .hd_middle h1 a img { width: 100%; }
+                .wrap header .header_middle .hd_middle h1 a img { width: 200px; }
+                .wrap header .header_middle .hd_middle { width: 40%; }
+                .wrap header .header_middle .hd_right,.wrap header .header_middle .hd_left { width: 30%; }
                 .wrap header .header_middle .hd_right .M_hdr_wrap { display: block; margin-top: 10px; } 
                 .wrap header .header_middle .hd_right .M_hdr_wrap a:last-child img { width: 33px; }
                 .wrap header .header_middle .hd_right .hdr_wrap { display: none; }
@@ -292,37 +495,67 @@
                 .wrap header .header_middle .M_search_box form.Msb_middle input::placeholder { padding-left: 10px; color: #b8b8b8; }
                 .wrap header .header_middle .M_search_box form.Msb_middle button { border: none; color: #ffffff; background-color: #f1758d; border-radius: 10px; padding: 9px; }
                 .wrap header .header_middle .M_search_box form.Msb_middle  { padding-bottom: 32px; }
+
+                .wrap header .header_bottom_wrap .header_bottom .main_menu-container .swiper-slide a { font-size: 14px; }
                 .wrap header .header_bottom_wrap .header_bottom .main_menu_icon { display: none; }
+                .wrap header .header_bottom_wrap { padding-top: 10px; padding-bottom: 15px; }
+                .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 85%; }
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom ul { width: auto; }
                 .wrap .contents_wrap .contents section h2 { font-size: 24px; }
-                /* .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap div { float: left; width: 50%; }
-                .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap::after { content: ''; display: block; overflow: hidden; clear: both; } */
-                /* .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_box { margin-bottom: 20px; } */
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap { padding-bottom: 0; }
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img { margin-bottom: 10px; }
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap { padding: 10px; }
-
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 16px; }
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 18px; }
                 .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 17px; } 
-
-                .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 75%; }
+                
                 .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right { width: 100%; }
                 .wrap footer .footer_middle .ftm_top { text-align: center; font-size: 14px;  padding: 15px 0; }
                 .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.footer_bottom_wrap .footer_bottom .ftb_right { text-align: center; }
                 .footer_bottom_wrap .footer_bottom .ftb_right { margin-top: 30px; }
                 
+                }
                 
-
-
-
+                @media (max-width:600px) {
+                .wrap header .header_middle { padding: 15px 0; }
+                .wrap header .header_middle .hd_middle { width: 40%; }
+                .wrap header .header_middle .hd_middle h1 a img { width: 100%; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:first-child img { width: 25px; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:last-child img { width: 30px; }
+                .wrap header .header_middle .hd_left form .M_menu_icon img { width: 30px; }
+                .wrap header .header_middle .hd_left,.wrap header .header_middle .hd_right { width: 30%; }
+                
+                /*aisde.left_menu*/
+                .wrap aside.left_menu_wrap, .wrap aside.left_menu_wrap.active { width: 68%; }
+                .wrap aside.left_menu_wrap .left_menu .left_login_box { padding: 10px 0; }
+                .wrap  aside.left_menu_wrap .left_menu .left_login_box div a { font-size: 15px; }
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li a { font-size: 14px; }
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_main_menu { padding: 0 10px; }
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li { padding: 12px 0; }
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul:not(.left_sub_menu) > li > a::after { right: 15px; }
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab ul li a { font-size: 13px; }
+                    
 
                 }
 
                 @media (max-width:400px) {
-                    .wrap .contents_wrap .contents section.contents_bottom div.contents_bottom_wrap { width: 100%; }
-                    .wrap footer .footer_middle .ftm_top a { margin-right: 10px; font-size: 12px; }
-                    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 12px; }
+                .wrap header .header_middle .hd_middle { width: 50%;  }
+                .wrap header .header_middle .hd_left, .wrap header .header_middle .hd_right { width: 25%; }
+                .wrap header .header_middle .hd_middle h1 a img { width: 145px; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:first-child { margin-right: 5px; }
+                .wrap header .header_middle .hd_left { margin-top: 5px; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap { margin-top: 5px; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:first-child img { width: 20px; }
+                .wrap header .header_middle .hd_right .M_hdr_wrap a:last-child img { width: 25px; }
+                .wrap header .header_middle .hd_left form .M_menu_icon img { width: 25px; }
+                .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 100%; }
+                
+                /*aisde.left_menu*/
+                .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li a { font-size: 13px; }
+                .wrap aside.left_menu_wrap .left_logo img { width: 140px; }
+                
+                .wrap footer .footer_middle .ftm_top a { margin-right: 10px; font-size: 12px; }
+                .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 12px; }
 
 
                 }
@@ -414,52 +647,6 @@
                 </div>
             </div>
 
-            <nav class="">
-                <div class="nav_wrap">
-                    <div>
-                        <img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion">
-                        <img src="../recovermall/images/white_fashion_icon.png" alt="white_icon_fashion">
-                        <a href="#"><p>패션</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty">
-                        <img src="../recovermall/images/white_beauty_icon.png" alt="white_icon_beauty">
-                        <a href="#"><p>뷰티</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli">
-                        <img src="../recovermall/images/white_home_appli.png" alt="white_home_appli">
-                        <a href="#"><p>생활가전</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon">
-                        <img src="../recovermall/images/white_food_icon.png" alt="white_food_icon">
-                        <a href="#"><p> 식품</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon">
-                        <img src="../recovermall/images/white_health_icon.png" alt="white_health_icon">
-                        <a href="#"><p>건강</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon">
-                        <img src="../recovermall/images/white_inte_icon.png" alt="white_inte_icon">
-                        <a href="#"><p>인테리어</p></a>
-                    </div>
-
-                    <div>
-                        <img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon">
-                        <img src="../recovermall/images/white_goods_icon.png" alt="white_goods_icon">
-                        <a href="#"><p>잡화</p></a>
-                    </div>
-
-                </div>
-            </nav>
         </header>
         <!--} header-->
 
@@ -655,14 +842,12 @@
                     </dl>
                 </div>
             </div>
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <!-- stop,start button
-            <button class="start">시작</button> 
-            <button class="stop">정지</button> -->
             
         </section>
+
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        
         <!--} circle_menu -->
 
         <!--contents wrap {-->
@@ -1177,10 +1362,6 @@
                     <a href="#">입점상담</a>
                 </div>
             </div>
-
-            <style>
-
-            </style>
   
             <div class="footer_bottom_wrap">
                 <div class="footer_bottom dw_1200px">

@@ -45,18 +45,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap header .header_bottom_wrap .header_bottom .main_menu-container .swiper-wrapper { float: left; width: 120px; }                
 .wrap header .header_bottom_wrap .header_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
 .wrap header .header_bottom_wrap .header_bottom .main_menu-container .swiper-slide { justify-content:left; }
-.wrap header nav { position: relative; display: none; width: 1275px; margin: 0 auto;  }
-.wrap header nav .nav_wrap 
-{ position: absolute; left: 3%; width: 100%; display: flex; justify-content: center;/* padding-bottom: 20px; */ z-index: 2; box-shadow: 0 10px 10px rgba(0, 0, 0, .2); background-color: #ffffff; }
-.wrap header nav .nav_wrap div { width: 100%; padding-bottom: 20px; /* float: left; width: 14%; text-align: center; padding: 10px;  */}
-.wrap header nav .nav_wrap div a { display: flex; justify-content: center; user-select: none; }
-.wrap header nav .nav_wrap div img { width: 60px; height: 60px; display: block; margin: 5px auto 10px auto; user-select: none; }
-.wrap header nav .nav_wrap::after { content: ''; display: block; overflow: hidden; clear: both; }
-.wrap header nav .nav_wrap div img:last-of-type { display: none; }
-.wrap header nav .nav_wrap div:hover img:first-child { display: none; }
-.wrap header nav .nav_wrap div:hover img:nth-child(2) { display: block; transition: 1s; } 
-.wrap header nav .nav_wrap div:hover { background-color: #f1758ed2; padding-bottom: 20px;/* padding: 10px; padding-bottom: 20px;  */} 
-.wrap header nav .nav_wrap div:hover p { color: white; }
+
 
 /*aside*/
 .wrap aside.fixed_top_btn { position: fixed; bottom: 10%; right: 2%; z-index: 100; }
@@ -134,7 +123,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 
 /*section circle Area*/
 
-.wrap section.circle_slide-container { max-width: 1200px; margin: 50px auto; position: relative; }
+.wrap section.circle_slide-container { max-width: 1000px; margin: 50px auto; position: relative; }
 .wrap section.circle_slide-container .swiper-button-prev {
     /*  left: 300px; top: 100%; */ color: #d3d7e1; 
     background: url(../images/arrow_left_best.png) no-repeat center center;

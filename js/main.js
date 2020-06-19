@@ -18,7 +18,7 @@ $(document).ready( function(){
                 slidesPerView: 3,
                 spaceBetween: 20,
             },
-            400: {
+            300: {
                 slidesPerView: 3,
                 spaceBetween: 20,
             }
@@ -65,7 +65,7 @@ $(document).ready( function(){
         breakpoints: {
 
             1200: {
-                slidesPerView: 3,
+                slidesPerView: 4,
                 spaceBetween: 30,
             }, 
             768: {
