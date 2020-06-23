@@ -7,10 +7,15 @@ cursor { cursor: pointer; }
 .fw_bold { font-weight: bold; }
 .fw_initial { font-weight: initial; }
 .word_break { word-break: keep-all; }
+.white_space { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; }
 .dw_1200px { width: 100%; max-width: 1200px; margin: 0 auto; }
 .dw_100per { width: 100%; margin: 0 auto; }
 .over_hidden { overflow: hidden; }
 .display_none { display: none; }
+.img-thumbnail { border: none; }
+.outline_none { outline: none; }
+.f_color_5454 { color: #545454; }
+.f_color_red { color: red; }
 
 /*text-align*/
 .t_left { text-align: left; }
@@ -58,6 +63,7 @@ cursor { cursor: pointer; }
 .mb10per { margin-bottom: 10%; }
 .mb20per { margin-bottom: 20%; }
 .mb30per { margin-bottom: 30%; }
+.mtb10px { margin: 10px 0; }
 .mtb20px { margin: 20px 0; }
 .mtb30px { margin: 30px 0; }
 
@@ -66,6 +72,7 @@ cursor { cursor: pointer; }
 .pt10px { padding-top: 10px; }
 .pt20px { padding-top: 20px; }
 .pt30px { padding-top: 30px; }
+.pt50px { padding-top: 50px; }
 .pt3per { padding-top: 3%; }
 .pt5per { padding-top: 5%; }
 
@@ -81,6 +88,8 @@ cursor { cursor: pointer; }
 .pb10per { padding-bottom: 10%; }
 .ptb10px { padding: 10px 0; }
 .ptb20px { padding: 20px 0; }
+.padding_20px { padding: 20px; }
+
 .ptb30px { padding: 30px 0; }
 
 /*width*/
