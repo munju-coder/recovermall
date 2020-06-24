@@ -258,3 +258,48 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap header nav .nav_wrap div:hover img:nth-child(2) { display: block; transition: 1s; } 
 .wrap header nav .nav_wrap div:hover { background-color: #f1758ed2; padding-bottom: 20px; } 
 .wrap header nav .nav_wrap div:hover p { color: white; } */
+
+/*product_view*/
+td, th, tr { border: 1px solid #ddd; }
+.wrap aside.fixed_menu_btn,.wrap aside.fixed_top_btn { display: none; }
+.product_wrap .p_contents .p_middle { padding: 30px 30px 50px 30px; }
+.product_wrap .p_contents .p_middle .p_left { float: left; width: 50%; }
+.product_wrap .p_contents .p_middle .p_left .main_img { width: 100%; }
+.product_wrap .p_contents .p_middle .p_left .main_img a img { width: 100%; }
+.product_wrap .p_contents .p_middle .pro_form { float: right; width: 45%; margin-left: 5%; }
+.product_wrap .p_contents .p_middle::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .p_left .sub_img ul li { float: left; width: 32%; margin-right: 2%; }
+.product_wrap .p_contents .p_middle .p_left .sub_img ul li a img { width: 100%; }
+.product_wrap .p_contents .p_middle .p_left .sub_img ul li:last-child { margin-right: 0; }
+.product_wrap .p_contents .p_middle .p_left .sub_img ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .p_right .pro_name { border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+.product_wrap .p_contents .p_middle .p_right .pro_info ul li ul li { float: left; line-height: 26px;  }
+.product_wrap .p_contents .p_middle .p_right .pro_info ul li ul li:first-child img { width: 28px; }
+
+.product_wrap .p_contents .p_middle .pro_form .p_right .pro_info ul li ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul li:first-child { float: left; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul li:last-child { float: right; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .pro_title { float: left; width: 60%; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box { float: right; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_input { float: left; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_input input { width: 65px; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box::after { content: ''; display: block; overflow: hidden; clear: both; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_button { float: left; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_button input { display: block; border: none; background-color: #ddd; font-size: 10px; height: 15px; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div button { border: none; background: none; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:last-child { float: right; background-color: #ffb6bf; border: 1px solid #ffb6bf; width: 49%; padding: 3% 2%; }
+.product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:first-child {  float: left; border: 1px solid #ddd; width: 49%; padding: 3% 2%; }
+
+.wrap .p_contents .p_bottom .cmb_tab ul li { float: left; width: 33.3%; }
+.wrap .p_contents .p_bottom .cmb_tab ul li a
+{ display: block; height: 60px; background-color: #f7f7f7; border: 1px solid #cdcdcd; font-size: 17px; color: #666; line-height: 58px; text-align: center; }
+.wrap .p_contents .p_bottom .cmb_tab ul li:not(:last-child) a { border-right: none; }
+.wrap .p_contents .p_bottom .cmb_tab ul li a.menu_active { background-color: #6b7279ba; color: white; }
+.wrap .p_contents .p_bottom .cmb_contents { display: none; }
+.wrap .p_contents table ul li { margin-bottom: 10px; word-break: keep-all; }
+.tab_block { display: block; }
+.wrap .p_contents th { padding: 2%; }
+.wrap .p_contents .pd1per { padding: 1%; }
+.wrap .p_contents .info_list table th, td { padding: 10px; color: #333; }

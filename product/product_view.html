@@ -6,8 +6,6 @@
         <title>REVOBERMALL</title>
         <!--jquery-->
         <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-
-        
         <script src="../js/jquery.easing.1.3.js"></script>
         <script src="../js/jquery.transit.min.js"></script>
         <!--bootstrap-->
@@ -51,6 +49,23 @@
             $( '.sub_img ul li a img' ).mouseover(function(){
                 console.log( $(this).attr('src') )  
                 $('.main_img a img' ).attr( 'src', $(this).attr( 'src' ) );
+            });
+
+            // product tab 
+            $(".tab_block").css("display", "block");
+            $('.tab_main').each( function(){
+                $(this).click( function(e){
+                    e.preventDefault();
+                    
+                    $(".tab_main").removeClass("menu_active");
+                    $(this).addClass("menu_active");
+                    $(".cmb_contents").removeClass("tab_block");
+
+                    $(".cmb_contents").css("display", "none");
+                    var chk = $(this).attr("chk");
+                    $("#" + chk).css("display", "block");
+                });
+
             });
 
         });
@@ -281,128 +296,15 @@
                 </div>
             </aside>
             <!--} aside-->
-        
+            
             <!--product_wrap {-->
             <div class="product_wrap">
                 <!--p_contents {-->
-                <section class="contents p_contents dw_1200px pt50px">
+                <section class="contents p_contents dw_1200px pt3per">
                     <div class="p_top contents_border">
                         <h2 class="f24"><a href="#">핫 딜</a></h2>
                     </div>
 
-                    <script>
-                
-                        $("document").ready(function(){
-                            //global variable
-                            var seq = $("#seq").val();
-                            var product_price = Number(COMMON.form.str_num($(".product_price").text()));
-                            var total_price = Number(COMMON.form.str_num($(".total_price").text()));
-                            var product_amount = Number(COMMON.form.str_num($(".cnt_input").val()));
-
-                            var sum_price = 0;
-                            var sum_amount = product_amount;
-                            var option_price = 0;
-
-                            var chk_amount = parseInt($("#cnt").val()); //재고 수량 체크
-                            var option_price = 0;                       //옵션 가격
-                            var chk_option_price = 0;                   //옵션 가격 체크
-                            var option_name = null;                     //옵션 명        
-                            var total_amount = chk_amount;
-
-                            //plus btn event
-                            $("#plus").click(function(){
-                                console.log('1');
-                                sum_amount += 1;
-                                $(".cnt_input").val(sum_amount);
-                                sum_price = (product_price + option_price) * sum_amount;
-                                $(".total_price").text(COMMON.form.comma(sum_price));
-                            });
-
-                            //minus btn event
-                            $("#minus").click(function(){
-                                sum_amount -= 1;
-                                
-                                if(sum_amount >= product_amount)
-                                {
-                                    $(".cnt_input").val(sum_amount);
-                                    sum_price = sum_price - (product_price + option_price);
-                                    $(".total_price").text(COMMON.form.comma(sum_price));
-                                }
-                                else
-                                {
-                                    $(".cnt_input").val(product_amount);
-                                    sum_amount = product_amount;
-                                    alert("최소 구매수량 1개입니다.");
-                                }
-                                
-                            });
-
-                            //최소 구매수량이 0으로 등록되었을때 1로 초기화 시킴.
-                            if(pd_min_quantity == 0)
-                            {
-                                pd_min_quantity = 1;
-                            }
-                    
-                            COMMON.form.str_num($(".total_price").text());
-                    
-                            //plus
-                            $("#plus").click(function(){
-                                total_amount = total_amount + chk_amount;
-                                
-                                if(pd_max_quantity != 0 && pd_max_quantity < total_amount)
-                                {
-                                    alert("최대 구매수량은 " + pd_max_quantity + "개 입니다.");
-                                    $("#cnt").val(pd_max_quantity);
-                                    total_price = (pd_price + option_price) * pd_max_quantity;
-                                    $(".total_price").text(COMMON.form.comma(total_price));
-                                }
-                                else
-                                {
-                                    if(pd_amount < total_amount)
-                                    {
-                                        alert("현재 상품의 재고 수량은 " + pd_amount + "개 입니다.");
-                                        $("#cnt").val(pd_amount);
-                                        total_price = (pd_price + option_price) * pd_amount;
-                                        $(".total_price").text(COMMON.form.comma(total_price));
-                                        
-                                    }
-                                    else
-                                    {
-                                        $("#cnt").val(total_amount);
-                                        total_price = (pd_price + option_price) * total_amount;
-                                        $(".total_price").text(COMMON.form.comma(total_price));
-                                        
-                                    }
-                                }
-                            });
-                            
-                            //option select
-                            $("#pd_option").change(function(){
-                                option_price = parseInt($(this).val());
-                                option_name = $("#pd_option option:selected").text();
-                    
-                                if(option_price > 0)
-                                {
-                                    total_price = pd_price + option_price;
-                                    chk_option_price = option_price;
-                                }
-                                else
-                                {
-                                    chk_option_price = 0;
-                                    total_price = pd_price - chk_option_price;
-                                }
-                    
-                                total_amount = pd_min_quantity;
-                                $("#cnt").val(pd_min_quantity);
-                                
-                                $(".total_price").text(COMMON.form.comma(total_price));
-                                $(".option_name").text(option_name);
-                            });
-                            
-                            
-                        });
-                    </script>
-                    
                     <!--P_middle {-->
                     <div class="p_middle">
                         <div class="p_left">
@@ -419,86 +321,6 @@
                             </div>
                         </div>
 
-                        <!-- <script>
-                        //product image hover event
-                        $(document).ready( function(){
-                    
-                    
-                            var pd_amount = parseInt($("#pd_amount").val());                //상품 재고수량 체크
-                            var pd_price = parseInt($("#pd_price").val());                  //상품 가격
-                            var pd_min_quantity = parseInt($("#pd_min_quantity").val());    //최소 구매수량
-                            var pd_max_quantity = parseInt($("#pd_max_quantity").val());    //최대 구매수량
-                            var delivery_price = parseInt($("#delivery_price").val());      //배송비
-                            var total_price = parseInt(COMMON.form.str_num($(".total_price").text()));  //전체 가격
-                    
-                            
-                            
-                            //최소 구매수량이 0으로 등록되었을때 1로 초기화 시킴.
-                            if(pd_min_quantity == 0)
-                            {
-                                pd_min_quantity = 1;
-                            }
-                    
-                            COMMON.form.str_num($(".total_price").text());
-                    
-                            //plus
-                            $("#plus").click(function(){
-                                total_amount = total_amount + chk_amount;
-                                
-                                if(pd_max_quantity != 0 && pd_max_quantity < total_amount)
-                                {
-                                    alert("최대 구매수량은 " + pd_max_quantity + "개 입니다.");
-                                    $("#cnt").val(pd_max_quantity);
-                                    total_price = (pd_price + option_price) * pd_max_quantity;
-                                    $(".total_price").text(COMMON.form.comma(total_price));
-                                }
-                                else
-                                {
-                                    if(pd_amount < total_amount)
-                                    {
-                                        alert("현재 상품의 재고 수량은 " + pd_amount + "개 입니다.");
-                                        $("#cnt").val(pd_amount);
-                                        total_price = (pd_price + option_price) * pd_amount;
-                                        $(".total_price").text(COMMON.form.comma(total_price));
-                                        
-                                    }
-                                    else
-                                    {
-                                        $("#cnt").val(total_amount);
-                                        total_price = (pd_price + option_price) * total_amount;
-                                        $(".total_price").text(COMMON.form.comma(total_price));
-                                        
-                                    }
-                                }
-                            });
-                    
-                            //minus
-                            $("#minus").click(function(){
-                                total_amount = total_amount - chk_amount;
-                    
-                                if(total_amount < pd_min_quantity)
-                                {
-                                    alert("최소구매 수량은 " + pd_min_quantity + "개 입니다.");
-                                    $("#cnt").val(pd_min_quantity);
-                                    $(".total_price").text(COMMON.form.comma(pd_price));
-                                    total_amount = 1;
-                                }
-                                else
-                                {
-                                    $("#cnt").val(total_amount);
-                                    total_price = total_price - pd_price - option_price;
-                                    $(".total_price").text(COMMON.form.comma(total_price));
-                                }
-                            });
-                    
-                            
-                    
-                    
-                    
-                        });
-                    
-                        
-                    </script> -->
                         <!--product_form {-->
                         <form action="" class="pro_form">
                             <div class="p_right">
@@ -531,26 +353,22 @@
                                 <div class="pro_price mtb20px">
                                     <ul>
                                         <li class="f22 fw_bold">총 금액</li>
-                                        <li class="f22 fw_bold"><span class="total_price">78,000 </span>원</li>
+                                        <li class="f22 fw_bold"><span class="total_price">78,000</span>원</li>
                                     </ul>
                                 </div>
 
                                 <div class="pro_select">
                                     <select class="pro_select_list w100 outline_none" id="pd_option" name="pd_option">
-                                        <option class="unit_price" value="">선택</option>
-                                        <option class="unit_price" value="0">A type-1 8809575842976&nbsp;&nbsp;+ 1000원</option>
-                                        <option class="unit_price" value="0">A type-2 8809575842983&nbsp;&nbsp;+ 0원</option>
-                                        <option class="unit_price" value="0">A type-3 8809575842990&nbsp;&nbsp;+ 0원</option>
-                                        <option class="unit_price" value="0">B type-1 8809575843003&nbsp;&nbsp;+ 0원</option>
-                                        <option class="unit_price" value="0">B type-2 8809575843010&nbsp;&nbsp;+ 0원</option>
-                                        <option class="unit_price" value="0">C type-1 8809575843027&nbsp;&nbsp;+ 0원</option>
-                                        <option class="unit_price" value="0">C type-2 8809575843034&nbsp;&nbsp;+ 0원</option>
+                                        <option>선택하세요.</option>
+                                        <option value="1000" opt_amount="100">파랑&nbsp;(+ 1,000 원)</option>
+                                        <option value="2000" opt_amount="100">노랑&nbsp;(+ 2,000 원)</option>
+                                        <option value="3000" opt_amount="100">파랑&nbsp;(+ 3,000 원)</option>
                                     </select>
                                 </div>
 
                                 <div class="amount mtb10px">
                                     <div class="mtb10px pro_title">
-                                        <p>[경성표고버섯농장] 백화고 3종 세트 130g/흑과고 120g/슬라이스 90g</p>
+                                        <p class="option_name">[경성표고버섯농장] 백화고 3종 세트 130g/흑과고 120g/슬라이스 90g</p>
                                     </div>
 
                                     <div class="count_box mtb10px">
@@ -564,67 +382,6 @@
                                         </div>
                                     </div>
                                 </div>
-        
-                                <style>
-                                    /*product_view*/
-                                    .wrap aside.fixed_menu_btn,.wrap aside.fixed_top_btn { display: none; }
-                                    
-                                    .contents_border { border-bottom : 1px solid #ddd; padding-bottom: 20px; }
-                                    .product_wrap .p_contents .p_middle { padding: 30px 30px 50px 30px; }
-                                    .product_wrap .p_contents .p_middle .p_left { float: left; /* padding-top: 30px; */ width: 50%; }
-                                    .product_wrap .p_contents .p_middle .p_left .main_img { width: 100%; }
-                                    .product_wrap .p_contents .p_middle .p_left .main_img a img { width: 100%; }
-                                    .product_wrap .p_contents .p_middle .pro_form { float: right; width: 45%; margin-left: 5%; }
-
-
-                                    .product_wrap .p_contents .p_middle::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    .product_wrap .p_contents .p_middle .p_left .sub_img ul li { float: left; width: 32%; margin-right: 2%; }
-                                    .product_wrap .p_contents .p_middle .p_left .sub_img ul li a img { width: 100%; }
-                                    .product_wrap .p_contents .p_middle .p_left .sub_img ul li:last-child { margin-right: 0; }
-                                    .product_wrap .p_contents .p_middle .p_left .sub_img ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    .product_wrap .p_contents .p_middle .p_right .pro_name { border-bottom: 1px solid #ddd; padding-bottom: 15px; }
-
-                                    .product_wrap .p_contents .p_middle .p_right .pro_info ul li ul li { float: left; line-height: 26px;  }
-                                    .product_wrap .p_contents .p_middle .p_right .pro_info ul li ul li:first-child img { width: 28px; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .pro_info ul li ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul li:first-child { float: left; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul li:last-child { float: right; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .pro_title { float: left; width: 60%; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box { float: right; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_input { float: left; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_input input { width: 65px; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_button { float: left; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .amount .count_box .count_button input { display: block; border: none; background-color: #ddd; font-size: 10px; height: 15px; }
-        
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div button { border: none; background: none; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:last-child { float: right; background-color: #ffb6bf; width: 49%; padding: 3% 2%; }
-                                    .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:first-child {  float: left; border: 1px solid #ddd; width: 49%; padding: 2.9% 2%; }
-
-                                    .wrap .p_contents .p_bottom .cmb_tab ul li { float: left; width: 33.3%; }
-                                    .wrap .p_contents .p_bottom .cmb_tab ul li a
-                                    { display: block; height: 60px; background-color: #f7f7f7; border: 1px solid #cdcdcd; font-size: 17px; color: #666; line-height: 58px; text-align: center; }
-                                    .wrap .p_contents .p_bottom .cmb_tab ul li:not(:last-child) a { border-right: none; }
-                                    .wrap .p_contents .p_bottom .cmb_tab ul li a.menu_active { background-color: #6b7279ba; color: white; }
-                                    .wrap .p_contents .p_bottom .cmb_contents { display: none; }
-                                    .wrap .p_contents table ul li { margin-bottom: 10px; word-break: keep-all; }
-                                    .tab_block { display: block; }
-                                    .wrap .p_contents th { padding: 2%; }
-                                    .wrap .p_contents .pd1per { padding: 1%; }
-                                    .wrap .p_contents .info_list table th, td { padding: 10px; color: #333; }
-                                    td, th, tr { border: 1px solid #ddd; }
-                                    
-                                    @media(max-width:768px) {
-                                        .product_wrap .p_contents .p_middle .p_left { width: 100%; }
-                                        .product_wrap .p_contents .p_middle .pro_form { width: 100%; margin-left: 0; margin-top: 30px; }
-                                        .product_wrap .p_contents .p_middle { padding: 30px 0; }
-                                    }
-                                    
-
-                                </style>
 
                                 <div class="p_btn mt30px">
                                     <div class="t_center"><button class="fw_bold f_color_5454 f18 purchase"><!-- <i class="fa fa-credit-card"></i> -->장바구니</button></div>
@@ -636,42 +393,6 @@
                         <!--} product_form-->
                     </div>
                     <!--} p_middle-->
-
-                    <script>
-                        $(document).ready( function(){
-
-                            $(".tab_block").css("display", "block");
-                            $('.tab_main').each( function(){
-                                $(this).click( function(e){
-                                    e.preventDefault();
-                                    
-                                    $(".tab_main").removeClass("menu_active");
-                                    $(this).addClass("menu_active");
-                                    $(".cmb_contents").removeClass("tab_block");
-
-                                    $(".cmb_contents").css("display", "none");
-                                    var chk = $(this).attr("chk");
-                                    $("#" + chk).css("display", "block");
-                                });
-
-                            });
-                        });
-
-                        var num = 1;
-    
-                        function numPlus(){
-                            num++;
-                            document.getElementById('cnt').value = num;
-                        }
-                        function numMinus(){
-                            if (num>1) {
-                                num--;
-                                document.getElementById('cnt').value = num;
-                            } 
-                            
-
-                        }
-                    </script>
 
                     <!--p_bottom {-->
                     <div class="p_bottom">
@@ -697,14 +418,14 @@
                                 <h3 class="fw_bold mb20px">배송 안내</h3>
                                 <table class="w100 f14">
                                     <tr>
-                                        <th class="pd1per">배송유형</th>
-                                        <th>내용</th>
-                                        <th>배송비</th>
+                                        <th class="pd1per t_center">배송유형</th>
+                                        <th class="t_center">내용</th>
+                                        <th class="t_center">배송비</th>
                                     </tr>
 
                                     <tbody>
                                         <tr>
-                                            <th class="pd1per">택배배송</th>
+                                            <th class="pd1per t_center">택배배송</th>
                                             <td>
                                                 <div class="d_info">
                                                     <ul class="mb3">
@@ -718,7 +439,7 @@
                                             </td>
 
                                             <td>
-                                                <div class="d_info td_p">상품상세 상단 배송비 참조</div>
+                                                <div class="t_center">상품상세 상단 배송비 참조</div>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -728,10 +449,10 @@
                 
                         <div class="cmb_contents mtb30px" id="product_re">
                             <div class="p_return_info ptab_contents">
-                                <h3 class="fw_bold mb20px">교환 및 반품 안내</h3>
+                                <h3 class="fw_bold mb20px t_center">교환 및 반품 안내</h3>
                                 <table class="w100 f14">
                                     <tr>
-                                        <th class="pd1per">교환/반품/신청기간</th>
+                                        <th class="pd1per t_center">교환/반품/신청기간</th>
                                         <td>
                                             <ul>
                                                 <li>교환/취소/반품/교환/환불은 배송 완료 후 7일 이내에 가능합니다.</li>
@@ -741,7 +462,7 @@
                                     </tr>
         
                                     <tr>
-                                        <th class="pd1per">교환/반품 회수(배송) 비용</th>
+                                        <th class="pd1per t_center">교환/반품 회수(배송) 비용</th>
                                         <td>
                                             <ul>
                                                 <li>상품의 불량/하자 및 표시광고 및 계약 내용과 다른 경우 해당 상품 회수(배송)비용은 무료이나,</li>
@@ -751,7 +472,7 @@
                                     </tr>
                                     
                                     <tr>
-                                        <th class="pd1per">교환/반품 불가 안내</th>
+                                        <th class="pd1per t_center">교환/반품 불가 안내</th>
                                         <td>
                                             <ul class="p_info_detail">
                                                 <li>고객님이 상품 포장을 개봉하여 사용 또는 설치 완료되어 상품의 가치가 훼손된 경우 (단, 내용 확인을 위한 포장개봉의경우는 예외)</li>
@@ -780,8 +501,6 @@
                 <!--} p_contents-->
             </div>
             <!--} product_wrap-->
-
-        
 
             <!--footer {--> 
             <footer class="">
@@ -825,4 +544,84 @@
         </div>
         <!--} wrap-->
     </body>
+
+    <script>
+                
+        $(document).ready(function(){
+            //global variable
+            // var seq = $("#seq").val();
+            var product_price = Number(COMMON.form.str_num($(".product_price").text())); //상품가격                            
+            var total_price = Number(COMMON.form.str_num($(".total_price").text())); //총 금액
+            var product_amount = Number(COMMON.form.str_num($(".cnt_input").val())); //상품수량
+        
+            var sum_price = 0;               //총 더한 가격 변수
+            var sum_amount = product_amount; //총수량 = 상품수량
+            var option_price = 0;
+
+            var chk_amount = parseInt($("#cnt").val()); //재고 수량 체크 parseInt 문자열을 정수로 리턴
+            var chk_option_price = 0;                   //옵션 가격 체크
+            var option_name = null;                     //옵션 명 (초기화)     
+            var total_amount = chk_amount;
+
+            //임의 값을 넣었습니다.
+            var pd_min_quantity  = 1;
+            var pd_max_quantity  = 2;
+
+
+            //option select
+            $("#pd_option").change(function(){
+                option_price = parseInt($(this).val());
+                option_name = $("#pd_option option:selected").text();
+                                   
+                if(option_price > 0)
+                {
+                    total_price = product_price + option_price;
+                    chk_option_price = option_price;
+                }
+                else
+                {
+                    chk_option_price = 0;
+                    total_price = product_price - chk_option_price;
+                }
+    
+                total_amount = pd_min_quantity;
+                $("#cnt").val(pd_min_quantity);
+                
+                $(".total_price").text(COMMON.form.comma(total_price));
+
+                var pro_name = $(".pro_name").text();
+                $(".option_name").text(pro_name + "선택옵션 : " + option_name);
+            });
+            
+            //plus btn event
+            $("#plus").click(function(){
+                // console.log('1');
+                sum_amount += 1;
+                $(".cnt_input").val(sum_amount);
+                sum_price = (product_price + option_price) * sum_amount;
+                $(".total_price").text(COMMON.form.comma(sum_price));
+            });
+
+            //minus btn event
+            $("#minus").click(function(){
+                sum_amount -= 1;
+                
+                if(sum_amount >= product_amount)
+                {
+                    $(".cnt_input").val(sum_amount);
+                    sum_price = sum_price - (product_price + option_price);
+                    $(".total_price").text(COMMON.form.comma(sum_price));
+                }
+                else
+                {
+                    $(".cnt_input").val(product_amount);
+                    sum_amount = product_amount;
+                    alert("최소 구매수량 1개입니다.");
+                }
+                
+            });
+
+            
+        });
+    </script>
 </html>

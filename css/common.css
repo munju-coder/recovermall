@@ -16,6 +16,7 @@ cursor { cursor: pointer; }
 .outline_none { outline: none; }
 .f_color_5454 { color: #545454; }
 .f_color_red { color: red; }
+.contents_border { border-bottom : 1px solid #ddd; padding-bottom: 20px; }
 
 /*text-align*/
 .t_left { text-align: left; }
