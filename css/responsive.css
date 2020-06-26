@@ -156,9 +156,10 @@
     .wrap aside.left_menu_wrap .left_logo img { width: 140px; }
 
     /*product_view*/
-    .product_wrap .p_contents .p_top h2 { font-size: 18px; }
+    .p_contents h2 { font-size: 18px; }
     .product_wrap .p_contents .p_middle .p_right .pro_name p { font-size: 16px; }
     .product_wrap .p_contents .p_middle .pro_form .p_right .pro_info ul li  { font-size: 14px; }
+    .product_wrap .p_contents .p_middle .pro_form .p_btn { margin-top: 15px; }
     .product_wrap .p_contents .p_middle .pro_form .p_right .pro_info ul li:first-child span { font-size: 16px; }
     .product_wrap .p_contents .p_middle .pro_form .p_right .pro_price ul li { font-size: 18px; }
     .wrap .p_contents .p_bottom .cmb_tab ul li a { height: 35px; line-height: 35px; font-size: 13px; }
