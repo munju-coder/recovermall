@@ -299,11 +299,11 @@ $(document).ready( function(){
         onOff=!onOff;
         if(onOff){
             $('ul li').each(function (i) {
-            $(this).animate({'top': -75*( i+1) });  
+                $(this).animate({'top': -75*( i+1) });  
             });
         }else{
             $('ul li').each(function (i) {
-            $(this).animate({'top': 0 });  
+                $(this).animate({'top': 0 });  
             });
         }
         

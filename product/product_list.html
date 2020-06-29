@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>REVOBERMALL</title>
+        <!--jquery-->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="../js/jquery.easing.1.3.js"></script>
+        <script src="../js/jquery.transit.min.js"></script>
+        <!--bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!--font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!--goolge webfont-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+        <!-- swiper slide -->
+        <link rel="stylesheet" href="../css/swiper.css">
+        <!-- <link rel="stylesheet" href="../recovermall/css/swiper.min.css"> -->
+        <script src="../js/swiper.min.js"></script>
+        <!--js-->
+        <script src="../js/main.js"></script>
+        <script src="../js/COMMON_geo.js"></script>
+        <!--style sheet-->
+        <link rel="stylesheet" href="../css/import.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <!--favicon-->
+        <link rel="apple-touch-icon" sizes="57x57" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
+    </head>
+
+    <script>
+
+        $(document).ready( function(){
+            //product image hover event
+            $( '.sub_img ul li a img' ).mouseover(function(){
+                console.log( $(this).attr('src') )  
+                $('.main_img a img' ).attr( 'src', $(this).attr( 'src' ) );
+            });
+
+            // product tab 
+            $(".tab_block").css("display", "block");
+            $('.tab_main').each( function(){
+                $(this).click( function(e){
+                    e.preventDefault();
+                    
+                    $(".tab_main").removeClass("menu_active");
+                    $(this).addClass("menu_active");
+                    $(".cmb_contents").removeClass("tab_block");
+
+                    $(".cmb_contents").css("display", "none");
+                    var chk = $(this).attr("chk");
+                    $("#" + chk).css("display", "block");
+                });
+
+            });
+
+        });
+    </script>
+    <body>
+        <!--wrap {-->
+        <div class="wrap">
+            <!--menu click bg call-->
+            <div class="menu_bg"></div>
+            <!--fixed_top_btn-->
+            <aside class="fixed_top_btn">
+                <a href="javascript:;"><img src="../images/fixed_top_btn.png" alt="fixed_top_btn icon"></a>
+            </aside>
+
+            <aside class="fixed_menu_btn">
+                <div class="f18 fw_bold"><a href="javascript:;">Menu</a></div>
+                <ul>
+                    <li><a href="javascript:;"><img src="../images/pink_fashion_icon.png" alt="pink_icon_fashion"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_beauty_icon.png" alt="pink_icon_beauty"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_home_appli.png" alt="pink_home_appli"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_food_icon.png" alt="pink_food_icon"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_health_icon.png" alt="pink_health_icon"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_inte_icon.png" alt="pink_inte_icon"></a></li>
+                    <li><a href="javascript:;"><img src="../images/pink_goods_icon.png" alt="pink_goods_icon"></a></li>
+                    <li><a href="javascript:;"><img src="../images/m-iconmenu-07.png" alt="pink_goods2_icon"></a></li>
+                </ul>
+            </aside>
+
+            <!--header {-->
+            <header>
+                <div class="header_top">
+                    <img class="top_banner" src="../images/top_banner.png" alt="top banner">
+                    <a href="#"><p class="f12 white_color">오늘하루보지않기</p></a>
+                    <a href="#"><img src="../images/top_banner_closeBTN.png" alt="top_closeBTN"></a>
+                </div>
+
+                <div class="header_middle dw_1200px ptb30px">
+                    <!--Mobile search toggle-->
+                    <div class="M_search_box">
+                        <div class="Msb_top mb30px">
+                            <a href="#"><img src="../images/M_search_icon.png" alt="mobile search icon"><span class="ml10px f24">SEARCH</span></a>
+                            <a class="Msb_top_close" href="#"><img src="../images/M_close_btn.png" alt="mobile close button"></a>
+                        </div>
+                        
+                        <form action="" class="Msb_middle">
+                            <input type="text" placeholder="상품을 검색해보세요.">
+                            <button>검색</button>
+                        </form>
+                    </div>
+
+                    <div class="hd_left t_left">
+                        <form action="http://naver.com">
+                            <div class="search_input" id="search_input">
+                                <input type="text" class="search_box">
+                            </div>
+
+                            <div class="search_button" id="search_button">
+                                <button type="submit" id="sch_submit" class="cursor">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+
+                            <div class="M_menu_icon">
+                                <a href="#"><img src="../images/M_menu_icon.png" alt="mobile menu icon"></a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="hd_middle t_center">
+                        <h1><a href="../index.html"><img src="../images/recovermall_logo.png" alt="recovermall_logo"></a></h1>
+                    </div>
+                
+                    <div class="hd_right t_right">
+                        <div class="hdr_wrap">
+                            <!--로그인 전-->
+                            <a class="login_before" href="#">로그인</a>
+                            <!--로그인 후 추가해주세요-->
+                            <!-- <a class="login_after" href="#">로그아웃<i class="fas fa-sort-down ml5px"></i></a> -->
+                            <a href="#">회원가입</a>
+                            <a href="#">장바구니</a>
+                            <a href="#">고객센터</a>
+                        </div>
+
+                        <!--Mobile header icon-->
+                        <div class="M_hdr_wrap">
+                            <a class="M_search_a mr10px" href="#"><img src="../images/M_search_icon.png" alt="search icon"></a>
+                            <a href="#"><img src="../images/cart_icon_img2.png" alt="cart icon"></a>
+                        </div>
+
+                        <div class="t_left mt20px login_after_contents">
+                            <a class="mr10px" href="#"><span class="mr5px">1,000</span><i class="fas fa-won-sign"></i></a>
+                            <a class="mr10px" href="#"><span class="mr5px">20,000</span><i class="fas fa-coins"></i></a>
+                            <a class="mr10px" href="#"><span class="mr5px">4,578,000</span><i class="fas fa-share-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="header_bottom_wrap">
+                    <div class="header_bottom dw_1200px">
+                        <div class="main_menu_icon">
+                            <a href="#"><img src="../images/all.png" alt="menu_icon"></a>                           
+                        </div>
+
+                        <div class="main_menu-container">
+                            <div class="header_menu swiper-wrapper">
+                                <div class="mt5px swiper-slide"><a href="#">투데이특가</a></div>
+                                <div class="mt5px swiper-slide"><a href="#">핫 딜</a></div>
+                                <div class="mt5px swiper-slide"><a href="#">여름생활가전</a></div>
+                                <div class="mt5px swiper-slide"><a href="#">건강검진이벤트</a></div>
+                                <div class="mt5px swiper-slide"><a href="#">리커버랭킹</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!--} header-->
+
+            <!--aside {-->
+            <aside class="left_menu_wrap">
+                <div class="left_logo t_left ptb10px">
+                    <img src="../images/aside_logo2.png" alt="aside_logo">
+                    <div class="close_btn cursor"><a href="#"><i class="fas fa-times"></i></a></div>
+                </div>
+
+                <div class="left_menu">
+                    <div class="left_menu-container">
+                        <div class="aside_banner swiper-wrapper">
+                            <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner1.png" alt="aside_banner1"></a></div>
+                            <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner2.png" alt="aside_banner2"></a></div>
+                            <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner3.png" alt="aside_banner3"></a></div>
+                            <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner4.png" alt="aside_banner4"></a></div>
+                            <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner5.png" alt="aside_banner5"></a></div>
+                        </div>
+                    </div>
+
+                    <div class="left_login_box over_hidden">
+                        <div class="llb_left t_center"><a href="#"><i class="mr5px fas fa-sign-in-alt"></i>로그인</a></div>
+                        <div class="llb_right t_center"><a href="#"><i class="mr5px fas fa-file-signature"></i>회원가입</a></div>
+                    </div>
+
+                    <!--catego_menu {-->
+                    <div class="catego_menu">
+                        <div class="left_tab_subject">
+                            <ul>
+                                <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
+                                <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
+                                <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="cate_gnb">
+                            <div class="left_tab_contents left_tab_active left_tab current" id="left_tab1">
+                                <ul class="t_left">
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">패션</a>
+                                        
+                                        <ul class="left_sub_menu">
+                                            <li><a href="#">-의류</a></li>
+                                            <li><a href="#">-액세서리</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">뷰티</a>
+                                    </li>
+                                    
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">식품</a>
+                                        
+                                        <ul class="left_sub_menu">
+                                            <li><a href="#">-농수산</a></li>
+                                            <li><a href="#">-축산</a></li>
+                                            <li><a href="#">-가공식품</a></li>
+                                            <li><a href="#">-반찬류</a></li>
+                                            <li><a href="#">-음료</a></li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">건강</a>
+                                    </li>
+                                    
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">생활용품</a>
+                                    </li>
+
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">인테리어</a>
+                                    </li>
+
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">생활가전</a>
+                                    </li>
+
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">잡화</a>
+                                    </li>
+                                    
+                                    <li class="mb5per f14">
+                                        <a class="left_main_menu" href="javascript:;">기타</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        
+                            <div class="left_tab" id="left_tab2">
+                                <ul class="t_left">
+                                    <li><a class="left_main_menu" href="#">투데이특가</a></li>
+                                    <li><a class="left_main_menu" href="#">타임세일</a></li>
+                                    <li><a class="left_main_menu" href="#">여름생활가전</a></li>
+                                    <li><a class="left_main_menu" href="#">선착순이벤트</a></li>
+                                    <li><a class="left_main_menu" href="#">리커버랭킹</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="left_tab" id="left_tab3">
+                                <ul class="t_left">
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">마이페이지</a></li>
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">주문내역</a></li>
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">주문배송조회</a></li>
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">공지사항</a></li>
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">1:1문의</a></li>
+                                    <li class="mb5per f14"><a class="left_main_menu" href="#">입금계좌안내</a></li>
+                                </ul>
+                            </div>
+                        </div>  
+                    </div>
+                    <!--} catego_menu-->
+                </div>
+            </aside>
+            <!--} aside-->
+            
+            <!--product_wrap {-->
+            <div class="product_wrap">
+                <!--p_contents {-->
+                <section class="contents p_contents dw_1200px pt3per">
+                    <div class="p_top p_list_top mb30px">
+                        <h2 class="f24 contents_border"><a href="#">여름생활가전</a></h2>
+                        
+                        <div class="mt10px">
+                            <a class="mr10px" href="">최근등록순</a>
+                            <a class="mr10px" href="">인기순</a>
+                            <a href="">낮은가격순</a>
+                        </div>
+                    </div>
+
+                    <style>
+                        /*product > product_list*/
+                        .wrap .product_wrap .p_list_middle div ul li a img { width: 100%; object-fit: scale-down; height: 25vh; }
+                        .wrap .product_wrap .p_list_middle div ul li:last-child a { color: rgb(101, 101, 101); }
+                        /* .wrap .product_wrap .p_list_middle div ul li:nth-child(2) { white-space: nowrap; display: block; text-overflow: ellipsis; overflow: hidden; } */
+                        @media (max-width: 768px) {
+                            /*product > product_list*/
+                            .wrap .product_wrap .p_list_top div a { font-size: 13px; margin-right: 5px; }
+                        }
+                    </style>
+
+                    <div class="p_list_middle over_hidden">
+                        <div class="">
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb5per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img1.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[홈스토리] 밴드형 휴대용 미니 선풍기 볼빨간 토끼</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">26,100</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb5per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img2.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[홈스토리] 밴드형 휴대용 미니 선풍기 고양이</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">26,100</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb5per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img4.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">스위스 몽크로스 8인치(20cm) 서큘레이터 EAC-4000</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">38,690</span> 원</a></li>
+                                <li><a href="#"><span>4,476</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb5per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img3.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[하우스웰] 14인치 와이드쿨 스탠드 선풍기</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">29,240</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb10per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img1.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[홈스토리] 밴드형 휴대용 미니 선풍기 볼빨간 토끼</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">26,100</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb10per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img2.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[홈스토리] 밴드형 휴대용 미니 선풍기 고양이</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">26,100</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb10per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img4.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">스위스 몽크로스 8인치(20cm) 서큘레이터 EAC-4000</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">38,690</span> 원</a></li>
+                                <li><a href="#"><span>4,476</span> P</a></li>
+                            </ul>
+
+                            <ul class="col-xs-12 col-sm-6 col-md-3 t_center mb10per">
+                                <li class="mb10px"><a href="#"><img class="w100 img-thumbnail" src="../images/product_list_img3.jpg" alt=""></a></li>
+                                <li class="mb20px white_space"><a class="f14" href="#">[하우스웰] 14인치 와이드쿨 스탠드 선풍기</a></li>
+                                <li class="mb10px fw_bold"><a href="#"><span class="f18 fw_bold">29,240</span> 원</a></li>
+                                <li><a href="#"><span>4,176</span> P</a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+
+
+                </section>
+                <!--} p_contents-->
+            </div>
+            <!--} product_wrap-->
+
+            <!--footer {--> 
+            <footer class="">
+                <div class="footer_middle">
+                    <div class="ftm_top">
+                        <a href="#">회사소개</a>
+                        <a href="#">이용약관</a>
+                        <a href="#">개인정보처리방침</a>
+                        <a href="#">입점상담</a>
+                    </div>
+                </div>
+
+                <div class="footer_bottom_wrap">
+                    <div class="footer_bottom dw_1200px">
+                        <div class="ftb_left t_left w20">
+                            <a href="index.html"><img src="../images/footer_logo.png" alt="footer_logo"></a>
+                        </div>
+                        
+                        <div class="ftb_middle w50">
+                            <ul class="word_break">
+                                <li class="mb5px"><strong class="fw_bold">주식회사 예원엠엔디</strong></li>
+                                <li class="mb5px">주소 : 경기도 광명시 오리로길 619번길 11 (하안동 232번지) 예원이케이빌딩</li>
+                                <li class="mb5px">사업자 등록번호 : 835-87-00673 대표 : 박정임  팩스 : 02-897-8952 </li>
+                                <li class="mb5px">개인정보 보호책임자 : 김영민 부가통신사업신고번호 : 제2017-경기광명-0300호</li>
+                                <li class="mb5px">Copyright © 2018 주식회사 예원엠앤디. All Rights Reserved.</li>                       
+                            </ul>
+                        </div>
+
+                        <div class="ftb_right t_right w30">
+                            <ul>
+                                <li class="mb10px f20"><i class="fas fa-headphones mr5px"></i>고객센터</li>
+                                <li class="fw_bold mb5px f18">02-2616-8952</li>
+                                <li class="mb5px">월-금 am 9:00 - pm 06:00</li>
+                                <li class="mb5px">점심시간 : am 12:00 - pm 01:00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!--} footer-->
+        </div>
+        <!--} wrap-->
+    </body>
+
+</html>
