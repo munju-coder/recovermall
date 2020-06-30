@@ -1,13 +1,17 @@
 @media (max-width:1200px) {
     .dw_1200px { width: 90%; }
+    /*header*/
     .wrap header .header_middle .hd_right .hdr_wrap a { font-size: 14px; }
     .wrap header .header_middle .hd_middle h1 a img { width: 200px; }
+    .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl { display: none; }
+
+    /*my_page modal point_insert*/
+    .modal_box { left: 27%; }
+    
+    /*footer*/
     .wrap footer .footer_middle .ftm_top { width: 90%; }
     .wrap footer .footer_bottom_wrap .footer_bottom div:first-child { display: none; }
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle { width: 70%; } 
-
-    .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl { display: none; }
-
 }
     
 @media (max-width:1200px) and (min-width:992px) {
@@ -16,12 +20,9 @@
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a i { display: none; }
 
-
-    
 }
 
 @media (max-width:992px) {
-    
     .wrap header .header_middle .hd_right .hdr_wrap a:last-child { display: none; }
     .wrap header .header_middle .hd_right .hdr_wrap { margin-top: 20px; }
     .wrap header .header_middle .hd_right .hdr_wrap a:nth-child(3) { margin-right: 0; }
@@ -30,17 +31,16 @@
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle p { font-size: 13px; }
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_middle h3 { font-size: 16px; }
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 14px; } 
-
     .wrap section.contents_middle p { font-size: 50px; }
-
-
     .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 90%; }
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_wrap .cbm_top img:hover { transform: none; }
-    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
 
+    /*my_page modal point_insert*/
+    .modal_box { left: 20%; }
+    .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
 }
 @media (max-width:768px) {
-
+    .wrap aside.fixed_menu_btn { display: none; }
     .wrap header .header_top { display: none; }
     .wrap header .header_middle { padding: 20px 0; }
     .wrap header .header_middle .hd_left { margin-top: 10px; }
@@ -63,13 +63,10 @@
     .wrap header .header_middle .M_search_box form.Msb_middle input::placeholder { padding-left: 10px; color: #b8b8b8; }
     .wrap header .header_middle .M_search_box form.Msb_middle button { border: none; color: #ffffff; background-color: #f1758d; border-radius: 10px; padding: 9px; }
     .wrap header .header_middle .M_search_box form.Msb_middle  { padding-bottom: 32px; }
-
     .wrap header .header_bottom_wrap .header_bottom .main_menu-container .swiper-slide a { font-size: 14px; }
     .wrap header .header_bottom_wrap .header_bottom .main_menu_icon { display: none; }
     .wrap header .header_bottom_wrap { padding-top: 10px; padding-bottom: 15px; }
-
-    .wrap aside.fixed_menu_btn { display: none; }
-
+    
     .wrap .contents_wrap .contents section.contents_top .ct_middle figure img { width: 85%; }
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom ul { width: auto; }
     .wrap .contents_wrap .contents section h2 { font-size: 24px; }
@@ -82,11 +79,51 @@
 
     /*product_view*/
     .wrap .p_contents { padding-top: 7%; }
-
     .product_wrap .p_contents .p_middle .p_left { width: 100%; }
     .product_wrap .p_contents .p_middle .pro_form { width: 100%; margin-left: 0; margin-top: 30px; }
     .product_wrap .p_contents .p_middle { padding: 4% 0; }
 
+    /*product > product_list*/
+    .wrap .product_wrap .p_list_top div a { font-size: 13px; margin-right: 5px; }
+
+    /*member > my_page*/
+    .wrap .mp_contents .point_info div ul:nth-child(3) { margin-bottom: 20px; }
+    .wrap .mp_contents .point_info div { padding: 20px 10px; }
+    .wrap .mp_contents .point_info div ul { font-size: 14px; }
+    .wrap .mp_contents .mpc_top .my_option a { font-size: 12px; }
+    .wrap .mp_contents .mpc_middle { padding: 15px 15px 20px 15px; }
+    .wrap .mp_contents .mpc_middle .mpcm_top { padding-bottom: 10px; }
+    .wrap .mp_contents .mpc_middle .mpcm_top div { font-size: 14px; }
+    .wrap .mp_contents .mpc_middle .mpcm_middle ul:nth-child(2) { margin-bottom: 15px; }
+    .wrap .mp_contents .mpc_middle .mpcm_middle ul li:first-child a { font-size: 14px; }
+    .wrap .mp_contents .mpc_bottom ul li a i { font-size: 20px; }
+    .wrap .mp_contents .mpc_bottom ul li:nth-child(2) a { font-size: 16px; }
+    .wrap .mp_contents .mpc_bottom ul li:last-child { font-size: 14px; }
+    .wrap .mp_contents .mpc_bottom ul:nth-child(2) { border-right: 1px solid #ddd; }
+    .wrap .mp_contents .mpc_bottom ul:first-child,.wrap .mp_contents .mpc_bottom ul:nth-child(2) { border-bottom: none; }
+
+    /*login*/
+    .wrap .login_wrap { margin: 20% 0; }
+    .wrap .login_wrap .login_contents { width: 80%; }
+    .wrap .login_wrap .login_contents .login_top h2 { font-size: 24px; }
+
+    /*my_page modal point_insert*/
+    .modal_close i { left: 0; }
+    .modal_box { width: 100%; left: 0;  }
+    .point_insert .point_form fieldset .pb_middle div { width: 75%; }
+    .point_insert .point_form fieldset .pb_middle div input { padding: 1px; }
+    .point_insert .point_form fieldset .pb_middle div input::placeholder { font-size: 13px; padding-left:5px; }
+    .point_insert .point_form fieldset p { font-size: 14px; }
+    .point_insert { height: 420px; }
+    .point_insert .pb_top { padding-top: 40px; }
+    .point_insert .point_form fieldset .pb_btn button { font-size: 14px; }
+
+    /*login modal find_info*/
+    .modal_box .fi_top { padding-bottom: 0; }
+    .find_info { height: 330px; }
+    .find_info .find_info_form fieldset input { width: 40%; }
+    .find_info .find_info_form fieldset .fi_txt p { font-size: 14px; }
+    .find_info .find_info_form fieldset .fi_middle select { margin-top: 5px; width: 50%;  }
 
     /*footer*/
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right { width: 100%; }
@@ -97,7 +134,6 @@
 }
 
 @media (max-width:600px) {
-
     /*common*/
     .contents_border { padding-bottom: 10px; }
 
@@ -109,8 +145,6 @@
     .wrap header .header_middle .hd_left form .M_menu_icon img { width: 30px; }
     .wrap header .header_middle .hd_left,.wrap header .header_middle .hd_right { width: 30%; }
     .wrap section.contents_middle p { font-size: 36px; }
-    /* .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl { display: block; padding-top: 110px; width: 142px; }
-    .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl dt { font-size: 20px; } */
 
     /*aisde.left_menu*/
     .wrap aside.left_menu_wrap, .wrap aside.left_menu_wrap.active { width: 68%; }
@@ -132,8 +166,6 @@
 
 @media (max-width:400px) {
 
-
-
     .wrap header .header_middle .hd_middle { width: 50%;  }
     .wrap header .header_middle .hd_left, .wrap header .header_middle .hd_right { width: 25%; }
     .wrap header .header_middle .hd_middle h1 a img { width: 145px; }
@@ -149,8 +181,6 @@
     .wrap section.contents_middle { height: 200px; }
     .wrap section.contents_middle p { font-size: 33px; line-height: 200px; }
 
-    /* .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl { display: block; }
-    .wrap section.circle_slide-container .swiper-wrapper .swiper-slide dl dt { font-size: 30px; } */
     /*aisde.left_menu*/
     .wrap aside.left_menu_wrap .left_menu .catego_menu .left_tab_subject ul li a { font-size: 13px; }
     .wrap aside.left_menu_wrap .left_logo img { width: 140px; }
@@ -165,10 +195,12 @@
     .wrap .p_contents .p_bottom .cmb_tab ul li a { height: 35px; line-height: 35px; font-size: 13px; }
     .product_wrap .p_contents .p_middle .pro_form .p_right .amount .pro_title p { font-size: 14px; }
 
+    /*login*/
+    .wrap .login_wrap .login_contents .login_bottom div button { padding: 15px; }
+
     /*footer*/
     .wrap footer .footer_middle .ftm_top a { margin-right: 10px; font-size: 12px; }
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 12px; }
-
 
 }
 

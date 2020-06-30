@@ -309,6 +309,25 @@ $(document).ready( function(){
         
     });
 
+    //modal click event
+    $('.modal_click, .modal_close,.modal_background').click( function(){
+        // console.log('a');
+        $(".modal_background").toggle();
+        $(".modal_box").toggle();
+
+    });
+    
+    /*modal find_info change script*/
+    var $selectEmail = $('.select_domain');
+    var $targetInput = $('.email_domain');
+    
+    $('.select_domain').change( function(){
+        console.log('a');
+        var domain = $(this).val();
+        /* console.log('1'); */
+        $targetInput.val(domain);
+    });
+
 
 
 

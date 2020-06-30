@@ -6,6 +6,7 @@ cursor { cursor: pointer; }
 .text_hidden { display: block; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; }
 .fw_bold { font-weight: bold; }
 .fw_initial { font-weight: initial; }
+.vertical_middle { vertical-align: middle; }
 .word_break { word-break: keep-all; }
 .white_space { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; }
 .dw_1200px { width: 100%; max-width: 1200px; margin: 0 auto; }

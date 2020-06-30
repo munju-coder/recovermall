@@ -268,149 +268,336 @@
         </aside>
         <!--} aside-->
 
-        <!--modal point_insert {-->
-        <div class="modal_background"></div>
-        <div class="point_insert modal_box">
-            <a href="javascript:;" class="modal_close"><i class="far fa-times-circle t_right"></i></a>
-            <div class="pb_top fw_600 t_center mb40px">
-                <h2 class="f24">포인트등록</h2>
-            </div>
+        <!--order_wrap {-->
+        <div class="order_wrap">
+            <!--order_contents {-->
+            <section class="order_contents dw_1200px pt3per">
+                <div class="oc_title contents_border mb30px">
+                    <h2 class="f24">주문서 작성</h2>
+                </div>
+                
+                <!--order_pro {-->
+                <div class="order_pro_info mb30px"> 
+                    <table class="dw_1200px table_order_info">
+                        <caption class="f20 mb30px">주문상품 정보</caption>
+                        <tbody>
+                            <tr>
+                                <th class="t_center">상품정보/수량</th>
+                                <th class="t_center">상품금액</th>
+                                <th class="t_center">배송비</th>
+                            </tr>
 
-            <form class = "point_form">
-                <input type="hidden" name="mb_id" value = "">
-                <fieldset>
-                    <div class="pb_middle t_center mb20px">
-                        <p class="p_color mb10px">승인번호</p>
-                        <div class="m10px">
-                            <input type="text" name = "app_no" class="outline_none" placeholder="승인번호를 입력하세요">
-                        </div>
-                    </div>
+                            <style>
+                                .wrap .order_wrap .order_contents .charge_info .ci_left { float: left; width: 50%; }
+                                .wrap .order_wrap .order_contents .charge_info .ci_right { float: right; }
+                                .wrap .order_wrap .order_contents .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; } 
+                                .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select div { float: left; }
+                                .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap th,.wrap .order_wrap td { padding: 10px; }
+                                .wrap .order_wrap select , .order_wrap input { outline: none; }
+                                /* .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img ul li { float: left; }
+                                .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img ul::after { content: ''; display: block; overflow: hidden; clear: both; } */
+                                /* .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img ul li:last-child ul li { float: left; }
+                                .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img ul li:last-child ul::after { content: ''; display: block; overflow: hidden; clear: both; } */
+                                .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td a { float: left; width: 33.3%; }
+                                .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td::after { content: ''; display: block; overflow: hidden; clear: both; }
 
-                    <div class="pb_middle t_center mb20px">
-                        <p class="p_color mb10px">결제일</p>
-                        <div class="m10px">
-                            <input type="text" name = "app_dt" class="outline_none" placeholder="ex) 20190101">
-                        </div>
-                    </div>
+                            </style>
 
-                    <div class="pb_middle t_center mb30px">
-                        <p class="p_color mb10px">결제 금액</p>
-                        <div class="m10px">
-                            <input type="text" name = "order_price" class="outline_none" placeholder="결제금액을 입력하세요">
-                        </div>
-                    </div>
+                            <tr class="product_info_img">
+                                <td>
+                                    <a href="../product/product_view.html"><img class="w" src="../images/product2.png" alt="product image"></a>
+                                    <a href="">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a>
+                                    <a href="">옵션추가없음</a>
+                                </td>
 
-                    <div class="pb_btn t_center">
-                        <div>
-                            <button class="outline_none happy_user mr10px" href="#">해피쿠폰회원</button>
-                            <button class="outline_none normal_user" href="#">일반회원</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-        <!--} modal point_insert-->
+                                <td class="vertical_middle t_center"><span>9,900</span>원</td>
+                                <td class="vertical_middle t_center"><span>2,500</span>원</td>
+                            </tr>
+                         </tbody>
+                    </table>
+                </div>
+                <!--} order_pro-->
 
-        <!--my_page_wrap {-->
-        <div class="my_page_wrap">
-            <!--mp_contents {-->
-            <section class="contents mp_contents pt3per dw_1200px p_contents">
-                <div class="mpc_top">
-                    <h2 class="f24 mb20px">마이페이지</h2>
+                <!--order_info {-->
+                <div class="order_info">
+                    <!--orderder_info {-->
+                    <table class="orderer_info mtb20px">
+                        <caption class="f20 mb20px">주문자 정보</caption>
+                        <tbody>
+                            <tr>
+                                <th>이름</th>
+                                <td>
+                                    <div class="info_deliver">
+                                        <span class="input_area">
+                                            <input type="text" name="purchaseName" id="purchaseName" class="" value="" maxlength="20">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
 
-                    <div class="my_option t_right over_hidden">
-                        <a class="f13 mo_left mr5px" href="javascript:;">회원탈퇴</a>
-                        <a class="f13 mo_right modal_click" href="javascript:;">포인트등록</a>
-                    </div>
+                            <tr class="">
+                                <th>연락처</th>
+                                <td>
+                                    <div class="info_deliver phone">
+                                        <select name="" id="list_option" class="outline_none">
+                                            <option value="">010</option>
+                                            <option value="">011</option>
+                                            <option value="">016</option>
+                                            <option value="">017</option>
+                                            <option value="">018</option>
+                                            <option value="">019</option>
+                                        </select>
+                    
+                                        <span class="input_txt">-</span>
+                                        <span class="input_area phone1">
+                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        </span>
+                                        <span class="input_txt">-</span>
+                                        <span class="input_area phone2">
+                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr class="">
+                                <th>이메일</th>
+                                <td>
+                                    <div class="info_deliver email">
+                                        <span class="input_area">
+                                            <input type="text" name="buyerEmail" id="buyerEmail1" class="inpt_default" value="" maxlength="100">
+                                        </span>
+                                        <span class="input_txt">@</span>
 
-                    <div class="point_info over_hidden mtb30px">
-                        <div class="over_hidden">
-                            <ul class="col-xs-12 col-sm-6 mb20px">
-                                <li class="mr5px"><i class="fas fa-caret-right"></i> 보유포인트</li>
-                                <li>10,000 P</li>
+                                        <select name="" id="list_option email" class="outline_none">
+                                            <option value="">naver.com</option>
+                                            <option value="">gmail.com</option>
+                                            <option value="">hanmail.net</option>
+                                            <option value="">nate.com</option>
+                                            <option value="">yahoo.com</option>
+                                            <option value="">직접입력</option>
+                                        </select>
+
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--} orderder_info-->
+
+                    <!--receiver_info {-->
+                    <table class="receiver_info mtb20px">
+                        <caption class="f20 mb20px">받는 사람 정보</caption>
+                        <tbody>
+                            <tr>
+                                <th>이름</th>
+                                <td>
+                                    <div class="info_deliver">
+                                        <span class="input_area">
+                                            <input type="text" name="" id="" class="" value="" maxlength="20">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="">
+                                <th>연락처</th>
+                                <td>
+                                    <div class="info_deliver phone">
+                                        <select name="" id="list_option" class="outline_none">
+                                            <option value="">010</option>
+                                            <option value="">011</option>
+                                            <option value="">016</option>
+                                            <option value="">017</option>
+                                            <option value="">018</option>
+                                            <option value="">019</option>
+                                        </select>
+                    
+                                        <span class="input_txt">-</span>
+                                        <span class="input_area phone1">
+                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        </span>
+                                        <span class="input_txt">-</span>
+                                        <span class="input_area phone2">
+                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            
+                            <tr class="">
+                                <th>주소</th>
+                                <td>
+                                    <div class="info_deliver">
+                                        <div class="addr_zip">
+                                            <span class="input_area">
+                                                <input type="text" name="" id="" class="disabled" value="" disabled="" >
+                                            </span>
+                                            
+                                            <a href="" class="btn_zip"><span>우편번호찾기</span></a>
+                                        
+                                        </div>
+
+                                        <div class="addr_detail">
+                                            <span class="input_area detail1">
+                                                <input type="text" name="addr1" id="addr1" class="disabled" value="" >
+                                            </span>
+                                            
+                                            <span class="input_area detail2">
+                                                <input type="text" name="addr2" id="addr2" class=" " value="" maxlength="100">
+                                            </span>
+                                        
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr class="">
+                                <th class="info">배송시 요청사항</th>
+                                <td>
+                                    <div class="info_deliver">
+                                        <div class="selbox">
+                                            <select name="" id="list_option" class="outline_none">
+                                                <option value="">부재시 경비실에 맡겨주세요.</option>
+                                                <option value="">부재시 휴대폰으로 연락바랍니다.</option>
+                                                <option value="">택배함에 넣어주세요.</option>
+                                                <option value="">집 앞에 놓아주세요.</option>
+                                                <option value="">직접 입력</option>
+                                            </select>
+                                        </div>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!--} receiver_info-->
+                </div>
+                <!--} order_info-->
+
+                <!--charge_info {-->
+                <div class="charge_info">
+                    <div class="ci_left">
+                        <div class="cil_top">
+                            <h4 class="f20 mb20px">할인 및 포인트</h4>
+                            <ul>
+                                <li>보유 포인트</li>
+                                <li><span>500</span>P</li>
+
+                                <li>가용 포인트</li>
+                                <li><span>500</span>P</li>
+
+                                <li>포인트</li>
+                                <li><input type="text">P</li>
                             </ul>
-
-                            <ul class="col-xs-12 col-sm-6 mb20px">
-                                <li class="mr5px"><i class="fas fa-caret-right"></i> 공유포인트</li>
-                                <li>10,000 P</li>
-                            </ul>
-
-                            <ul class="col-xs-12 col-sm-6">
-                                <li class="mr5px"><i class="fas fa-caret-right"></i> 보유캐쉬</li>
-                                <li>250,000 P</li>
-                            </ul>
-
-                            <ul class="col-xs-12 col-sm-6">
-                                <li class="mr5px"><i class="fas fa-caret-right"></i> 가용포인트</li>
-                                <li>9,000 P</li>
-                            </ul>
                         </div>
 
+                        <div class="cil_bottom">
+                            <h4 class="f20 mb20px">결제정보</h4>
+                            
+                            <div class="payment_select">
+                                <h4>결제수단</h4>
+                                <div class="pay_type_cash">무통장입금</div>
+                                <div class="pay_type_card">신용카드</div>
+
+                                <div class="">
+                                    <ul>
+                                        <li>기업은행 : 167-141774-01-019</li>
+                                        <li>예금주명 : 주식회사 예원엠엔디</li>
+                                        <li>입금자명 : <input type="text"><span class="f12"> (주문자명과 같을 경우 생략 가능)</span></li>
+                                    </ul>
+                                </div>
+
+                                <div class="">
+                                    <table>
+                                        <tbody>
+                                            <tr>
+                                                <th>카드번호</th>
+                                                <td><input type="text" name="" id=""></td>
+                                                <td><input type="text" name="" id=""></td>
+                                                <td><input type="text" name="" id=""></td>
+                                                <td><input type="text" name="" id=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>유효기간</th>
+                                                <td><input type="text" name="" id=""></td>
+                                                <td><input type="text" name="" id=""></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th>할부기간</th>
+                                                <td>
+                                                    <select name="" id="">
+                                                        <option value="">선택하세요.</option>
+                                                        <option value="00">일시불</option>
+                                                        <option value="01">1개월</option>
+                                                        <option value="02">2개월</option>
+                                                        <option value="03">3개월</option>
+                                                        <option value="04">4개월</option>
+                                                        <option value="05">5개월</option>
+                    
+                                                        <option value="06">6개월</option>
+                                                        <option value="07">7개월</option>
+                                                        <option value="08">8개월</option>
+                                                        <option value="09">9개월</option>
+                                                        <option value="10">10개월</option>
+                    
+                                                        <option value="11">11개월</option>
+                                                        <option value="12">12개월</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                    <div class="ci_right">
+                        <table>
+                            <caption class="f24">결제금액</caption>
+                            <tbody>
+                                <tr>
+                                    <th class="f24">28,000원</th>
+                                </tr>
+
+                                <tr>
+                                    <th>총 상품금액</th>
+                                    <td>26,000원</td>
+                                </tr>
+
+                                <tr>
+                                    <th>배송비</th>
+                                    <td>(+) 3,000원</td>
+                                </tr>
+
+                                <tr>
+                                    <th>포인트 사용</th>
+                                    <td>(-) 1,000원</td>
+                                </tr>
+
+                                <tr>
+                                    <th>할인 금액</th>
+                                    <td>(-) 0원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <button>결제하기</button>
                     </div>
                 </div>
-
-                <div class="mpc_middle over_hidden mb30px">
-                    <div class="mpcm_top pb20px">
-                        <div class="">
-                            <i class="far fa-user mr5px"></i><span>나의 주문 처리 현황 (최근 1개월 기준)</span>
-                        </div>
-                    </div>
-
-                    <div class="mpcm_middle over_hidden">
-                        <ul class="col-xs-6 col-sm-3 t_center ptb10px">
-                            <li class="mb10px"><a href="javascript:;">입금전</a></li>
-                            <li><a href="javascript:;">0</a></li>
-                        </ul>
-
-                        <ul class="col-xs-6 col-sm-3 t_center ptb10px">
-                            <li class="mb10px"><a href="javascript:;">배송준비중</a></li>
-                            <li><a href="javascript:;">0</a></li>
-                        </ul>
-
-                        <ul class="col-xs-6 col-sm-3 t_center ptb10px">
-                            <li class="mb10px"><a href="javascript:;">배송중</a></li>
-                            <li><a href="javascript:;">0</a></li>
-                        </ul>
-
-                        <ul class="col-xs-6 col-sm-3 t_center ptb10px">
-                            <li class="mb10px"><a href="javascript:;">배송완료</a></li>
-                            <li><a href="javascript:;">0</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="mpc_bottom over_hidden mb50px">
-                    <ul class="col-xs-6 col-sm-3 over_visible t_center">
-                        <li class="mb10px"><a href="#"><i class="f24 fas fa-paper-plane"></i></a></li>
-                        <li class="mb20px"><a class="f20" href="#">Order</a></li>
-                        <li><a href="#">주문내역조회</a></li>
-                    </ul>
-
-
-                    <ul class="col-xs-6 col-sm-3 over_visible t_center">
-                        <li class="mb10px"><a href="#"><i class="f24 fas fa-user-lock"></i></a></li>
-                        <li class="mb20px"><a class="f20" href="#">Profile</a></li>
-                        <li><a href="#">회원정보수정</a></li>
-                    </ul>
-
-
-                    <ul class="col-xs-6 col-sm-3 over_visible t_center">
-                        <li class="mb10px"><a href="#"><i class="f24 fas fa-shopping-cart"></i></a></li>
-                        <li class="mb20px"><a class="f20" href="#">Cart</a></li>
-                        <li><a href="#">장바구니</a></li>
-                    </ul>
-
-
-                    <ul class="col-xs-6 col-sm-3 over_visible t_center">
-                        <li class="mb10px"><a href="#"><i class="f24 fas fa-info-circle"></i></a></li>
-                        <li class="mb20px"><a class="f20" href="#">Inquery</a></li>
-                        <li><a href="#">나의 1:1 문의</a></li>
-                    </ul>
-                </div>
+                <!--} charge_info-->
+                
             </section>
-            <!--} mypage_contents-->
+            <!--} order_contents-->
         </div>
-        <!--} my_page_Wrap-->
+        <!--} order_wrap-->
 
         <!--footer {--> 
         <footer class="">

@@ -67,53 +67,78 @@
         }
         .point_insert .pb_top { padding-top: 50px; }
         .point_insert .point_form fieldset .pb_middle div { width: 100%; max-width: 340px; margin: 0 auto; }
-        .point_insert .point_form fieldset .pb_btn button { border: none; border: 1px solid #ddd; background-color:rgb(95, 95, 95); color: white; padding: 10px; border-radius: 12px; }
-        .point_insert .point_close { position: relative; }
-        .point_insert .point_close i { position: absolute; left: 504px; font-size: 30px; color: #ce6161; }
+        .point_insert .point_form fieldset .pb_btn button 
+        { border: none; border: 1px solid #ddd; background-color:rgb(95, 95, 95); color: white; padding: 10px; border-radius: 12px; }
+        .modal_close { position: relative; }
+        .modal_close i { position: absolute; left: 504px; font-size: 30px; color: #ce6161; }
+
+        @media (max-width:1200px) {
+            /*my_page modal point_insert*/
+            .modal_box { left: 27%; }
+        }
+        @media (max-width:992px) {
+            /*my_page modal point_insert*/
+            .modal_box { left: 20%; }
+        }
+        @media (max-width:768px) {
+            /*my_page modal point_insert*/
+            .modal_close i { left: 0; }
+            .modal_box { width: 100%; left: 0;  }
+            .point_insert .point_form fieldset .pb_middle div { width: 75%; }
+            
+            .point_insert .point_form fieldset .pb_middle div input { padding: 1px; }
+            .point_insert .point_form fieldset .pb_middle div input::placeholder { font-size: 13px; padding-left:5px; }
+            .point_insert .point_form fieldset p { font-size: 14px; }
+            .point_insert { height: 420px; }
+            .point_insert .pb_top { padding-top: 40px; }
+            .point_insert .point_form fieldset .pb_btn button { font-size: 14px; }
+
+        }
+        
 
     </style>
 <body>
     <!--modal point_insert {-->
-        <div class="modal_background"></div>
-        <div class="point_insert modal_box">
-            <a href="javascript:;" class="point_close"><i class="far fa-times-circle t_right"></i></a>
-            <div class="pb_top fw_600 t_center mb40px">
-                <h2 class="f24">포인트등록</h2>
-            </div>
-
-            <form class = "point_form">
-                <input type="hidden" name="mb_id" value = "">
-                <fieldset>
-                    <div class="pb_middle t_center mb20px">
-                        <p class="p_color mb10px">승인번호</p>
-                        <div class="m10px">
-                            <input type="text" name = "app_no" class="outline_none" placeholder="승인번호를 입력하세요">
-                        </div>
-                    </div>
-
-                    <div class="pb_middle t_center mb20px">
-                        <p class="p_color mb10px">결제일</p>
-                        <div class="m10px">
-                            <input type="text" name = "app_dt" class="outline_none" placeholder="ex) 20190101">
-                        </div>
-                    </div>
-
-                    <div class="pb_middle t_center mb30px">
-                        <p class="p_color mb10px">결제 금액</p>
-                        <div class="m10px">
-                            <input type="text" name = "order_price" class="outline_none" placeholder="결제금액을 입력하세요">
-                        </div>
-                    </div>
-
-                    <div class="pb_btn t_center">
-                        <div>
-                            <button class="happy_user mr10px" href="#">해피쿠폰회원</button>
-                            <button class="normal_user" href="#">일반회원</button>
-                        </div>
-                    </div>
-                </fieldset>
-            </form>
+    <div class="modal_background"></div>
+    <div class="point_insert modal_box">
+        <a href="javascript:;" class="modal_close"><i class="far fa-times-circle t_right"></i></a>
+        <div class="pb_top fw_600 t_center mb40px">
+            <h2 class="f24">포인트등록</h2>
         </div>
-        <!--} modal point_insert-->
+
+        <form class = "point_form">
+            <input type="hidden" name="mb_id" value = "">
+            <fieldset>
+                <div class="pb_middle t_center mb20px">
+                    <p class="p_color mb10px">승인번호</p>
+                    <div class="m10px">
+                        <input type="text" name = "app_no" class="outline_none" placeholder="승인번호를 입력하세요">
+                    </div>
+                </div>
+
+                <div class="pb_middle t_center mb20px">
+                    <p class="p_color mb10px">결제일</p>
+                    <div class="m10px">
+                        <input type="text" name = "app_dt" class="outline_none" placeholder="ex) 20190101">
+                    </div>
+                </div>
+
+                <div class="pb_middle t_center mb30px">
+                    <p class="p_color mb10px">결제 금액</p>
+                    <div class="m10px">
+                        <input type="text" name = "order_price" class="outline_none" placeholder="결제금액을 입력하세요">
+                    </div>
+                </div>
+
+                <div class="pb_btn t_center">
+                    <div>
+                        <button class="outline_none happy_user mr10px" href="#">해피쿠폰회원</button>
+                        <button class="outline_none normal_user" href="#">일반회원</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <!--} modal point_insert-->
 </body>
 </html>

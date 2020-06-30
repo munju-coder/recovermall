@@ -272,100 +272,39 @@
         </aside>
         <!--} aside-->
 
-        <style>
-            /*login*/
-            .wrap .login_wrap {
-                margin: 5% 0;
-            }
+        <!--modal find_info { -->
+        <div class="modal_background"></div>
+        <div class="find_info modal_box">
+            <a href="javascript:;" class="modal_close"><i class="far fa-times-circle t_right"></i></a>
+            <div class="fi_top fw_600 mb30px">
+                <h2 class="f24 t_center">회원정보찾기</h2>
+            </div>
 
-            .wrap .login_wrap .login_contents {
-                width: 100%;
-                max-width: 430px;
-                margin: 0 auto;
-            }
+            <form class="t_center find_info_form" action="">
+                <fieldset>
+                    <div class="fi_txt mb30px">
+                        <p class="mb10px word_break">회원가입 시 등록하신 이메일 주소를 입력해주세요.</p>
+                        <p class="mb10px word_break">해당 이메일로 아이디와 비밀번호 정보를 보내드립니다.</p>
+                    </div>
+                    
+                    <div class="fi_middle mb30px">
+                        <input type="text" class="w30 email_name outline_none" value="E-mail"> @
+                        <input type="text" class="w30 email_domain outline_none" value="">
+                        
+                        <select class="select_domain outline_none">
+                            <option value="daum.net">daum</option>
+                            <option value="naver.com">naver</option>
+                            <option value="gmail.com">gmail</option>
+                            <option value="yahoo.com">yahoo</option>
+                            <option value="">직접입력</option>
+                        </select>
+                    </div>
 
-            /* .wrap .login_wrap .login_contents .login_top img { float: left; width: 10%; }
-            .wrap .login_wrap .login_contents .login_top::after { content: ''; display: block; overflow: hidden; clear: both; } */
-            .wrap .login_wrap .login_contents .login_middle ul li input {
-                font-size: 14px;
-                width: 100%;
-                border: none;
-                border-bottom: 1px solid rgb(172, 172, 172);
-                outline: none;
-                color: rgb(148, 148, 148);
-            }
-
-            .wrap .login_wrap .login_contents .login_middle .lm_top li,
-            .wrap .login_wrap .login_contents .login_middle .lm_middle li {
-                float: left;
-            }
-
-            .wrap .login_wrap .login_contents .login_middle .lm_top::after,
-            .wrap .login_wrap .login_contents .login_middle .lm_top::after {
-                content: '';
-                display: block;
-                overflow: hidden;
-                clear: both;
-            }
-
-            .wrap .login_wrap .login_contents .login_middle .lm_top li:first-child,
-            .wrap .login_wrap .login_contents .login_middle .lm_middle li:first-child {
-                line-height: 27px;
-            }
-
-            .wrap .login_wrap .login_contents .login_bottom div {
-                width: 100%;
-                background-color: #ddd;
-            }
-
-            .wrap .login_wrap .login_contents .login_bottom div button {
-                border: none;
-                padding: 20px;
-                background-color: #ddd;
-            }
-
-            .wrap .login_wrap .login_contents .login_bottom input {
-                margin-right: 10px;
-            }
-
-            .wrap .login_wrap .login_contents .login_middle .lm_bottom li {
-                float: left;
-                width: 50%;
-            }
-
-            .wrap .login_wrap .login_contents .login_middle .lm_bottom::after {
-                content: '';
-                display: block;
-                overflow: hidden;
-                clear: both;
-            }
-
-            @media (max-width: 768px) {
-
-                /*login*/
-                .wrap .login_wrap {
-                    margin: 10% 0;
-                }
-
-                .wrap .login_wrap .login_contents {
-                    width: 80%;
-                }
-
-                .wrap .login_wrap .login_contents .login_top h2 {
-                    font-size: 24px;
-                }
-
-            }
-
-            @media (max-width:400px) {
-
-                /*login*/
-                .wrap .login_wrap .login_contents .login_bottom div button {
-                    padding: 15px;
-                }
-            }
-
-        </style>
+                    <button type="submit" class="check_btn f14 outline_none t_center">확인</button> 
+                </fieldset>
+            </form> 
+        </div>
+        <!--} modal find_info-->
 
         <!--login_wrap {-->
         <div class="login_wrap">
@@ -387,21 +326,24 @@
                     </ul>
 
                     <ul class="lm_bottom mtb10px">
-                        <li class="mb10px"><a href="" class="f13">아이디/패스워드 찾기 &nbsp;<i class="fas fa-angle-right"></i></a></li>
-                        <li><a href="" class="f13">회원가입하기 &nbsp;<i class="fas fa-angle-right"></i></a></li>
+                        <li class="mb10px f13 modal_click">
+                            <button class="outline_none">아이디/패스워드 찾기 &nbsp;<i class="fas fa-angle-right"></i></button>
+                        </li>
+
+                        <li class="f13">
+                            <button class="outline_none">회원가입하기 &nbsp;<i class="fas fa-angle-right"></i></button>
+                        </li>
                     </ul>
                 </div>
 
                 <div class="login_bottom">
-                    <div class="mb20px"><button>로그인</button></div>
+                    <div class="mb20px"><button class="outline_none">로그인</button></div>
                     <input class="mb10px" type="checkbox"><a href="" class="f13">아이디저장하기</a>
                 </div>
             </div>
 
         </div>
         <!--} login_wrap-->
-
-
 
         <!--footer {-->
         <footer>
