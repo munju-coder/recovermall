@@ -79,6 +79,8 @@
     </style>
     <script>
         $(document).ready( function(){
+
+
             $('.payment_select ul li.pay_type_cash').click( function(){
                 $('.payment_select ul li.pay_type_cash').addClass('active');   
                 $('.payment_select ul li.pay_type_cash a').addClass('active');
@@ -92,8 +94,6 @@
 
             $('.payment_select ul li.pay_type_card').click( function(){
                 // console.log('a'); 
-
-
                 $('.payment_select ul li.pay_type_card').addClass('active');  
                 $('.payment_select ul li.pay_type_cash').removeClass('active');
                 $('.pay_cash').hide();
@@ -334,13 +334,122 @@
         </aside>
         <!--} aside-->
 
+        <script>
+            $(document).ready( function(){
+                // $('.cil_bottom button').click( function(){
+                //     var formObject = $(this).serializeObject();
+                //     if(formObject['mb_id'] == "")
+                //     {
+                //         alert("주문자 이름을 입력해주세요.");
+                //         return false;
+                //     }
+
+                //     if(formObject['mb_tel_1'] == "")
+                //     {
+                //         alert("연락처를 입력해주세요.");
+                //         return false;
+                //     }
+
+                //     if(formObject['mb_tel_2'] == "")
+                //     {
+                //         alert("연락처를 입력해주세요.");
+                //         return false;
+                //     }
+                // });
+
+                
+                var pay_type = null;
+                $(".order_form").submit(function(){
+                    
+                    var formObject = $(this).serializeObject();
+
+                    if(formObject['mb_name'] == "")
+                    {
+                        alert("주문하시는분의 이름을 입력해주세요.");
+                        return false;
+                    }
+
+                    if(formObject['mb_tel_1'] == "")
+                    {
+                        alert("주문하시는분의 핸드폰 번호를 입력해주세요.");
+                        return false;
+                    }
+
+                    if(formObject['mb_tel_2'] == "")
+                    {
+                        alert("연락처를 입력해주세요.");
+                        return false;
+                    }
+
+                    if(formObject['mb_email'] == "")
+                    {
+                        alert("이메일을 입력해주세요.");
+                        return false;
+                    }
+
+                    if(formObject['mb_name2'] == "")
+                    {
+                        alert("받으시는 분의 이름을 입력해주세요.");
+                        return false;
+                    }
+
+                    
+
+                   
+
+                    console.log(pay_type);
+
+                    if(pay_type == null){
+                        alert("결제 방식을 선택해주세요.");
+                        return false;
+                    }
+                    else 
+                    {
+                        if(pay_type == "무통장") 
+                        {
+                            if(formObject['cash_name'] == "") {
+                                alert("입금자명을 입력해 주세요.");
+                                return false;
+                            }
+                        }
+                        else if(pay_type == "신용카드") 
+                        {
+                            if(formObject['card_num_1'] == "" || formObject['card_num_2'] == "" || formObject['card_num_3'] == "" || formObject['card_num_4'] == ""  ) 
+                            {
+                                alert("카드번호를 입력해주세요.");
+                                return false;
+                            }
+
+                            if(formObject['card_num_mm'] == "" || formObject['card_num_yy'] == "") 
+                            {
+                                alert("유효기간을 입력해주세요.");
+                                return false;
+                            }
+
+                            if(formObject['install_period'] == "" ) 
+                            {
+                                alert("할부기간을 선택해주세요.");
+                                return false;
+                            }
+                        }
+                    }
+
+                    
+
+            });
+
+
+            });
+        </script>
+
+
         <!--order_wrap {-->
         <div class="order_wrap">
             <!--order_contents {-->
-            <div class="order_contents dw_1200px pt3per">
+            <div class="order_contents dw_1200px pt3per p_contents">
                 <!--order_form {-->
                 <form action="" class="order_form">
-                    <div class="order_title contents_border mb30px">
+                    <div class="order_title contents_border mb10px">
                         <h2 class="f24">주문서 작성</h2>
                     </div>
 
@@ -357,8 +466,8 @@
                             <div class="order_list pro_list">
                                 <div class="w50 pt10px">
                                     <a class="t_center" href="../product/product_view.html"><img class="w50" src="../images/product2.png" alt="product image"></a>
-                                    <a href="">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a>
-                                    <a href="">옵션추가없음</a>
+                                    <a href="" class="white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a>
+                                    <a href="">* 1</a>
                                 </div>
 
                                 <div class="w25 pt10px"><span>9,900</span>원</div>
@@ -371,16 +480,16 @@
                     <!--order_middle {-->
                     <section class="order_middle">
                         <!--orderder_info {-->
-                        <div class="orderer_info mtb30px w100">
+                        <div class="orderer_info mb20px w100">
                             <h3 class="f20 mb20px">주문자 정보</h3>
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px">
                                 <div class="om_title mr15px">이름</div>
                                 <div class="info_deliver">
-                                    <input type="text" name="purchaseName" id="purchaseName" class="" value="" maxlength="20">
+                                    <input type="text" class="" name="mb_name" id="mb_name" value="" maxlength="20">
                                 </div>
                             </div>
 
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px">
                                 <div class="om_title">연락처</div>
                                 <div class="">
                                     <select name="" id="" class="">
@@ -394,20 +503,20 @@
                 
                                     <span class="">-</span>
                                     <span class="">
-                                        <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        <input type="text" name="mb_tel_1" id="mb_tel_1" class="" value="" maxlength="4">
                                     </span>
                                     <span class="">-</span>
                                     <span class="">
-                                        <input type="text" name="" id="" class="" value="" maxlength="4">
+                                        <input type="text" name="mb_tel_2" id="mb_tel_2" class="" value="" maxlength="4">
                                     </span>
                                 </div>
                             </div>
                             
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px">
                                 <div class="om_title">이메일</div>
                                 <div>
                                     <span class="">
-                                        <input type="text" name="" id="" class="" value="" maxlength="100">
+                                        <input type="text" name="mb_email" id="mb_email"  class="" value="" maxlength="100">
                                     </span>
                                     <span class="">@</span>
 
@@ -423,55 +532,22 @@
                             </div>
                         </div>
                         <!--} orderder_info-->
-                        <style>
-                            .wrap .order_wrap section { padding: 10px; }
-                            .wrap .order_wrap section h3 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                            .wrap .order_wrap .order_top .pro_info h3 { border-bottom: none; }
-                            .wrap .order_wrap .order_top .pro_info .order_list div  { float: left; text-align: center; }
-                            .wrap .order_wrap .order_top .pro_info .order_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-                            .wrap .order_wrap .order_top .pro_info .order_list {     border-top: 1px solid #6b6b6b; border-bottom: 1px solid #bdbcbc; padding: 10px 0; }
-                            .wrap .order_wrap .order_top .pro_info div:last-child { border-top: none; }
-                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child a { float: left; width: 33.3%; }
-                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
-    
-                            .wrap .order_wrap .order_middle .om_list div { float: left; padding-right: 30px; }
-                            .wrap .order_wrap .order_middle .om_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-
-                            .wrap .order_wrap .order_middle .receiver_info .ri_top h3 { float: left; border-bottom: none; }
-                            .wrap .order_wrap .order_middle .receiver_info .ri_top { border-bottom: 1px solid #ddd; }
-                            .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input { float: right; }
-                            .wrap .order_wrap .order_middle .receiver_info .ri_top::after { content: ''; display: block; overflow: hidden; clear: both; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_top div { background-color: rgb(247, 247, 247); padding: 10px; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_top ul { float: left; width: 33.3%; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_top::after { content: ''; display: block; overflow: hidden; clear: both; }
-
-                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { float: left; width: 50%; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul { width: 100%; max-width: 300px; margin: 0 0 auto 0; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-    
-                            .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: left; width: 70%; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom 
-                            { float: right; width: 30%; border: 1px solid #ddd; padding: 10px; text-align: center; margin-top: 50px; }
-                            .wrap .order_wrap .order_bottom .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li { float: left; width: 50%; }
-                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                            
-                        </style>
+                       
                         <!--receiver_info {-->
                         <div class="receiver_info mb30px w100">
                             <div class="ri_top mb20px">
                                 <h3 class="f20">받는 사람 정보</h3>
-                                <div class="same_input"><input type="checkbox"> <span class="f14">주문자와동일함</span></div>
+                                <div class="same_input"><input type="checkbox" name="checkbox" id="same"> <span class="f14">주문자와동일함</span></div>
                             </div>
                             
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px">
                                 <div class="om_title mr15px">이름</div>
-                                <div>
-                                    <input type="text" name="" id="" class="" value="" maxlength="20">
+                                <div class="info_deliver">
+                                    <input type="text" name="mb_name2" id="mb_name2" class="" value="" maxlength="20">
                                 </div>
                             </div>
 
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px">
                                 <div class="om_title">연락처</div>
                                 <div>
                                     <div class=" ">
@@ -486,35 +562,35 @@
                     
                                         <span class="">-</span>
                                         <span class=" ">
-                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                            <input type="text" name="mb_tel2_1" id="mb_tel2_1" class="" value="" maxlength="4">
                                         </span>
                                         <span class="">-</span>
                                         <span class=" ">
-                                            <input type="text" name="" id="" class="" value="" maxlength="4">
+                                            <input type="text" name="mb_tel2_1" id="mb_tel2_1" class="" value="" maxlength="4">
                                         </span>
                                     </div>
                                 </div>
                             </div>
                                 
-                            <div class="om_list mb10px">
+                            <div class="om_list mb20px addr_div">
                                 <div class="om_title mr15px">주소</div>
                                 <div>
-                                    <div class="">
+                                    <div class="addr_wrap">
                                         <div class="addr_zip mb10px">
                                             <span class="input_area">
-                                                <input type="text" name="" id="" class="disabled" value="" disabled="" >
+                                                <input type="text" name="mb_zip" id="mb_zip" class="disabled" value="" disabled="" >
                                             </span>
                                             
                                             <span class="f14 btn_zip"><a href="javascript:;">우편번호찾기</a></span>
                                         </div>
 
                                         <div class="addr_detail">
-                                            <span class="input_area detail1">
-                                                <input type="text" name="addr1" id="addr1" class="disabled" value="" >
+                                            <span class="input_area detail1 mr5px">
+                                                <input type="text" name="mb_addr_1" id="mb_addr_1" class="disabled" value="" >
                                             </span>
                                             
                                             <span class="input_area detail2">
-                                                <input type="text" name="addr2" id="addr2" class=" " value="" maxlength="100">
+                                                <input type="text" name="mb_addr_2" id="mb_addr_2" class=" " value="" maxlength="100">
                                             </span>
                                         
                                         </div>
@@ -523,7 +599,7 @@
                             </div>
 
                             <div class="om_list">
-                                <div class="om_title">배송시 요청사항</div>
+                                <div class="om_title deli_required">배송시 요청사항</div>
                                 <div class="info_deliver">
                                     <div class="selbox">
                                         <select name="" id="list_option" class="outline_none">
@@ -565,105 +641,224 @@
                                 </div>
                             </div>
 
-                            <div class="cil_middle mt20px mb20px">
-                                <h3 class="f20 mb20px">결제정보</h3>
-                                <div class="payment_select">
-                                    <p class="mb20px">결제수단 &nbsp;<span class="f12">(결제수단을 선택하여 정보를 입력해주세요.)</span></p>
-                                    <ul>
-                                        <li class="pay_type_cash t_center"><a class="" href="javascript:;">무통장입금</a></li>
-                                        <li class="pay_type_card t_center"><a class="" href="javascript:;">신용카드</a></li>
-                                    </ul> 
-                                </div>
-
-                                <div class="pay_info">
-                                    <div class="pay_cash mt20px">
+                            <div class="pay_bottom over_hidden mt20px">
+                                <div class="cil_middle">
+                                    <h4 class="f20 mb10px">결제정보</h4>
+                                    <div class="payment_select">
+                                        <p class="mb20px">결제수단 &nbsp;<span class="f12">(결제수단을 선택하여 정보를 입력해주세요.)</span></p>
                                         <ul>
-                                            <li class="mb10px">기업은행 : 167-141774-01-019</li>
-                                            <li class="mb10px">예금주명 : 주식회사 예원엠엔디</li>
-                                            <li>입금자명 : <input type="text" class="padding_0"><span class="f12"> (주문자명과 같을 경우 생략 가능)</span></li>
-                                        </ul>
+                                            <li class="pay_type_cash t_center active"><a class="" href="javascript:;">무통장입금</a></li>
+                                            <li class="pay_type_card t_center"><a class="" href="javascript:;">신용카드</a></li>
+                                        </ul> 
                                     </div>
+    
+                                    <div class="pay_info">
+                                        <div class="pay_cash mt20px">
+                                            <ul>
+                                                <li class="mb20px">기업은행 : 167-141774-01-019</li>
+                                                <li class="mb20px">예금주명 : 주식회사 예원엠엔디</li>
+                                                <li>입금자명 : &nbsp;<input type="text" class="w120px">&nbsp;<span class="f12">&nbsp; (주문자명과 같을 경우 생략 가능)</span></li>
+                                            </ul>
+                                        </div>
+                                        <style>
+                
+                                            /*order*/
+                                            
+                                            .wrap .order_wrap section { padding: 10px; }
+                                            .wrap .order_wrap section h3 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+                                            .wrap .order_wrap .order_top .pro_info h3 { border-bottom: none; }
+                                            .wrap .order_wrap .order_top .pro_info .order_list div  { float: left; text-align: center; }
+                                            .wrap .order_wrap .order_top .pro_info .order_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_top .pro_info .order_list { border-top: 1px solid #6b6b6b; border-bottom: 1px solid #bdbcbc; padding: 10px 0; }
+                                            .wrap .order_wrap .order_top .pro_info div:last-child { border-top: none; }
+                                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child a { float: left; width: 33.3%; }
+                                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
+                    
+                                            .wrap .order_wrap .order_middle .om_list div { float: left; padding-right: 30px; }
+                                            .wrap .order_wrap .order_middle .om_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_middle .om_list select { width: 150px; }
+                                            .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 100%; }
+                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_detail { float: none; }
+                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip { padding: 5px; border: 1px solid #ddd; background-color: #8e8e8e; }
+                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip a { padding: 10px; font-size: 14px; color: white; }
+                                            .wrap .order_wrap .order_middle .receiver_info .ri_top h3 { float: left; border-bottom: none; }
+                                            .wrap .order_wrap .order_middle .receiver_info .ri_top { border-bottom: 1px solid #ddd; }
+                                            .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input { float: right; }
+                                            .wrap .order_wrap .order_middle .receiver_info .ri_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_top div { background-color: rgb(247, 247, 247); padding: 15px 10px 10px 10px; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_top ul { float: left; width: 33.3%; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+                
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li:first-child { border-right: none; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { float: left; width: 50%; border: 1px solid #ddd; padding: 10px; user-select: none; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li.active { background-color: rgb(185, 185, 185); border: 1px solid #ddd; border-right: none; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul { width: 100%; max-width: 300px; margin: 0 0 auto 0; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: left; width: 60%; border-right: 1px solid #ddd; margin-right: 10px; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_card .pay_card_box div::after { content: ''; display: block; overflow: hidden; clear: both; } 
+                                            .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: 1px solid #ddd; padding: 20px; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: right; width: 30%; }
+                                            .wrap .order_wrap .order_bottom .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li { float: left; width: 50%; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { border: none; padding: 15px; width: 80%; color: white; background-color: red; }
+                                          
+                                            
+                                            
+                                            @media(max-width:1200px) {
+                                                /*order*/
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input,
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input { width: 15%; }
+                                            }
+                                            @media(max-width:992px) {
+                                                /*order*/
+                                                .wrap .order_wrap .order_middle .om_list div { padding-right: none; margin-right: none; }
+                                                .wrap .order_wrap section.order_middle .orderer_info .om_list input { width: 30%; padding: 0; }
+                                                .wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 100px; padding: 0; } 
+                                                .wrap .order_wrap section.order_middle .receiver_info .om_list .info_deliver input { width: 100px; padding: 0; }
+                                                .wrap .order_wrap section.order_middle .receiver_info .om_list input { width: 30%; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child { width: 10%; padding-right: 0; margin-right: 0;  }
+                                                .wrap .order_wrap .order_middle .om_list div:last-child { width: 90%; padding-right: 0; }
+                                                .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap .addr_zip,.wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap 
+                                                .addr_detail { width: 100%; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 20%; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required + div { width: 50%; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li input { width: 30%; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 100px; }
+                                                .wrap .order_wrap .order_contents .order_form > .order_title { margin-bottom: 10px; }
+                                                .wrap .order_wrap .order_middle .orderer_info.mtb30px { margin: 0; }
+                                                .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap input { width: 48%; }
 
-                                    <div class="pay_card mt20px">
-                                        <div class="w100 table_card">
-                                            <div>
-                                                <div>
-                                                    <div>카드번호</div>
-                                                    <div class=""><input type="text" name="" id=""></div>
-                                                    <div class=""><input type="text" name="" id=""></div>
-                                                    <div class=""><input type="text" name="" id=""></div>
-                                                    <div class=""><input type="text" name="" id=""></div>
+                                            }
+                                            @media(max-width:768px) {
+                                                 /*order*/
+                                                .wrap .order_wrap section h3 ,.wrap .order_wrap .order_bottom .charge_info .cil_middle h4 { font-size: 16px; font-weight: 600; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select p { font-size: 14px; margin-bottom: 10px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_cash ul li { margin-bottom: 10px; }
+                                                /* .wrap .order_wrap .order_middle .orderer_info { margin: 0; } */
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info ul li ,
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div { font-size: 13px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: none; width:100%; border-right: 0; margin-bottom: 20px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: none; width:100%; border: 1px solid #ddd; padding: 20px; text-align: center; }
+                                                .wrap .order_wrap .order_middle .om_list select,.wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 30%; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child { float: none; width:100%; margin-bottom: 10px; }
+                                                .wrap .order_wrap .order_middle .om_list div:last-child { float: none; width: 100%; }
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: none; padding: 0; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { width: 70%; padding: 10px;  }
+                                                .wrap .order_wrap section.order_middle .mb20px { margin-bottom: 10px; }
+                                                .wrap .order_wrap .order_middle .receiver_info .ri_top { margin-top: 20px; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child { font-size: 14px; }
+                                                .wrap .order_wrap .order_middle .receiver_info { margin-bottom: 0; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom div h4 { font-size: 18px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom div p { font-size: 18px; margin: 10px 0; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li
+                                                ,.wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { font-size: 14px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul { font-size: 14px; }
+                                                .wrap .order_wrap .order_top .pro_info .order_list div { font-size: 14px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 70px; }
+                                                .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input span { font-size: 12px; }
+                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 100%; }
+                                                .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 200px; }
+                                            }
+                                            @media(max-width:600px) {
+                                                /*order*/
+                                                .wrap .order_wrap section { margin: 10px 0; padding: 0; }
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input, 
+                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input 
+                                                { width: 19%; margin-right: 0; }
+                                                .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 300px; }
+                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { font-size: 14px; margin-bottom: 10px; }
+                                            }
+                                            @media(max-width:400px) {
+                                                
+
+                                            }
+                                        </style>
+                                        <div class="pay_card mt20px display_none">
+                                            <div class="w100 pay_card_box">
+                                                <div class="mb10px">
+                                                    <span class="mr5px">카드번호</span>
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
                                                 </div>
-
-                                                <div>
-                                                    <div>유효기간</div>
-                                                    <div><input type="text" name="" id=""></div>
-                                                    <div><input type="text" name="" id=""></div>
+    
+                                                <div class="mb10px">
+                                                    <span class="mr5px">유효기간</span>
+                                                    <input type="number" class="mr10px w120px" placeholder="04" name="card_num_mm" id="" maxlength="2" oninput="maxLengthCheck(this);">
+                                                    <input type="number" class="w120px" placeholder="22" name="card_num_yy" id="" maxlength="2" oninput="maxLengthCheck(this);">
                                                 </div>
-
-                                                <div>
-                                                    <div>할부기간</div>
-                                                    <div>
-                                                        <select name="" id="">
-                                                            <option value="">선택하세요.</option>
-                                                            <option value="00">일시불</option>
-                                                            <option value="01">1개월</option>
-                                                            <option value="02">2개월</option>
-                                                            <option value="03">3개월</option>
-                                                            <option value="04">4개월</option>
-                                                            <option value="05">5개월</option>
-                        
-                                                            <option value="06">6개월</option>
-                                                            <option value="07">7개월</option>
-                                                            <option value="08">8개월</option>
-                                                            <option value="09">9개월</option>
-                                                            <option value="10">10개월</option>
-                        
-                                                            <option value="11">11개월</option>
-                                                            <option value="12">12개월</option>
-                                                        </select>
-                                                    </div>
+    
+                                                <div class="mb10px">
+                                                    <span class="mr5px">할부기간</span>
+                                                    <select name="" id="">
+                                                        <option value="">선택하세요.</option>
+                                                        <option value="00">일시불</option>
+                                                        <option value="01">1개월</option>
+                                                        <option value="02">2개월</option>
+                                                        <option value="03">3개월</option>
+                                                        <option value="04">4개월</option>
+                                                        <option value="05">5개월</option>
+                    
+                                                        <option value="06">6개월</option>
+                                                        <option value="07">7개월</option>
+                                                        <option value="08">8개월</option>
+                                                        <option value="09">9개월</option>
+                                                        <option value="10">10개월</option>
+                    
+                                                        <option value="11">11개월</option>
+                                                        <option value="12">12개월</option>
+                                                    </select>
                                                 </div>
-
+    
                                             </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                
-                            </div>
-
-                            <div class="cil_bottom mt30px">
-                                <div>
-                                    <h4 class="f24">결제금액</h4>
-                                    <p class="f20 mtb20px">28,000원</p>
-                                    <div class="">
-                                        <ul class="mb10px">
-                                            <li class="">총 상품금액</li>
-                                            <li class="">26,000원</li>
-                                        </ul>
     
-                                        <ul class="mb10px">
-                                            <li class="">배송비</li>
-                                            <li class="">(+) 3,000원</li>
-                                        </ul>
-    
-                                        <ul class="mb10px">
-                                            <li class="">포인트 사용</li>
-                                            <li class="">(-) 1,000원</li>
-                                        </ul>
-    
-                                        <ul>
-                                            <li class="">할인 금액</li>
-                                            <li>(-) 0원</li>
-                                        </ul>
+                                <div class="cil_bottom">
+                                    <div>
+                                        <h4 class="f24">결제금액</h4>
+                                        <p class="f20 mtb20px">28,000원</p>
+                                        <div class="">
+                                            <ul class="mb10px">
+                                                <li class="">총 상품금액</li>
+                                                <li class="">26,000원</li>
+                                            </ul>
+        
+                                            <ul class="mb10px">
+                                                <li class="">배송비</li>
+                                                <li class="">(+) 3,000원</li>
+                                            </ul>
+        
+                                            <ul class="mb10px">
+                                                <li class="">포인트 사용</li>
+                                                <li class="">(-) 1,000원</li>
+                                            </ul>
+        
+                                            <ul>
+                                                <li class="">할인 금액</li>
+                                                <li>(-) 0원</li>
+                                            </ul>
+                                        </div>
                                     </div>
+        
+                                    <button class="mtb20px">결제하기</button>
                                 </div>
-    
-                                <button class="mtb20px">결제하기</button>
                             </div>
                         </div>
                     </section>
                     <!--} order_bottom-->
+                    <style>
+                        .order_btn a { background-color: red; padding: 10px; color: white; display: inline-block; }
+                    </style>
+                    <div class="order_btn mb30px">
+                        <div class="t_center dw_1200px over_hidden"><a href="">취소하기</a></div>
+                    </div>
+
+                    
                 </form>
                 <!--} order_form-->
             </section>

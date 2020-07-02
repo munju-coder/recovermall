@@ -78,7 +78,7 @@
     .wrap .contents_wrap .contents section.contents_bottom .cb_middle .cbm_bottom div a { font-size: 17px; } 
 
     /*product_view*/
-    .wrap .p_contents { padding-top: 7%; }
+    .wrap .p_contents { padding-top: 5%; }
     .product_wrap .p_contents .p_middle .p_left { width: 100%; }
     .product_wrap .p_contents .p_middle .pro_form { width: 100%; margin-left: 0; margin-top: 30px; }
     .product_wrap .p_contents .p_middle { padding: 4% 0; }
