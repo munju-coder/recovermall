@@ -41,72 +41,6 @@
         <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
     </head>
-    <style>
-        /*order*/
-        /* .wrap .order_wrap th { padding: 10px; padding-left: 0;  }
-        .wrap .order_wrap select , .order_wrap input { outline: none; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td a { float: left; width: 33.3%; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .table_order_info tr.product_info_img td { border-top: 1px solid #ddd; padding: 10px; }
-        .wrap .order_wrap .table_order_info th { border-top: 1px solid #808080; }
-        .wrap .order_wrap .order_contents table caption { color: #333; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr th { background-color: #f1f1f1; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr:last-child,.wrap .order_wrap .order_contents .order_info .receiver_info tr:last-child { border-bottom: 1px solid #cacaca; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info tr th { background-color: #f1f1f1; padding: 0; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info caption div { float: right; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr td,.wrap .order_wrap .order_contents .order_info .receiver_info tr td { padding: 10px;  }
-        .wrap .order_wrap .order_contents .order_info .orderer_info caption,.wrap .order_wrap .order_contents .order_info .receiver_info caption
-        { border-bottom: 2px solid #909090; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info h4 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left { float: left; width: 83%; }
-        .wrap .order_wrap .order_contents .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; } 
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul { background-color: whitesmoke; padding: 20px; border-bottom: 1px solid #ddd; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul li { float: left; width: 33.3%; text-align: center; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul { width: 100%; max-width: 660px; margin: 0 auto 0 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li { float: left; width: 40%; padding: 10px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.active { background-color: rgb(224, 224, 224) }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_cash { border: 1px solid #cecece; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_card { border: 1px solid #cecece; border-left: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .pay_info .pay_card { display: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left td select { width: 100px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right { float: right; padding: 15px; border: 1px solid #ddd; height: 355px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right table { margin: 20px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right button { border: none; padding: 10px; background-color: red; color: white; }
-        .btn_zip { background-color: #dcdcdc; padding: 5px 10px; } */
-
-    </style>
-    <script>
-        $(document).ready( function(){
-            $('.payment_select ul li.pay_type_cash').click( function(){
-                $('.payment_select ul li.pay_type_cash').addClass('active');   
-                $('.payment_select ul li.pay_type_cash a').addClass('active');
-                $('.payment_select ul li.pay_type_card').removeClass('active');
-                $('.payment_select ul li.pay_type_cash a').removeClass('active');
-
-                $('.pay_cash').show();
-                $('.pay_card').hide();
-
-            });
-
-            $('.payment_select ul li.pay_type_card').click( function(){
-                // console.log('a'); 
-
-
-                $('.payment_select ul li.pay_type_card').addClass('active');  
-                $('.payment_select ul li.pay_type_cash').removeClass('active');
-                $('.pay_cash').hide();
-                $('.pay_card').show();
-            });
-
-            var ci_height = $('.ci_left').height();
-            console.log(ci_height);
-            
-
-
-        });
-    </script>
 <body>
     <!--wrap {-->
     <div class="wrap">
@@ -333,155 +267,85 @@
             </div>
         </aside>
         <!--} aside-->
-        
-        <!--order_result_wrap {-->
-        <div class="order_result_wrap">
-            <div class="result_contents dw_1200px p_contents pt3per">
-                <div class="result_title mb30px">
-                    <h2 class="f24">주문상세내역</h2>
-                </div>
 
-                <section class="rc_top">
-                    <div class="sub_title">
-                        <h3 class="f18">주문상품</h3>
-                    </div>
+        <div class="mb_cart_wrap">
+            <div class="mb_cart_contents p_contents dw_1200px pt3per">
+                <section class="mbc_top contents_border">
+                    <h2 class="f24">장바구니</h2>
+                </section>
+                <p class="f13 mt10px">주문하실 상품을 선택해주세요.</p>
+                
+                <section class="mbc_middle">
+                    <div class="t_right">
+                        <button>전체삭제</button>
+                     </div>
 
-                    <div class="rct_top">
-                        <p>NO.2019032915432525 <span>( 주문날짜: 20200701 )</span></p>
+                    <div class="cart_list cart_top mt10px">
+                        <!-- <div><input type="checkbox" id="pd_all_input" name="pr_price"></div> -->
+                        <div class="w50 t_center">상품정보</div>
+                        <div class="w10 t_center">수량</div>
+                        <div class="w20 t_center">적립포인트</div>
+                        <div class="w20 t_center">가격</div>
+                    </div> 
+
+                    <div class="cart_list cart_bottom margin_10px">
+                        <div class="cart_table w50 cart_pro">
+                            <div class=""><a href="#"><img class="w60" src="../images/product2.png" alt="product image"></a></div>
+                            <div>
+                                <ul>
+                                    <li class="mb10px"><a href="" class="white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
+                                    <li><a href="">옵션선택 안함</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="cart_table w10 count_box mtb10px t_center">
+                            <div class="count_input">
+                                <input type="text" id="cnt" class="cnt_input outline_none w50" value="1">
+                            </div>
+
+                            <div class="count_button">
+                                <input type="button" class="outline_none mb3px" id="plus" value="▲">
+                                <input type="button" class="outline_none" id="minus" value="▼">
+                            </div>
+                        </div>
+
+                        <div class="cart_table w20 t_center" ><span>1,000</span>P</div>
+                        <div class="cart_table w20 t_center" ><span>12,000</span>원<div class="cart_table"><i class="far fa-window-close"></i></div></div>
                     </div>
                     
-                    <div class="rct_bottom mt10px">
-                        <a class="t_center w20 rctb_left" href="../product/product_view.html"><img class="w50" src="../images/product2.png" alt="product image"></a>
-                        
-                        <ul class="w50 pt20px rctb_center">
-                            <li class="over_hidden mb10px white_space word_break"><a href="" class="">상품명: 롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
-                            <li class="over_hidden mb10px"><a href="">가격: <span>12,0000</span>원</a></li>
-                            <li class="over_hidden"><a href="">수량: <span>1</span>개</a></li>
-                        </ul>
-                        
-                        <ul class="w20 rctb_right">
-                            <li class="mb10px"><button class="f14 fw_bold">교환신청</button></li>
-                            <li class="mb10px"><button class="f14 fw_bold">반품신청</button></li>
-                            <li><button class="f14 fw_bold">결제취소</button></li>
-                        </ul> 
-                    </div>
                 </section>
-
                 <style>
-                    /*order_result*/
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_top { border-bottom: 1px solid #ddd; padding-bottom: 10px; padding: 10px; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom a { float: left;    }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom ul { float: left; text-align: left; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { border: none; padding: 10px 15px; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right li:last-child button:hover { background-color: red; }
-                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button:hover { transition: .5s; color: white; background-color: #2f9fff; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div { float: left; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top { border-bottom: 1px solid #ddd; padding: 10px 0; border-top: 1px solid #ddd; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child div { float: left; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li { float: left; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: left; border: 1px solid #ddd; padding: 10px;  }
+                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 10px; }
+                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
 
-                    .wrap .order_result_wrap .result_contents .sub_title { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul { float: left; }
-                    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { float: left;}
-                    .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
-
-                    @media(max-width:1200px) {
-                         /*order_result*/
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 20%; text-align: left; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left img { width: 100%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 50%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 30%; text-align: right; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul { width: 50%; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul:last-child { text-align: right; }
-
-                        .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { width: 50%; }
-                    }
-                    @media(max-width:992px) {
-                         /*order_result*/
-                        /* .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul { width: 50%; } */
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_left { width: 30%; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_right { width: 70%; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_left li:nth-child(3) { margin-bottom: 25px; }
-                        .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { width: 50%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 60%; padding-top: 25px; font-size: 14px; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 20%; text-align: right; }
-                    }
-                    @media(max-width:768px) {
-                         /*order_result*/
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom a { float: none; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom ul { float: none; width: 100%;  }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 100%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_top { width: 100%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 100%; font-size: 16px; padding-top: 0; margin: 20px 0; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right,
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { width: 100%; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { padding: 15px 0; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom,
-                        .wrap .order_result_wrap .result_contents .rc_bottom,.wrap .order_result_wrap .result_contents .rc_top .rct_top { font-size: 14px; }
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_top h3 { font-size: 16px; }
-                        .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom { padding: 20px 0; }
-                        .order_result_wrap .result_contents .rc_bottom .rcb_bottom { padding: 20px 0; }
-                        .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul li:last-child { font-size: 16px; }
-                        .order_btn { font-size: 14px; margin: 3% 0; }
-
-                    }
-
-                    @media(max-width:600px) {
-                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { padding: 10px 0; font-size: 12px; }
-                    }
 
                 </style>
-
-                <section class="rc_middle mtb20px">
-                    <div class="sub_title">
-                        <h3 class="f18">배송지정보</h3>
-                    </div>
-
-                    <div class="rcm_bottom padding_20px">
-                        <ul class="rcmb_left w10">
-                            <li class="mb10px">수령인</li>
-                            <li class="mb10px">연락처</li>
-                            <li class="mb10px">주소지</li>
-                            <li>배송메모</li>
-                        </ul>
-
-                        <ul class="rcmb_right">
-                            <li class="mb10px">조문주</li>
-                            <li class="mb10px">010-3039-7025</li>
-                            <li class="mb10px">인천광역시 남동구 구월동 인주대로 591번길 56 프라임캐슬 202호</li>
-                            <li>무인택배함에 보관해주세요.</li>
-                        </ul>
-                    </div>
+                <section class="mbc_bottom mb30px">
+                    <ul>
+                        <li class="w40 t_center">총 주문금액</li>
+                        <li class="w30 t_center">상품합계 <span>12,000</span> 원 + 배송비 <span>0</span> 원</li>
+                        <li class="w30 t_center"><span>12,000</span>원</li>
+                    </ul>
                 </section>
 
-                <section class="rc_bottom">
-                    <div class="sub_title">
-                        <h3 class="f18">결제정보&nbsp;<span class="f16">(신용카드&nbsp;<span>일시불</span>)</span></h3>
-                    </div>
-                    
-                    <div class="rcb_bottom padding_20px">
-                        <ul class="w15">
-                            <li class="mb15px">총 상품금액</li>
-                            <li class="mb15px">배송비</li>
-                            <li class="mb15px">포인트 사용</li>
-                            <li class="f20 mt15px f_color_red fw_bold">총 결제 금액</li>
-                        </ul>
-
-                        <ul class="t_right">
-                            <li class="mb15px"><span>12,000</span>원</li>
-                            <li class="mb15px">(+)<span>2,500</span>원</li>
-                            <li class="mb15px">(-)<span>2,500</span>원</li>
-                            <li class="f20 mt15px f_color_red fw_bold">12,000원</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <div class="order_btn mb30px">
-                    <div class="t_center dw_1200px over_hidden"><a href=""><i class="fas fa-chevron-left mr5px"></i>이전페이지</a></div>
+                <div class="cart_btn t_center">
+                    <div><a href="#">쇼핑계속하기</a></div>
+                    <div><a href="#">주문하기</a></div>
                 </div>
-
             </div>
         </div>
-        <!--} order_reult_wrap-->
+
 
         <!--footer {--> 
         <footer class="">

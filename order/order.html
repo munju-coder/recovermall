@@ -41,46 +41,10 @@
         <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
     </head>
-    <style>
-        /*order*/
-        /* .wrap .order_wrap th { padding: 10px; padding-left: 0;  }
-        .wrap .order_wrap select , .order_wrap input { outline: none; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td a { float: left; width: 33.3%; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .table_order_info tr.product_info_img td { border-top: 1px solid #ddd; padding: 10px; }
-        .wrap .order_wrap .table_order_info th { border-top: 1px solid #808080; }
-        .wrap .order_wrap .order_contents table caption { color: #333; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr th { background-color: #f1f1f1; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr:last-child,.wrap .order_wrap .order_contents .order_info .receiver_info tr:last-child { border-bottom: 1px solid #cacaca; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info tr th { background-color: #f1f1f1; padding: 0; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info caption div { float: right; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr td,.wrap .order_wrap .order_contents .order_info .receiver_info tr td { padding: 10px;  }
-        .wrap .order_wrap .order_contents .order_info .orderer_info caption,.wrap .order_wrap .order_contents .order_info .receiver_info caption
-        { border-bottom: 2px solid #909090; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info h4 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left { float: left; width: 83%; }
-        .wrap .order_wrap .order_contents .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; } 
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul { background-color: whitesmoke; padding: 20px; border-bottom: 1px solid #ddd; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul li { float: left; width: 33.3%; text-align: center; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul { width: 100%; max-width: 660px; margin: 0 auto 0 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li { float: left; width: 40%; padding: 10px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.active { background-color: rgb(224, 224, 224) }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_cash { border: 1px solid #cecece; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_card { border: 1px solid #cecece; border-left: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .pay_info .pay_card { display: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left td select { width: 100px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right { float: right; padding: 15px; border: 1px solid #ddd; height: 355px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right table { margin: 20px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right button { border: none; padding: 10px; background-color: red; color: white; }
-        .btn_zip { background-color: #dcdcdc; padding: 5px 10px; } */
-
-    </style>
     <script>
         $(document).ready( function(){
 
-
+            
             $('.payment_select ul li.pay_type_cash').click( function(){
                 $('.payment_select ul li.pay_type_cash').addClass('active');   
                 $('.payment_select ul li.pay_type_cash a').addClass('active');
@@ -100,11 +64,160 @@
                 $('.pay_card').show();
             });
 
-            var ci_height = $('.ci_left').height();
-            console.log(ci_height);
+            //btn_zip (kakao find address)
+            $(".btn_zip").click(function(){
+                //COMMON.kakao.addrss call
+                    var devide = $(this).attr("id");
+                    COMMON.kakao.DaumPostcode(devide);
+            });
             
+            var pay_type = null;
+            $(".order_form").submit(function(){
+                
+                var formObject = $(this).serializeObject();
 
+                if(formObject['mb_name'] == "")
+                {
+                    alert("주문하시는분의 이름을 입력해주세요.");
+                    return false;
+                }
 
+                if(formObject['mb_tel_1'] == "")
+                {
+                    alert("주문하시는 분의 연락처를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['mb_tel_2'] == "")
+                {
+                    alert("주문하시는 분의 연락처를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['mb_email'] == "")
+                {
+                    alert("이메일을 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['r_name'] == "")
+                {
+                    alert("받으시는 분의 이름을 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['r_tel_1'] == "")
+                {
+                    alert("받으시는 분의 연락처를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['r_tel_2'] == "")
+                {
+                    alert("받으시는 분의 연락처를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['mb_zip'] == "")
+                {
+                    alert("우편번호를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['mb_addr_1'] == "")
+                {
+                    alert("상세주소를 입력해주세요.");
+                    return false;
+                }
+
+                if(formObject['mb_addr_2'] == "")
+                {
+                    alert("나머지 주소를 입력해주세요.");
+                    return false;
+                }
+
+                console.log(pay_type);
+
+                if(pay_type == null){
+                    alert("결제 방식을 선택해주세요.");
+                    return false;
+                }
+                else 
+                {
+                    if(pay_type == "무통장") 
+                    {
+                        if(formObject['cash_name'] == "") {
+                            alert("입금자명을 입력해 주세요.");
+                            return false;
+                        }
+                    }
+                    else if(pay_type == "신용카드") 
+                    {
+                        if(formObject['card_num_1'] == "" || formObject['card_num_2'] == "" || formObject['card_num_3'] == "" || formObject['card_num_4'] == ""  ) 
+                        {
+                            alert("카드번호를 입력해주세요.");
+                            return false;
+                        }
+
+                        if(formObject['card_num_mm'] == "" || formObject['card_num_yy'] == "") 
+                        {
+                            alert("유효기간을 입력해주세요.");
+                            return false;
+                        }
+
+                        if(formObject['install_period'] == "" ) 
+                        {
+                            alert("할부기간을 선택해주세요.");
+                            return false;
+                        }
+                    }
+                }
+
+            });
+
+            /**
+            * @brief #same input checked  
+            */
+            $('#same').click( function(){
+
+                var chk = $(this).is(":checked");
+
+                if(chk == true){
+                    $('.order_middle .orderer_info div input').each(function(i){
+                        $('#' + $('.order_middle .orderer_info div input').eq(i).attr("id").replace('mb', 'r')).val($('.order_middle .orderer_info div input').eq(i).val());
+                    });
+                } else {
+                    $('.order_middle .receiver_info div input').each(function(i){
+                        $('#' + $('.order_middle .receiver_info div input').eq(i).attr("id")).val('');
+                    });
+                }
+            });
+
+            /**
+            * @brief input type only number 
+            */
+            $(".pay_card_box div input").each(function(){
+                $(this).keyup(function(event){
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^0-9]/gi,''));
+                });
+            });
+
+            $(".order_bottom .charge_info cil_top div ul li input").each(function(){
+                $(this).keyup(function(event){
+                    var inputVal = $(this).val();
+                    $(this).val(inputVal.replace(/[^0-9]/gi,''));
+                });
+            });
+
+        //input maxlength
+        function maxLengthCheck(object) {
+            if(object.value.length > object.maxLength) {
+                object.value = object.value.slice(0, object.maxLength);
+            }
+        }
+
+            
         });
     </script>
 <body>
@@ -334,115 +447,6 @@
         </aside>
         <!--} aside-->
 
-        <script>
-            $(document).ready( function(){
-                // $('.cil_bottom button').click( function(){
-                //     var formObject = $(this).serializeObject();
-                //     if(formObject['mb_id'] == "")
-                //     {
-                //         alert("주문자 이름을 입력해주세요.");
-                //         return false;
-                //     }
-
-                //     if(formObject['mb_tel_1'] == "")
-                //     {
-                //         alert("연락처를 입력해주세요.");
-                //         return false;
-                //     }
-
-                //     if(formObject['mb_tel_2'] == "")
-                //     {
-                //         alert("연락처를 입력해주세요.");
-                //         return false;
-                //     }
-                // });
-
-                
-                var pay_type = null;
-                $(".order_form").submit(function(){
-                    
-                    var formObject = $(this).serializeObject();
-
-                    if(formObject['mb_name'] == "")
-                    {
-                        alert("주문하시는분의 이름을 입력해주세요.");
-                        return false;
-                    }
-
-                    if(formObject['mb_tel_1'] == "")
-                    {
-                        alert("주문하시는분의 핸드폰 번호를 입력해주세요.");
-                        return false;
-                    }
-
-                    if(formObject['mb_tel_2'] == "")
-                    {
-                        alert("연락처를 입력해주세요.");
-                        return false;
-                    }
-
-                    if(formObject['mb_email'] == "")
-                    {
-                        alert("이메일을 입력해주세요.");
-                        return false;
-                    }
-
-                    if(formObject['mb_name2'] == "")
-                    {
-                        alert("받으시는 분의 이름을 입력해주세요.");
-                        return false;
-                    }
-
-                    
-
-                   
-
-                    console.log(pay_type);
-
-                    if(pay_type == null){
-                        alert("결제 방식을 선택해주세요.");
-                        return false;
-                    }
-                    else 
-                    {
-                        if(pay_type == "무통장") 
-                        {
-                            if(formObject['cash_name'] == "") {
-                                alert("입금자명을 입력해 주세요.");
-                                return false;
-                            }
-                        }
-                        else if(pay_type == "신용카드") 
-                        {
-                            if(formObject['card_num_1'] == "" || formObject['card_num_2'] == "" || formObject['card_num_3'] == "" || formObject['card_num_4'] == ""  ) 
-                            {
-                                alert("카드번호를 입력해주세요.");
-                                return false;
-                            }
-
-                            if(formObject['card_num_mm'] == "" || formObject['card_num_yy'] == "") 
-                            {
-                                alert("유효기간을 입력해주세요.");
-                                return false;
-                            }
-
-                            if(formObject['install_period'] == "" ) 
-                            {
-                                alert("할부기간을 선택해주세요.");
-                                return false;
-                            }
-                        }
-                    }
-
-                    
-
-            });
-
-
-            });
-        </script>
-
-
         <!--order_wrap {-->
         <div class="order_wrap">
             <!--order_contents {-->
@@ -480,7 +484,7 @@
                     <!--order_middle {-->
                     <section class="order_middle">
                         <!--orderder_info {-->
-                        <div class="orderer_info mb20px w100">
+                        <div class="orderer_info mb30px">
                             <h3 class="f20 mb20px">주문자 정보</h3>
                             <div class="om_list mb20px">
                                 <div class="om_title mr15px">이름</div>
@@ -543,7 +547,7 @@
                             <div class="om_list mb20px">
                                 <div class="om_title mr15px">이름</div>
                                 <div class="info_deliver">
-                                    <input type="text" name="mb_name2" id="mb_name2" class="" value="" maxlength="20">
+                                    <input type="text" name="r_name" id="r_name" class="" value="" maxlength="20">
                                 </div>
                             </div>
 
@@ -562,11 +566,11 @@
                     
                                         <span class="">-</span>
                                         <span class=" ">
-                                            <input type="text" name="mb_tel2_1" id="mb_tel2_1" class="" value="" maxlength="4">
+                                            <input type="text" name="r_tel_1" id="r_tel_1" class="" value="" maxlength="4">
                                         </span>
                                         <span class="">-</span>
                                         <span class=" ">
-                                            <input type="text" name="mb_tel2_1" id="mb_tel2_1" class="" value="" maxlength="4">
+                                            <input type="text" name="r_tel_2" id="r_tel_2" class="" value="" maxlength="4">
                                         </span>
                                     </div>
                                 </div>
@@ -581,7 +585,7 @@
                                                 <input type="text" name="mb_zip" id="mb_zip" class="disabled" value="" disabled="" >
                                             </span>
                                             
-                                            <span class="f14 btn_zip"><a href="javascript:;">우편번호찾기</a></span>
+                                            <span class="f14 btn_zip" id="btn_zip"><a href="#">우편번호찾기</a></span>
                                         </div>
 
                                         <div class="addr_detail">
@@ -657,131 +661,124 @@
                                             <ul>
                                                 <li class="mb20px">기업은행 : 167-141774-01-019</li>
                                                 <li class="mb20px">예금주명 : 주식회사 예원엠엔디</li>
-                                                <li>입금자명 : &nbsp;<input type="text" class="w120px">&nbsp;<span class="f12">&nbsp; (주문자명과 같을 경우 생략 가능)</span></li>
+                                                <li>입금자명 : &nbsp;<input type="text" class="w120px" name="cash_name">&nbsp;<span class="f12">&nbsp; (주문자명과 같을 경우 생략 가능)</span></li>
                                             </ul>
                                         </div>
-                                        <style>
-                
-                                            /*order*/
-                                            
-                                            .wrap .order_wrap section { padding: 10px; }
-                                            .wrap .order_wrap section h3 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                                            .wrap .order_wrap .order_top .pro_info h3 { border-bottom: none; }
-                                            .wrap .order_wrap .order_top .pro_info .order_list div  { float: left; text-align: center; }
-                                            .wrap .order_wrap .order_top .pro_info .order_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_top .pro_info .order_list { border-top: 1px solid #6b6b6b; border-bottom: 1px solid #bdbcbc; padding: 10px 0; }
-                                            .wrap .order_wrap .order_top .pro_info div:last-child { border-top: none; }
-                                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child a { float: left; width: 33.3%; }
-                                            .wrap .order_wrap .order_top .pro_info .pro_list div:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    
-                                            .wrap .order_wrap .order_middle .om_list div { float: left; padding-right: 30px; }
-                                            .wrap .order_wrap .order_middle .om_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_middle .om_list select { width: 150px; }
-                                            .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 100%; }
-                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_detail { float: none; }
-                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip { padding: 5px; border: 1px solid #ddd; background-color: #8e8e8e; }
-                                            .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip a { padding: 10px; font-size: 14px; color: white; }
-                                            .wrap .order_wrap .order_middle .receiver_info .ri_top h3 { float: left; border-bottom: none; }
-                                            .wrap .order_wrap .order_middle .receiver_info .ri_top { border-bottom: 1px solid #ddd; }
-                                            .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input { float: right; }
-                                            .wrap .order_wrap .order_middle .receiver_info .ri_top::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_top div { background-color: rgb(247, 247, 247); padding: 15px 10px 10px 10px; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_top ul { float: left; width: 33.3%; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_top::after { content: ''; display: block; overflow: hidden; clear: both; }
-                
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li:first-child { border-right: none; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { float: left; width: 50%; border: 1px solid #ddd; padding: 10px; user-select: none; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li.active { background-color: rgb(185, 185, 185); border: 1px solid #ddd; border-right: none; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul { width: 100%; max-width: 300px; margin: 0 0 auto 0; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: left; width: 60%; border-right: 1px solid #ddd; margin-right: 10px; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_card .pay_card_box div::after { content: ''; display: block; overflow: hidden; clear: both; } 
-                                            .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: 1px solid #ddd; padding: 20px; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: right; width: 30%; }
-                                            .wrap .order_wrap .order_bottom .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li { float: left; width: 50%; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                                            .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { border: none; padding: 15px; width: 80%; color: white; background-color: red; }
-                                          
-                                            
-                                            
-                                            @media(max-width:1200px) {
-                                                /*order*/
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input,
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input { width: 15%; }
-                                            }
-                                            @media(max-width:992px) {
-                                                /*order*/
-                                                .wrap .order_wrap .order_middle .om_list div { padding-right: none; margin-right: none; }
-                                                .wrap .order_wrap section.order_middle .orderer_info .om_list input { width: 30%; padding: 0; }
-                                                .wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 100px; padding: 0; } 
-                                                .wrap .order_wrap section.order_middle .receiver_info .om_list .info_deliver input { width: 100px; padding: 0; }
-                                                .wrap .order_wrap section.order_middle .receiver_info .om_list input { width: 30%; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child { width: 10%; padding-right: 0; margin-right: 0;  }
-                                                .wrap .order_wrap .order_middle .om_list div:last-child { width: 90%; padding-right: 0; }
-                                                .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap .addr_zip,.wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap 
-                                                .addr_detail { width: 100%; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 20%; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required + div { width: 50%; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li input { width: 30%; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 100px; }
-                                                .wrap .order_wrap .order_contents .order_form > .order_title { margin-bottom: 10px; }
-                                                .wrap .order_wrap .order_middle .orderer_info.mtb30px { margin: 0; }
-                                                .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap input { width: 48%; }
+                            <style>
+    
+                                /*order*/
+                                
+                                .wrap .order_wrap section { padding: 10px; }
+                                .wrap .order_wrap section h3 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+                                .wrap .order_wrap .order_top .pro_info h3 { border-bottom: none; }
+                                .wrap .order_wrap .order_top .pro_info .order_list div  { float: left; text-align: center; }
+                                .wrap .order_wrap .order_top .pro_info .order_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_top .pro_info .order_list { border-top: 1px solid #6b6b6b; border-bottom: 1px solid #bdbcbc; padding: 10px 0; }
+                                .wrap .order_wrap .order_top .pro_info div:last-child { border-top: none; }
+                                .wrap .order_wrap .order_top .pro_info .pro_list div:first-child a { float: left; width: 33.3%; }
+                                .wrap .order_wrap .order_top .pro_info .pro_list div:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
+        
+                                .wrap .order_wrap .order_middle .om_list div { float: left; padding-right: 30px; }
+                                .wrap .order_wrap .order_middle .om_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_middle .om_list select { width: 150px; }
+                                .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 100%; }
+                                .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_detail { float: none; }
+                                .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip { padding: 5px; border: 1px solid #ddd; background-color: #8e8e8e; }
+                                .wrap .order_wrap .order_middle .addr_div > div:last-child .addr_wrap .addr_zip .btn_zip a { padding: 10px; font-size: 14px; color: white; }
+                                .wrap .order_wrap .order_middle .receiver_info .ri_top h3 { float: left; border-bottom: none; }
+                                .wrap .order_wrap .order_middle .receiver_info .ri_top { border-bottom: 1px solid #ddd; }
+                                .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input { float: right; }
+                                .wrap .order_wrap .order_middle .receiver_info .ri_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_top div { background-color: rgb(247, 247, 247); padding: 15px 10px 10px 10px; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul { float: left; width: 33.3%; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+    
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li:first-child { border-right: none; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { float: left; width: 50%; border: 1px solid #ddd; padding: 10px; user-select: none; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li.active { background-color: rgb(185, 185, 185); border: 1px solid #ddd; border-right: none; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul { width: 100%; max-width: 300px; margin: 0 0 auto 0; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: left; width: 60%; border-right: 1px solid #ddd; margin-right: 10px; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_card .pay_card_box div::after { content: ''; display: block; overflow: hidden; clear: both; } 
+                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: 1px solid #ddd; padding: 20px; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: right; width: 30%; }
+                                .wrap .order_wrap .order_bottom .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li { float: left; width: 50%; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { border: none; padding: 15px; width: 80%; color: white; background-color: red; }
+                                
+                                
+                                
+                                @media(max-width:1200px) {
+                                    /*order*/
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input,
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input { width: 15%; }
+                                }
+                                @media(max-width:992px) {
+                                    /*order*/
+                                    .wrap .order_wrap .order_middle .om_list div { padding-right: none; margin-right: none; }
+                                    .wrap .order_wrap section.order_middle .orderer_info .om_list input { width: 30%; padding: 0; }
+                                    .wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 100px; padding: 0; } 
+                                    .wrap .order_wrap section.order_middle .receiver_info .om_list .info_deliver input { width: 100px; padding: 0; }
+                                    .wrap .order_wrap section.order_middle .receiver_info .om_list input { width: 30%; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child { width: 10%; padding-right: 0; margin-right: 0;  }
+                                    .wrap .order_wrap .order_middle .om_list div:last-child { width: 90%; padding-right: 0; }
+                                    .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap .addr_zip,.wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap 
+                                    .addr_detail { width: 100%; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 20%; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required + div { width: 50%; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li input { width: 30%; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 100px; }
+                                    .wrap .order_wrap .order_contents .order_form > .order_title { margin-bottom: 10px; }
+                                    .wrap .order_wrap .order_middle .orderer_info.mtb30px { margin: 0; }
+                                    .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap input { width: 48%; }
 
-                                            }
-                                            @media(max-width:768px) {
-                                                 /*order*/
-                                                .wrap .order_wrap section h3 ,.wrap .order_wrap .order_bottom .charge_info .cil_middle h4 { font-size: 16px; font-weight: 600; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select p { font-size: 14px; margin-bottom: 10px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_cash ul li { margin-bottom: 10px; }
-                                                /* .wrap .order_wrap .order_middle .orderer_info { margin: 0; } */
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info ul li ,
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div { font-size: 13px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: none; width:100%; border-right: 0; margin-bottom: 20px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: none; width:100%; border: 1px solid #ddd; padding: 20px; text-align: center; }
-                                                .wrap .order_wrap .order_middle .om_list select,.wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 30%; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child { float: none; width:100%; margin-bottom: 10px; }
-                                                .wrap .order_wrap .order_middle .om_list div:last-child { float: none; width: 100%; }
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: none; padding: 0; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { width: 70%; padding: 10px;  }
-                                                .wrap .order_wrap section.order_middle .mb20px { margin-bottom: 10px; }
-                                                .wrap .order_wrap .order_middle .receiver_info .ri_top { margin-top: 20px; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child { font-size: 14px; }
-                                                .wrap .order_wrap .order_middle .receiver_info { margin-bottom: 0; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom div h4 { font-size: 18px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom div p { font-size: 18px; margin: 10px 0; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li
-                                                ,.wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li { font-size: 14px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul { font-size: 14px; }
-                                                .wrap .order_wrap .order_top .pro_info .order_list div { font-size: 14px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 70px; }
-                                                .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input span { font-size: 12px; }
-                                                .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 100%; }
-                                                .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 200px; }
-                                            }
-                                            @media(max-width:600px) {
-                                                /*order*/
-                                                .wrap .order_wrap section { margin: 10px 0; padding: 0; }
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input, 
-                                                .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input 
-                                                { width: 19%; margin-right: 0; }
-                                                .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 300px; }
-                                                .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { font-size: 14px; margin-bottom: 10px; }
-                                            }
-                                            @media(max-width:400px) {
-                                                
-
-                                            }
-                                        </style>
+                                }
+                                @media(max-width:768px) {
+                                    /*order*/
+                                    .wrap .order_wrap section h3 ,.wrap .order_wrap .order_bottom .charge_info .cil_middle h4 { font-size: 16px; font-weight: 600; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select p { font-size: 14px; margin-bottom: 10px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_cash ul li,.wrap .order_wrap section.order_middle .mb20px { margin-bottom: 10px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info ul li ,
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div { font-size: 13px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: none; width:100%; border-right: 0; margin-bottom: 20px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: none; width:100%; border: 1px solid #ddd; padding: 20px; text-align: center; }
+                                    .wrap .order_wrap .order_middle .om_list select,.wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 30%; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child { float: none; width:100%; margin-bottom: 10px; }
+                                    .wrap .order_wrap .order_middle .om_list div:last-child { float: none; width: 100%; }
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: none; padding: 0; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { width: 70%; padding: 10px;  }
+                                    .wrap .order_wrap .order_middle .receiver_info .ri_top { margin-top: 20px; }
+                                    .wrap .order_wrap .order_middle .receiver_info { margin-bottom: 0; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom div h4 { font-size: 18px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom div p { font-size: 18px; margin: 10px 0; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child,
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li,.wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li , .wrap .order_wrap .order_bottom .charge_info .cil_top ul 
+                                    ,.wrap .order_wrap .order_top .pro_info .order_list div { font-size: 14px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 70px; }
+                                    .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input span { font-size: 12px; }
+                                    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 100%; }
+                                    .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 200px; }
+                                }
+                                @media(max-width:600px) {
+                                    /*order*/
+                                    .wrap .order_wrap section { margin: 10px 0; padding: 0; }
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input, 
+                                    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input 
+                                    { width: 19%; margin-right: 0; }
+                                    .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 300px; }
+                                    .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { font-size: 14px; margin-bottom: 10px; }
+                                }
+                             
+                            </style>
                                         <div class="pay_card mt20px display_none">
                                             <div class="w100 pay_card_box">
                                                 <div class="mb10px">
                                                     <span class="mr5px">카드번호</span>
-                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
-                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
-                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
-                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="card_num_1" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="card_num_2" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="card_num_3" maxlength="4" oninput="maxLengthCheck(this);">
+                                                    <input type="number" numberonly="" class="mr10px w120px" name="card_num_1" id="card_num_4" maxlength="4" oninput="maxLengthCheck(this);">
                                                 </div>
     
                                                 <div class="mb10px">
@@ -792,7 +789,7 @@
     
                                                 <div class="mb10px">
                                                     <span class="mr5px">할부기간</span>
-                                                    <select name="" id="">
+                                                    <select name="install_period" id="">
                                                         <option value="">선택하세요.</option>
                                                         <option value="00">일시불</option>
                                                         <option value="01">1개월</option>
@@ -800,13 +797,11 @@
                                                         <option value="03">3개월</option>
                                                         <option value="04">4개월</option>
                                                         <option value="05">5개월</option>
-                    
                                                         <option value="06">6개월</option>
                                                         <option value="07">7개월</option>
                                                         <option value="08">8개월</option>
                                                         <option value="09">9개월</option>
                                                         <option value="10">10개월</option>
-                    
                                                         <option value="11">11개월</option>
                                                         <option value="12">12개월</option>
                                                     </select>
@@ -852,10 +847,10 @@
                     </section>
                     <!--} order_bottom-->
                     <style>
-                        .order_btn a { background-color: red; padding: 10px; color: white; display: inline-block; }
+                        /* .order_btn a { background-color: #616161; padding: 10px; color: white; display: inline-block; } */
                     </style>
                     <div class="order_btn mb30px">
-                        <div class="t_center dw_1200px over_hidden"><a href="">취소하기</a></div>
+                        <div class="t_center dw_1200px over_hidden"><a href=""><i class="fas fa-chevron-left mr5px"></i>이전으로 돌아가기</a></div>
                     </div>
 
                     

@@ -69,7 +69,7 @@ COMMON.date = {
  */
 COMMON.cookie = {
     /**
-     * @brief 쿠카값 가져오기
+     * @brief 쿠키값 가져오기
      * @param {string} cName 
      * @returns {string} unescape value
      */

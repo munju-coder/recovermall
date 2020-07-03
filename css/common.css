@@ -48,6 +48,7 @@ input, select { outline: none; }
 /*margin*/
 .mt5px { margin-top: 5px; }
 .mt10px { margin-top: 10px; }
+.mt15px { margin-top: 15px; }
 .mt20px { margin-top: 20px; }
 .mt30px { margin-top: 30px; }
 .mt40px { margin-top: 40px; }
@@ -63,6 +64,7 @@ input, select { outline: none; }
 
 .mb5px { margin-bottom: 5px; }
 .mb10px { margin-bottom: 10px; }
+.mb15px { margin-bottom: 15px; }
 .mb20px { margin-bottom: 20px; }
 .mb30px { margin-bottom: 30px; }
 .mb40px { margin-bottom: 40px; }
@@ -72,6 +74,7 @@ input, select { outline: none; }
 .mb10per { margin-bottom: 10%; }
 .mb20per { margin-bottom: 20%; }
 .mb30per { margin-bottom: 30%; }
+.margin_10px { margin: 10px; }
 .mtb10px { margin: 10px 0; }
 .mtb20px { margin: 20px 0; }
 .mtb30px { margin: 30px 0; }
