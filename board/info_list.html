@@ -266,257 +266,46 @@
                 <!--} catego_menu-->
             </div>
         </aside>
-        <!--} aside-->
+        <!--} aside--> 
 
-        <div class="mb_cart_wrap">
-            <div class="mb_cart_contents p_contents dw_1200px pt3per">
-                <section class="mbc_top contents_border">
-                    <h2 class="f24">장바구니</h2>
-                </section>
-                <p class="f13 mt10px">주문하실 상품을 선택해주세요.</p>
-                
-                <section class="mbc_middle">
-                    <div class="t_right">
-                        <button class="f14 all_delete">전체삭제</button>
-                     </div>
-
-                    <div class="cart_list cart_top mt10px">
-                        <div class="w5 pl10px"><input type="checkbox" id="pd_all_input" name="pr_price"></div>
-                        <div class="w45 pro_info_list t_center">상품정보</div>
-                        <div class="w10 pro_info_count t_left">수량</div>
-                        <div class="w20 pro_info_point t_center">적립포인트</div>
-                        <div class="w20 pro_info_price t_center">가격</div>
-                    </div> 
-
-                    <div class="cart_list cart_bottom margin_10px">
-                        <div class="cart_table w50 cart_pro">
-                            <div class="w30">
-                                <input type="checkbox" name="chk[]" pd_price="12000" amount="1" class="each_chk" >
-                                <a href="#"><img class="w100" src="../images/product2.png" alt="product image"></a>
-                            </div>
-                            
-                            <div class="w50">
-                                <ul class="mtb10px">
-                                    <li class="mb10px"><a href="" class="f14 white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
-                                    <!-- <li><a href="" class="f14 white_space word_break">옵션선택 안함</a></li> -->
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="cart_table w10 count_box mtb10px t_center cart_count">
-                            <div class="count_input">
-                                <input type="text" id="cnt" class="cnt_input outline_none w40" value="1">
-                            </div>
-
-                            <div class="count_button">
-                                <input type="button" class="outline_none mb3px" id="plus" value="▲">
-                                <input type="button" class="outline_none" id="minus" value="▼">
-                            </div>
-                        </div>
-
-                        <div class="cart_table w20 t_center mtb10px cart_point" ><span>1,000</span>P</div>
-                        <div class="cart_table w20 t_center mtb10px cart_price" >
-                            <span class="product_price">12,000</span>원
-                        </div>
+        <div class="board_contents">
+            <div class="dw_1200px">
+                <h2>공지사항</h2>
+                <section class="b_top">
+                    <div class="">
+                        <div class="">NO</div>
+                        <div class="">CONTENT</div>
+                        <div class="">NAME</div>
+                        <div class="">DATE</div>
                     </div>
 
-                    <div class="cart_table close_i delete_btn">
-                        <a href="#"><i class="far fa-window-close"></i></a>
+                    <div class="">
+                        <div class="">2</div>
+                        <div class="">
+                            <i class="far fa-file-alt"></i>리커버몰 오픈안내
+                            <div><a href="">new</a></div>
+                        </div>
+                        <div class="">admin</div>
+                        <div class="">2020.07.02</div>
                     </div>
-                    
-                </section>
-                <style>
-                    /*mb_cart*/
-                    .wrap .mb_cart_wrap .mb_cart_contents { position: relative; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { border: none; padding: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button:hover { background-color: rgb(88, 88, 88); color: white; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top { border-bottom: 1px solid #ddd; padding: 10px 0; border-top: 1px solid #ddd; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_input input { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_button input { height: 14px; display: block; font-size: 10px; border: none; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .close_i { position: absolute; top: 50%; right: 0; font-size: 22px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .bottom_btn { width: 100%; max-width: 223px; margin: 0 auto; margin-bottom: 20vh; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child div { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:first-child { width: 100px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:nth-child(2) { width: 270px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:last-child { width: 100px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: left; border: 1px solid #ddd; padding: 10px 15px;  }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { background-color: rgb(163, 163, 163); }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:last-child { background-color: red; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div a { color: white; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_pro div input { float: left; }
 
-                    @media(max-width:992px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_table .count_input input { width: 60%; }
-                    }
-                    @media(max-width:768px){
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li ,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_pro div:last-child ul li a
-                        ,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div,.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div a { font-size: 13px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 0; margin-bottom: 5px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: none; padding: 10px 15px 15px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_pro,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_list { width: 40%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_count { width: 20%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_point { text-align: right; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_price { width: 25%; }
-                    }
-                    @media(max-width:600px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { font-size: 13px; padding: 8px 12px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .bottom_btn { max-width: 100%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:first-child { width: 70px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:nth-child(2) { width: 185px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:last-child { width: 65px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .close_i { font-size: 16px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .pro_info { width: 40%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div:first-child img { display: none; }
-
-                    }
-                    @media(max-width:400px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { font-size: 12px; padding: 7px 9px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_point { width: 25%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_price { width: 20%; }
-
-                    }
+                    <div class="">
+                        <div class="">1</div>
+                        <div class="">
+                            <i class="far fa-file-alt"></i>신규 브랜드 안내
+                        </div>
+                        <div class="">admin</div>
+                        <div class="">2020.06.10</div>
+                    </div>
 
 
-                </style>
-                <section class="mbc_bottom mb30px">
-                    <ul class="over_visible">
-                        <li class="t_right">총 주문금액 :</li>
-                        <li class="t_center">상품합계 <span class="only_p_price ">0</span> 원 + 배송비 <span class="etc_price" del_pr="3000">0</span> 원</li>
-                        <li class="t_left over_visible">= <span class="total_price cart_sum_price">0</span>원</li>
-                    </ul>
                 </section>
 
-                <div class="cart_btn t_center bottom_btn">                                                                                                              
-                    <div><a href="#">쇼핑계속하기</a></div>
-                    <div><a href="#">주문하기</a></div>
-                </div>
             </div>
+
         </div>
 
-        <script>
-            $(document).ready( function(){
-
-                //global variable
-                var product_price = Number(COMMON.form.str_num($(".product_price").text())); //상품가격                            
-                var only_p_price = Number(COMMON.form.str_num($(".only_p_price").text())); //상품가격
-                var product_amount = Number(COMMON.form.str_num($(".cnt_input").val())); //상품수량
-                var total_price = Number(COMMON.form.str_num($('.total_price').text())); //상품가격 + 배송비 = 총 금액가격
-                
-                var delivery_price = 3000; //배송비가격 3만원 이상일때만 추가되는 변수
-                var min_deliver = 30000; //상품가격 3만원 이상인지 이하인지 알아보는 변수
-
-                var sum_price = 0;               //총 더한 가격 변수
-                var sum_amount = product_amount; //총수량 = 상품수량
-                var option_price = 0;
-
-                $('#pd_all_input').click( function(){
-                    // console.log('a');
-                    var chk = $(this).is(":checked");
-                    var subUnchk = $('.each_chk').prop(':checked', true);
-
-                    if(chk == true)
-                    {
-                        $(".cart_pro input").prop('checked', true);
-
-                        $(".each_chk").each(function(){ 
-                            var each_price = Number($(this).attr("pd_price")); 
-                            sum_price = sum_price + each_price; 
-                        });                    
-                        $("#cart_sum_price").text(COMMON.form.comma(sum_price));
-                    }
-                    else
-                    {
-                        $(".cart_pro input").prop('checked', false);
-                        sum_price = 0;
-                        $("#cart_sum_price").text(COMMON.form.comma(sum_price));
-
-                    }
-                    
-                    if(chk == true && subUnchk == false)
-                    {
-                        $('.each_chk').each(function(){
-                            var each_price2 = Number($(this).attr("pd_price"));
-                            sum_price = sum_price - each_price2;
-                        }); 
-                    }
-                });
-
-                
-                $('.each_chk,#pd_all_input').click( function(){
-                    // sum_amount += 1;
-                    $(".cnt_input").val(sum_amount);
-                    sum_price = (product_price + option_price) * sum_amount;
-                    $(".only_p_price").text(COMMON.form.comma(sum_price));
-                    var each_chk = $('.each_chk').prop(':checked', true);
-                    
-                    if(each_chk == false) {
-                        sum_price = (product_price - option_price) * sum_amount;
-                    }
-
-                });
-            
-                //plus btn event
-                $("#plus").click(function(){
-                    
-                    //  console.log('1');
-                    sum_amount += 1;
-                    $(".cnt_input").val(sum_amount);
-                    sum_price = (product_price + option_price) * sum_amount;
-                    var $op =$(".only_p_price").text(COMMON.form.comma(sum_price));
-
-                    var each_chk = $('.each_chk').prop(':checked', true);
-
-                    // console.log(min_deliver);
-                    $(each_chk).each(function() {
-                        $('.each_chk').attr("checked", true); //수량을 올렸을때 인풋 체크해줌
-                        
-                    });
-
-                    console.log(delivery_price);
-                    if(only_p_price >= delivery_price) {    
-                        etc_price = 0;
-                    }else if (only_p_price < delivery_price) {
-                        etc_price = delivery_price;
-                    }
-                      
-                });
-
-                //minus btn event
-                $("#minus").click(function(){
-                    sum_amount -= 1;
-                    
-                    if(sum_amount >= product_amount)
-                    {
-                        $(".cnt_input").val(sum_amount);
-                        sum_price = sum_price - (product_price + option_price);
-                        $(".only_p_price").text(COMMON.form.comma(sum_price));
-                    }
-                    else
-                    {
-                        $(".cnt_input").val(product_amount);
-                        sum_amount = product_amount;
-                        alert("최소 구매수량 1개입니다.");
-                    }
-                    
-                });
-
-                
-
-            });
-        </script>
+ 
         <!--footer {--> 
         <footer class="">
             <div class="footer_middle">
