@@ -267,42 +267,219 @@
             </div>
         </aside>
         <!--} aside--> 
+        
+        <!--modal_inquery {-->
+        <div class="modal_inquery_background"></div>
+        <div class="modal_inquery_box">
+            <a href="javascript:;" class="inquery_close"><i class="far fa-times-circle t_right"></i></a>
+            <div class="inquery_top fw_600 t_center mb40px">
+                <h2 class="f24 mb30px">문의하기</h2>
+                <p class="mb10px word_break">궁금한 점을 문의해 주세요.</p>
+                <p class="mb10px word_break">담당자가 메일을 통해 친절하게 답변해드립니다.</p>
+                <!-- <p>아래의 양식에 맞춰 정보를 정확하게 입력해주시기 바랍니다.</p> -->
+            </div>
 
-        <div class="board_contents_wrap mb30vh">
+            <script>
+                $(document).ready( function(){
+
+                    //inquery_list toggle event
+                    $('.inquery_btn,.modal_inquery_background,.inquery_close').click( function(){
+                        // console.log('a');
+                        $(".modal_inquery_background").toggle();
+                        $(".modal_inquery_box").toggle();
+                    });
+                });
+            </script>
+
+            <style>
+                /*iquery_list(문의사항)*/
+                .wrap .board_contents_wrap .board_contents .board_middle .bm_top > div { float: left; }
+                .wrap .board_contents_wrap .board_contents .board_middle .bm_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+                .wrap .board_contents_wrap .board_contents .board_middle { border-top: 1px solid #333; margin-bottom: 20px; }
+                .wrap .board_contents_wrap .board_contents .board_middle .bm_top { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
+                .wrap .board_contents_wrap .board_contents .board_middle .main_subject { border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-top: 15px; }
+                .wrap .board_contents_wrap .board_contents .board_middle .sub_subject .new_sticker { border: 1px solid #f51b80; font-size:12px; background-color: #f51b80; padding: 2px 4px 6px 4px; color: white; border-radius: 10px; }
+                .wrap .board_contents_wrap .board_contents .inquery_btn { margin-bottom: 20vh; }
+                .wrap .board_contents_wrap .board_contents .inquery_btn a { display: inline-block; padding: 10px; background-color: #ded9d9; color: 565656; font-size: 13px; }
+                .modal_inquery_box { display: none; position: fixed; background-color: white; z-index: 100; width: 700px; height: 700px; top: 10%; left: 32%; border: 3px solid #ce6161; }
+                .inquery_close i { position: absolute; left: 700px; font-size: 30px; color: #ce6161; }
+                .modal_inquery_background { 
+                    display: none;
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background:rgba(0, 0, 0, 0.5);
+                    z-index: 10;
+                }
+                .wrap .modal_inquery_box .inquery_top { margin: 40px 0; }
+                .wrap .iq_write_form .iq_write p { float: left; width: 20%; text-align: right; }
+                .wrap .iq_write_form .iq_write div { float: right; width: 75%; text-align: left; }
+                .wrap .iq_write_form .iq_write::after { content: ''; display: block; overflow: hidden; clear: both; }
+                .wrap .iq_write_form .iq_write_btn button { border: 1px solid #ddd; padding: 10px 40px; font-size: 15px; }
+                @media(max-width:1200px) {
+                    /*iquery_list(문의사항)*/
+                    .modal_inquery_box { left: 18%; }
+                }
+                @media(max-width:992px) {
+                    /*iquery_list(문의사항)*/
+                    .inquery_close i { left: 0; }
+                    .modal_inquery_box { width: 100%; left: 0; top: 10%; height: 520px;  }
+                    .wrap .modal_inquery_box .inquery_top h2 { font-size: 18px; margin: 20px 0; }
+                    .wrap .modal_inquery_box .inquery_top p { font-size: 13px; }
+                    .wrap .iq_write_form .iq_write p { font-size: 14px; }
+                    .wrap .iq_write_form .iq_write div input::placeholder { font-size: 13px; }
+                    .wrap .iq_write_form .iq_write div span input { width: 30%; }
+                    .wrap .iq_write_form .iq_write { margin-bottom: 10px; }
+                    .wrap .modal_inquery_box .inquery_top { margin-top: 10px; margin-bottom: 20px; }
+                    .wrap .iq_write_form .iq_write_email select { width: 47%; }
+                    .wrap .iq_write_form .iq_write_email div span input { width: 40%; }
+                    .iq_write_number select { width: 25%; }
+                    .wrap .iq_write_form .iq_write_textara div input,.wrap .iq_write_form .iq_write_textarea textarea { width: 92%; }
+                    
+                }
+                @media(max-width:768px){
+                    /*iquery_list(문의사항)*/
+                    .wrap .board_contents_wrap .board_contents .board_top { margin-bottom: 20px; }
+                    .wrap .board_contents_wrap .board_contents .board_middle .bm_top .bt_subject { font-size: 13px; }
+                    .wrap .board_contents_wrap .board_contents .board_middle .bm_top .board_date { font-size: 12px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; }
+                    .wrap .board_contents_wrap .board_contents { margin-top: 30px; }
+                    .wrap .board_contents_wrap .board_contents .board_top h2 { font-size: 18px; }
+                }
+                @media(max-width:600px) {
+                    /*iquery_list(문의사항)*/
+                    .wrap .board_contents_wrap .board_contents .board_middle .main_subject { padding-bottom: 10px; margin-top: 10px; }
+                    .wrap .board_contents_wrap .board_contents .inquery_btn a { font-size: 12px; }
+                    .wrap .iq_write_form .iq_write_btn button { padding: 5px 20px; font-size: 13px; }
+                    .wrap .iq_write_form .iq_write_email select { width: 41%; }
+                    .wrap .iq_write_form .iq_write_number div span input { width: 27%; }
+                }
+               
+            </style>
+
+            <!--iq_write_form {-->
+            <form class = "iq_write_form">
+                <input type="hidden" name="mb_id" value = "">
+                <fieldset>
+                    <div class="iq_write t_center mb20px">
+                        <p class="p_color mb10px">성명</p>
+                        <div class="m10px">
+                            <input type="text" name = "app_no" class="outline_none" placeholder="성명">
+                        </div>
+                    </div>
+                    
+                    <div class="iq_write t_center mb20px iq_write_number">
+                        <p class="mb10px">연락처</p>
+                        <!-- <div class="m10px">
+                            <input type="text" name = "order_price" class="outline_none" placeholder="010-1234-5678">
+                        </div> -->
+                        <div class="">
+                            <select name="" id="" class="w20">
+                                <option value="">010</option>
+                                <option value="">011</option>
+                                <option value="">016</option>
+                                <option value="">017</option>
+                                <option value="">018</option>
+                                <option value="">019</option>
+                            </select>
+        
+                            <span class="">-</span>
+                            <span class="">
+                                <input type="text" name="mb_tel_1" id="mb_tel_1" class="w20" value="" maxlength="4">
+                            </span>
+                            <span class="">-</span>
+                            <span class="">
+                                <input type="text" name="mb_tel_2" id="mb_tel_2" class="w20" value="" maxlength="4">
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="iq_write t_center mb20px iq_write_email">
+                        <p class="om_title">이메일</p>
+                        <div class="">
+                            <span class="">
+                                <input type="text" name="mb_email" id="mb_email"  class="w30" value="" maxlength="100">
+                            </span>
+                            <span class="">@</span>
+
+                            <select name="" id="" class="w30">
+                                <option value="">naver.com</option>
+                                <option value="">gmail.com</option>
+                                <option value="">hanmail.net</option>
+                                <option value="">nate.com</option>
+                                <option value="">yahoo.com</option>
+                                <option value="">직접입력</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="iq_write t_center mb20px iq_write_textarea">
+                        <p class="p_color mb10px">제목</p>
+                        <div class="m10px">
+                            <input type="text" name = "app_dt" class="outline_none w90" placeholder="ex)문의드립니다">
+                        </div>
+                    </div>
+
+                    <div class="iq_write t_center mb30px iq_write_textara">
+                        <p class="p_color mb10px">문의내용</p>
+                        <div class="m10px">
+                            <textarea name="" class="w90" id="" cols="30" rows="10"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="iq_write_btn t_center">
+                        <div>
+                            <button class="outline_none" href="#">등록</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <!--} iq_write_form-->
+        </div>
+        <!--} modal_inquery-->
+
+        <div class="board_contents_wrap">
             <div class="dw_1200px mt40px board_contents">
                 <section class="board_top mb30px">
-                    <h2 class="f24">공지사항</h2>
+                    <h2 class="f24">문의사항</h2>
                 </section>
                 
-                <section class="board_middle board_list_middle">
+                <section class="board_middle">
                     <div class="bm_top main_subject">
-                        <div class="bt_subject w10 t_center">NO</div>
-                        <div class="bt_subject w50 t_center">CONTENT</div>
-                        <div class="bt_subject w20 t_center">NAME</div>
-                        <div class="bt_subject w20 t_center">DATE</div>
+                        <div class="bt_subject w10 t_center">번호</div>
+                        <div class="bt_subject w50 t_center">문의내용</div>
+                        <div class="bt_subject w20 t_center">아이디</div>
+                        <div class="bt_subject w20 t_center">문의날짜</div>
                     </div>
 
                     <div class="bm_top sub_subject pt10px">
                         <div class="bt_subject w10 t_center">2</div>
                         <div class="bt_subject w50 t_center white_space">
-                            <a href="../board/view.html"><i class="far fa-file-alt mr10px"></i>리커버몰 리뉴얼 안내</a>
+                            <a href="../board/view.html"><i class="fas fa-lock mr10px"></i>결제문의드립니다.</a>
                         </div>
-                        <div class="bt_subject w20 t_center">admin</div>
+                        <div class="bt_subject w20 t_center">조문주</div>
                         <div class="bt_subject w20 t_center board_date">2020.07.02</div>
                     </div>
 
                     <div class="bm_top sub_subject pt10px">
                         <div class="w10 bt_subject t_center">1</div>
                         <div class="w50 bt_subject t_center white_space">
-                            <a href="../board/view.html"><i class="far fa-file-alt mr10px"></i>신규 브랜드 안내</a>
+                            <a href="../board/view.html"><i class="fas fa-lock mr10px"></i>배송이 아직안왔는데 배송완료 되어있음</a>
                         </div>
-                        <div class="w20 bt_subject t_center">admin</div>
+                        <div class="w20 bt_subject t_center">조문주</div>
                         <div class="w20 bt_subject t_center board_date">2020.06.10</div>
                     </div>
                 </section>
+
+                <div class="inquery_btn t_right">
+                    <a href="javascript:;"><i class="fas fa-pencil-alt mr5px"></i>문의하기</a>
+                </div>
             </div>
+
         </div>
 
+ 
         <!--footer {--> 
         <footer class="">
             <div class="footer_middle">

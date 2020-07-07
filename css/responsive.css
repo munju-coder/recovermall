@@ -7,6 +7,9 @@
 
     /*my_page modal point_insert*/
     .modal_box { left: 27%; }
+
+    /*board iquery_list(공지사항)*/
+    .modal_inquery_box { left: 18%; }
     
     /*footer*/
     .wrap footer .footer_middle .ftm_top { width: 90%; }
@@ -38,6 +41,21 @@
     /*my_page modal point_insert*/
     .modal_box { left: 20%; }
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right ul li { font-size: 14px; }
+
+    /*board iquery_list(문의사항)*/
+    .inquery_close i { left: 0; }
+    .modal_inquery_box { width: 100%; left: 0; top: 10%; height: 520px;  }
+    .wrap .modal_inquery_box .inquery_top h2 { font-size: 18px; margin: 20px 0; }
+    .wrap .modal_inquery_box .inquery_top p { font-size: 13px; }
+    .wrap .iq_write_form .iq_write p { font-size: 14px; }
+    .wrap .iq_write_form .iq_write div input::placeholder { font-size: 13px; }
+    .wrap .iq_write_form .iq_write div span input { width: 30%; }
+    .wrap .iq_write_form .iq_write { margin-bottom: 10px; }
+    .wrap .modal_inquery_box .inquery_top { margin-top: 10px; margin-bottom: 20px; }
+    .wrap .iq_write_form .iq_write_email select { width: 47%; }
+    .wrap .iq_write_form .iq_write_email div span input { width: 40%; }
+    .iq_write_number select { width: 25%; }
+    .wrap .iq_write_form .iq_write_textara div input,.wrap .iq_write_form .iq_write_textarea textarea { width: 92%; }
 }
 @media (max-width:768px) {
     .wrap aside.fixed_menu_btn { display: none; }
@@ -125,6 +143,20 @@
     .find_info .find_info_form fieldset .fi_txt p { font-size: 14px; }
     .find_info .find_info_form fieldset .fi_middle select { margin-top: 5px; width: 50%;  }
 
+    /*board info_list(공지사항)*/
+    .wrap .board_contents_wrap .board_contents .board_top { margin-bottom: 20px; }
+    .wrap .board_contents_wrap .board_contents .board_middle .bm_top .bt_subject { font-size: 13px; }
+    .wrap .board_contents_wrap .board_contents .board_middle .bm_top .board_date { font-size: 12px; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: block; }
+    .wrap .board_contents_wrap .board_contents { margin-top: 30px; }
+    .wrap .board_contents_wrap .board_contents .board_top h2 { font-size: 18px; }
+
+    /*board_view*/
+    .wrap .board_contents_wrap .view_contents .vc_top h2 { font-size: 16px; padding-bottom: 10px; }
+    .wrap .board_contents_wrap .view_contents .vc_top p { font-size: 12px; }
+    .wrap .board_contents_wrap .view_contents .vc_middle p { font-size: 12px; }
+    .wrap .board_contents_wrap .view_contents .view_btn a { padding: 8px; font-size: 12px; }
+    .wrap .board_contents_wrap .view_contents .vc_middle { margin: 20px 0; }
+
     /*footer*/
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle,.wrap footer .footer_bottom_wrap .footer_bottom .ftb_right { width: 100%; }
     .wrap footer .footer_middle .ftm_top { text-align: center; font-size: 14px;  padding: 15px 0; }
@@ -136,7 +168,6 @@
 @media (max-width:600px) {
     /*common*/
     .contents_border { padding-bottom: 10px; }
-
     .wrap header .header_middle { padding: 15px 0; }
     .wrap header .header_middle .hd_middle { width: 40%; }
     .wrap header .header_middle .hd_middle h1 a img { width: 100%; }
@@ -161,6 +192,16 @@
     .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div button { font-size: 15px; }
     .wrap .p_contents .p_bottom .cmb_contents table { font-size: 12px; }
     .wrap .p_contents .pd1per { padding: 2%; }
+
+    /*info_list(공지사항)*/
+    .wrap .board_contents_wrap .board_contents .board_middle .main_subject { padding-bottom: 10px; margin-top: 10px; }
+
+    /*iquery_list(문의사항)*/
+    .wrap .board_contents_wrap .board_contents .board_middle .main_subject { padding-bottom: 10px; margin-top: 10px; }
+    .wrap .board_contents_wrap .board_contents .inquery_btn a { font-size: 12px; }
+    .wrap .iq_write_form .iq_write_btn button { padding: 5px 20px; font-size: 13px; }
+    .wrap .iq_write_form .iq_write_email select { width: 41%; }
+    .wrap .iq_write_form .iq_write_number div span input { width: 27%; }
 
 }
 

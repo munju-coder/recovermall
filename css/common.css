@@ -74,10 +74,12 @@ input, select { outline: none; }
 .mb10per { margin-bottom: 10%; }
 .mb20per { margin-bottom: 20%; }
 .mb30per { margin-bottom: 30%; }
+.mb30vh { margin-bottom: 30vh; }
 .margin_10px { margin: 10px; }
 .mtb10px { margin: 10px 0; }
 .mtb20px { margin: 20px 0; }
 .mtb30px { margin: 30px 0; }
+
 
 /*padding*/
 .padding_0 { padding: 0; }
