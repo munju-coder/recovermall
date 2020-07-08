@@ -210,12 +210,30 @@
                 });
             });
 
+            //order email select option event
+            $('#mb_email02').hide();
+            $('#om_selbox').change( function(){
+            
+                $('#om_selbox option:selected').each( function(){
+                    if($(this).val() == '1'){
+                        $('#mb_email02').val('');
+                        $('#mb_email02').attr('disabled',false);
+                        $('#mb_email02').show();
+                    }else {
+                        $("#mb_email02").val($(this).text()); 
+                        $('#mb_email02').attr('disabled',true);
+                        $('#mb_email02').hide();
+                    }
+                });
+            });
+
         //input maxlength
         function maxLengthCheck(object) {
             if(object.value.length > object.maxLength) {
                 object.value = object.value.slice(0, object.maxLength);
             }
         }
+        
 
             
         });
@@ -524,13 +542,14 @@
                                     </span>
                                     <span class="">@</span>
 
-                                    <select name="" id="" class="">
+                                    <input type="text" name="mb_email02" id="mb_email02"  class="w30" disabled value="naver.com">
+                                    <select name="" id="om_selbox">
                                         <option value="">naver.com</option>
                                         <option value="">gmail.com</option>
                                         <option value="">hanmail.net</option>
                                         <option value="">nate.com</option>
                                         <option value="">yahoo.com</option>
-                                        <option value="">직접입력</option>
+                                        <option value="1">직접입력</option>
                                     </select>
                                 </div>
                             </div>
@@ -846,14 +865,10 @@
                         </div>
                     </section>
                     <!--} order_bottom-->
-                    <style>
-                        /* .order_btn a { background-color: #616161; padding: 10px; color: white; display: inline-block; } */
-                    </style>
+
                     <div class="order_btn mb30px">
                         <div class="t_center dw_1200px over_hidden"><a href=""><i class="fas fa-chevron-left mr5px"></i>이전으로 돌아가기</a></div>
-                    </div>
-
-                    
+                    </div>                    
                 </form>
                 <!--} order_form-->
             </section>
