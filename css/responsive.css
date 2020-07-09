@@ -10,11 +10,26 @@
 
     /*board iquery_list(공지사항)*/
     .modal_inquery_box { left: 18%; }
+
+    /*order*/
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input,
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input { width: 15%; }
+
+    /*order_result*/
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 20%; text-align: left; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left img { width: 100%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 50%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 30%; text-align: right; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul { width: 50%; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul:last-child { text-align: right; }
+    .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { width: 50%; }
     
     /*footer*/
     .wrap footer .footer_middle .ftm_top { width: 90%; }
     .wrap footer .footer_bottom_wrap .footer_bottom div:first-child { display: none; }
     .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle { width: 70%; } 
+
+    
 }
     
 @media (max-width:1200px) and (min-width:992px) {
@@ -56,6 +71,32 @@
     .wrap .iq_write_form .iq_write_email div span input { width: 40%; }
     .iq_write_number select { width: 25%; }
     .wrap .iq_write_form .iq_write_textara div input,.wrap .iq_write_form .iq_write_textarea textarea { width: 92%; }
+
+    /*order*/
+    .wrap .order_wrap .order_middle .om_list div { padding-right: none; margin-right: none; }
+    .wrap .order_wrap section.order_middle .orderer_info .om_list input { width: 30%; padding: 0; }
+    .wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 100px; padding: 0; } 
+    .wrap .order_wrap section.order_middle .receiver_info .om_list .info_deliver input { width: 100px; padding: 0; }
+    .wrap .order_wrap section.order_middle .receiver_info .om_list input { width: 30%; }
+    .wrap .order_wrap .order_middle .om_list div:first-child { width: 10%; padding-right: 0; margin-right: 0;  }
+    .wrap .order_wrap .order_middle .om_list div:last-child { width: 90%; padding-right: 0; }
+    .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap .addr_zip,.wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap 
+    .addr_detail { width: 100%; }
+    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 20%; }
+    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required + div { width: 50%; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li input { width: 30%; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 100px; }
+    .wrap .order_wrap .order_contents .order_form > .order_title { margin-bottom: 10px; }
+    .wrap .order_wrap .order_middle .orderer_info.mtb30px { margin: 0; }
+    .wrap .order_wrap .order_middle .om_list div:last-child.addr_wrap input { width: 48%; }
+
+    /*order_result*/
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_left { width: 30%; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_right { width: 70%; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom .rcmb_left li:nth-child(3) { margin-bottom: 25px; }
+    .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { width: 50%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 60%; padding-top: 25px; font-size: 14px; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 20%; text-align: right; }
 }
 @media (max-width:768px) {
     .wrap aside.fixed_menu_btn { display: none; }
@@ -136,6 +177,48 @@
     .point_insert .pb_top { padding-top: 40px; }
     .point_insert .point_form fieldset .pb_btn button { font-size: 14px; }
 
+    /*order*/
+    .wrap .order_wrap section h3 ,.wrap .order_wrap .order_bottom .charge_info .cil_middle h4 { font-size: 16px; font-weight: 600; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select p { font-size: 14px; margin-bottom: 10px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info .pay_cash ul li,.wrap .order_wrap section.order_middle .mb20px { margin-bottom: 10px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_middle .pay_info ul li ,
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div { font-size: 13px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_middle { float: none; width:100%; border-right: 0; margin-bottom: 20px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom { float: none; width:100%; border: 1px solid #ddd; padding: 20px; text-align: center; }
+    .wrap .order_wrap .order_middle .om_list select,.wrap .order_wrap section.order_middle .orderer_info .om_list .info_deliver input { width: 30%; }
+    .wrap .order_wrap .order_middle .om_list div:first-child { float: none; width:100%; margin-bottom: 10px; }
+    .wrap .order_wrap .order_middle .om_list div:last-child { float: none; width: 100%; }
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom { border: none; padding: 0; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { width: 70%; padding: 10px;  }
+    .wrap .order_wrap .order_middle .receiver_info .ri_top { margin-top: 20px; }
+    .wrap .order_wrap .order_middle .receiver_info { margin-bottom: 0; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom div h4 { font-size: 18px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom div p { font-size: 18px; margin: 10px 0; }
+    .wrap .order_wrap .order_middle .om_list div:first-child,
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom ul li,.wrap .order_wrap .order_bottom .charge_info .cil_middle .payment_select ul li , .wrap .order_wrap .order_bottom .charge_info .cil_top ul 
+    ,.wrap .order_wrap .order_top .pro_info .order_list div { font-size: 14px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_top ul li:last-child input { width: 70px; }
+    .wrap .order_wrap .order_middle .receiver_info .ri_top .same_input span { font-size: 12px; }
+    .wrap .order_wrap .order_middle .om_list div:first-child.deli_required { width: 100%; }
+    .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 200px; }
+
+    /*order_result*/
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom a { float: none; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom ul { float: none; width: 100%;  }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 100%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_top { width: 100%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 100%; font-size: 16px; padding-top: 0; margin: 20px 0; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right,
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { width: 100%; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { padding: 15px 0; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom,
+    .wrap .order_result_wrap .result_contents .rc_bottom,.wrap .order_result_wrap .result_contents .rc_top .rct_top { font-size: 14px; }
+    .wrap .order_result_wrap .result_contents .rc_top .rct_top h3 { font-size: 16px; }
+    .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom { padding: 20px 0; }
+    .order_result_wrap .result_contents .rc_bottom .rcb_bottom { padding: 20px 0; }
+    .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul li:last-child { font-size: 16px; }
+    .order_btn { font-size: 14px; margin: 3% 0; }
+
     /*login modal find_info*/
     .modal_box .fi_top { padding-bottom: 0; }
     .find_info { height: 330px; }
@@ -187,6 +270,17 @@
     .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab_contents ul:not(.left_sub_menu) > li > a::after { right: 15px; }
     .wrap aside.left_menu_wrap .left_menu .catego_menu .cate_gnb .left_tab ul li a { font-size: 13px; }
 
+    /*order*/
+    .wrap .order_wrap section { margin: 10px 0; padding: 0; }
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_cash ul li input, 
+    .wrap .order_wrap .order_bottom .charge_info .pay_bottom .cil_middle .pay_info .pay_card .pay_card_box div input 
+    { width: 19%; margin-right: 0; }
+    .wrap .order_wrap .order_middle .om_list .info_deliver select { width: 300px; }
+    .wrap .order_wrap .order_bottom .charge_info .cil_bottom button { font-size: 14px; margin-bottom: 10px; }
+
+    /*order_result*/
+    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { padding: 10px 0; font-size: 12px; }
+    
     /*product_view*/
     .wrap .p_contents .p_bottom .cmb_tab ul li a { height: 45px; line-height: 45px; font-size: 15px; }
     .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div button { font-size: 15px; }

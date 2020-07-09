@@ -269,22 +269,93 @@
         <!--} aside-->
         
         <!--order_list_wrap {-->
-        <div class="order_list_wrap">
-            <div class="order_list_contents dw_1200px">
-                <section class="ol_top pt3per">
+        <div class="order_list_wrap order_result_wrap">
+            <div class="order_list_contents dw_1200px result_contents pt3per p_contents">
+                <section class="ol_top ">
                         <h2 class="f24 mb20px">주문내역</h2>
                         <p class="f13">주문번호를 누르시면 주문 상새내역을 조회하실 수 있습니다.</p>
                 </section>
 
-                <section class="olm_subject t_center">
-                    <h3 class="f14">주문번호 <span><a href="#">2020070815462525</a></span></h3> 
+                <!-- <section class="olm_subject t_center">
+                    <h3 class="f14">상품주문번호 <span><a href="#">2020070815462525</a></span></h3> 
+                </section> -->
+
+                <section class="rc_top ol_middle">
+                    
+                    <div class="rct_top olm_top t_center">
+                        <h3 class="f14">상품주문번호 <span><a href="#">2020070815462525</a></span></h3> 
+                    </div>
+                    
+                    <div class="rct_bottom mt10px olm_bottom">
+                        <a class="t_center w20 rctb_left olmb_left" href="../product/product_view.html"><img class="w50" src="../images/product2.png" alt="product image"></a>
+                        
+                        <ul class="w50 pt10px rctb_center over_visible olmb_center">
+                            <li class="mb10px">상품명: 롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</li>
+                            <li class="mb10px">주문날짜: 2020.07.08 14:25:23</li>
+                            <li class="mb10px">상태: 배송완료</li>
+                            <li class="mb10px">수량: <span>1</span>개</li>
+                            <li >가격: <span>120,000</span>원</li>
+                        </ul>
+                        
+                        <ul class="w20 rctb_right olmb_right">
+                            <li class="mb10px"><button class="f14 fw_bold">배송조회</button></li>
+                            <li class="mb10px"><button class="f14 fw_bold">교환신청</button></li>
+                            <li><button class="f14 fw_bold">반품신청</button></li>
+                        </ul> 
+                    </div>
                 </section>
 
                 <style>
-                    .wrap .order_list_wrap .order_list_contents { margin-bottom: 15vh; }
-                    .wrap .order_list_wrap .order_list_contents .ol_top { border-bottom: 2px solid #ff8b98; padding-bottom: 15px; }
+                    /*mb_order_list*/
+                    .wrap .order_list_wrap .order_list_contents .ol_middle { margin-bottom: 20vh; }
+                    .wrap .order_list_wrap .order_list_contents .ol_middle .olm_top { border-top: 1px solid #ddd; margin-top: 10px; }
+                    .wrap .order_result_wrap .result_contents .ol_middle .olm_bottom { border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+
+
+
+                    /*나머지 css result와 동일함*/
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_top { border-bottom: 1px solid #ddd; padding-bottom: 10px; padding: 10px; }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom a { float: left;    }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom ul { float: left; text-align: left; }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { border: none; padding: 10px 15px; }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right li:last-child button:hover { background-color: red; }
+                    .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button:hover { transition: .5s; color: white; background-color: #2f9fff; }
+                    @media(max-width:1200px) {
+                         /*order_result*/
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 20%; text-align: left; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left img { width: 100%; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 50%; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 30%; text-align: right; }
+
+                    }
+                    @media(max-width:992px) {
+                         /*order_result*/
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_bottom .olmb_center { width: 60%; padding-top: 10px; font-size: 14px; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right { width: 20%; text-align: right; }
+                    }
+                    @media(max-width:768px) {
+                         /*order_result*/
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom a { float: none; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom ul { float: none; width: 100%;  }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_left { width: 100%; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_top { width: 100%; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_center { width: 100%; font-size: 16px; padding-top: 0; margin: 20px 0; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right,
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { width: 100%; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { padding: 15px 0; }
+                 
+                        .wrap .order_result_wrap .result_contents .rc_bottom,.wrap .order_result_wrap .result_contents .rc_top .rct_top { font-size: 14px; }
+                        .wrap .order_result_wrap .result_contents .rc_top .rct_top h3 { font-size: 16px; }
+        
+
+                    }
+
+                    
+                    /* .wrap .order_list_wrap .order_list_contents { margin-bottom: 15vh; }
+                    .wrap .order_list_wrap .order_list_contents .ol_top { border-bottom: 2px solid #ddd; padding-bottom: 15px; }
                     .wrap .order_list_wrap .order_list_contents .olm_subject h3 { margin-top: 7px; }
-                    .wrap .order_list_wrap .order_list_contents .olm_subject { border-bottom: 1px solid #ff8b98; padding-bottom: 7px; }
+                    .wrap .order_list_wrap .order_list_contents .olm_subject { border-bottom: 1px solid #ddd; padding-bottom: 7px; }
                     .wrap .order_list_wrap .order_list_contents .ol_middle { border-bottom: 1px solid #ddd; }
                     .wrap .order_list_wrap .order_list_contents .ol_middle div { float: left; }
                     .wrap .order_list_wrap .order_list_contents .ol_middle::after { content: ''; display: block; overflow: hidden; clear: both; }
@@ -292,10 +363,23 @@
                     .wrap .order_list_wrap .order_list_contents .ol_middle .olm_right ul li a { display: inline-block; padding: 10px 15px; background-color: #ddd; }
                     .wrap .order_list_wrap .order_list_contents .ol_middle .olm_right ul li a:hover { background-color: #2f9fff; color: white; }
                     .wrap .order_list_wrap .order_list_contents .ol_middle .olm_right ul li:last-child a:hover { background-color: red; color: white; } 
+                    @media(max-width: 992px){
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_left ,
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_center ,
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_right { margin-top: 10px; }
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_right ul li a { font-size: 12px; padding: 10px; }
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_left { padding-top: 10px; }
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_left a img { width: 100px; }
+                        .wrap .order_list_wrap .order_list_contents .ol_middle .olm_center ul li { font-size: 14px; }
+                    }
+                    @media(max-width:768px){
+                        .wrap .order_list_wrap .order_list_contents .ol_middle div { float: none; }
+                    } */
+
                     
                 </style>
-
-                <section class="ol_middle">
+ 
+                <!-- <section class="ol_middle">
                     <div class="olm_left w20">
                         <a href=""><img class="w100" src="../images/product2.png" alt="product image"></a>
                     </div>
@@ -318,7 +402,7 @@
                         </ul>
                     </div>
 
-                </section>
+                </section> -->
             </div>
         </div>
         <!--} order_list_wrap-->

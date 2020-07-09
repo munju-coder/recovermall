@@ -44,6 +44,8 @@ input, select { outline: none; }
 
 /*background-color*/
 .white_bg { background-color: white; }
+.red_bg { background-color: red; }
+.gray_bg { background-color: #545454; }
 
 /*margin*/
 .mt5px { margin-top: 5px; }
@@ -52,6 +54,7 @@ input, select { outline: none; }
 .mt20px { margin-top: 20px; }
 .mt30px { margin-top: 30px; }
 .mt40px { margin-top: 40px; }
+.mt50px { margin-top: 50px; }
 .mt3per { margin-top: 3%; }
 .mt5per { margin-top: 5%; }
 .mt10per { margin-top: 10%; }

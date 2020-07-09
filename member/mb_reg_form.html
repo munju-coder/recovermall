@@ -41,71 +41,40 @@
         <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
         <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
     </head>
-    <style>
-        /*order*/
-        /* .wrap .order_wrap th { padding: 10px; padding-left: 0;  }
-        .wrap .order_wrap select , .order_wrap input { outline: none; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td a { float: left; width: 33.3%; }
-        .wrap .order_wrap .order_pro_info .table_order_info tr.product_info_img td::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .table_order_info tr.product_info_img td { border-top: 1px solid #ddd; padding: 10px; }
-        .wrap .order_wrap .table_order_info th { border-top: 1px solid #808080; }
-        .wrap .order_wrap .order_contents table caption { color: #333; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr th { background-color: #f1f1f1; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr:last-child,.wrap .order_wrap .order_contents .order_info .receiver_info tr:last-child { border-bottom: 1px solid #cacaca; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info tr th { background-color: #f1f1f1; padding: 0; padding-left: 20px; }
-        .wrap .order_wrap .order_contents .order_info .receiver_info caption div { float: right; }
-        .wrap .order_wrap .order_contents .order_info .orderer_info tr td,.wrap .order_wrap .order_contents .order_info .receiver_info tr td { padding: 10px;  }
-        .wrap .order_wrap .order_contents .order_info .orderer_info caption,.wrap .order_wrap .order_contents .order_info .receiver_info caption
-        { border-bottom: 2px solid #909090; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info h4 { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left { float: left; width: 83%; }
-        .wrap .order_wrap .order_contents .charge_info::after { content: ''; display: block; overflow: hidden; clear: both; } 
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul { background-color: whitesmoke; padding: 20px; border-bottom: 1px solid #ddd; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul li { float: left; width: 33.3%; text-align: center; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_top ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul { width: 100%; max-width: 660px; margin: 0 auto 0 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li { float: left; width: 40%; padding: 10px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.active { background-color: rgb(224, 224, 224) }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_cash { border: 1px solid #cecece; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .payment_select ul li.pay_type_card { border: 1px solid #cecece; border-left: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left .cil_bottom .pay_info .pay_card { display: none; }
-        .wrap .order_wrap .order_contents .charge_info .ci_left td select { width: 100px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right { float: right; padding: 15px; border: 1px solid #ddd; height: 355px; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right table { margin: 20px 0; }
-        .wrap .order_wrap .order_contents .charge_info .ci_right button { border: none; padding: 10px; background-color: red; color: white; }
-        .btn_zip { background-color: #dcdcdc; padding: 5px 10px; } */
-
-    </style>
     <script>
         $(document).ready( function(){
-            $('.payment_select ul li.pay_type_cash').click( function(){
-                $('.payment_select ul li.pay_type_cash').addClass('active');   
-                $('.payment_select ul li.pay_type_cash a').addClass('active');
-                $('.payment_select ul li.pay_type_card').removeClass('active');
-                $('.payment_select ul li.pay_type_cash a').removeClass('active');
-
-                $('.pay_cash').show();
-                $('.pay_card').hide();
-
-            });
-
-            $('.payment_select ul li.pay_type_card').click( function(){
-                // console.log('a'); 
-
-
-                $('.payment_select ul li.pay_type_card').addClass('active');  
-                $('.payment_select ul li.pay_type_cash').removeClass('active');
-                $('.pay_cash').hide();
-                $('.pay_card').show();
-            });
-
-            var ci_height = $('.ci_left').height();
-            console.log(ci_height);
+            $('#mb_email02').hide();
+            $('#om_selbox').change( function(){
             
-
-
+                $('#om_selbox option:selected').each( function(){
+                    if($(this).val() == '1'){
+                        $('#mb_email02').val('');
+                        $('#mb_email02').attr('disabled',false);
+                        $('#mb_email02').show();
+                    }else {
+                        $("#mb_email02").val($(this).text()); 
+                        $('#mb_email02').attr('disabled',true);
+                        $('#mb_email02').hide();
+                    }
+                });
+            });
         });
+
+        function button_event (){
+            if (confirm("정말 삭제하시겠습니까??") == true){    
+                document.form.submit();
+            }else{   
+                return;
+            }
+        }
+                        
+        function button_cancel (){
+            if (confirm("이전의 내용들이 삭제됩니다. 정말 취소하시겠습니까?") == true){    
+                document.form.submit();
+            }else{   
+                return;
+            }
+        }
     </script>
 <body>
     <!--wrap {-->
@@ -149,7 +118,7 @@
                     
                     <form action="" class="Msb_middle">
                         <input type="text" placeholder="상품을 검색해보세요.">
-                        <button class="outline_none">검색</button>
+                        <button>검색</button>
                     </form>
                 </div>
 
@@ -160,7 +129,7 @@
                         </div>
 
                         <div class="search_button" id="search_button">
-                            <button type="submit" id="sch_submit" class="cursor outline_none">
+                            <button type="submit" id="sch_submit" class="cursor">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
@@ -178,7 +147,7 @@
                 <div class="hd_right t_right">
                     <div class="hdr_wrap">
                         <!--로그인 전-->
-                        <a class="login_before" href="../login/login.html">로그인</a>
+                        <a class="login_before" href="#">로그인</a>
                         <!--로그인 후 추가해주세요-->
                         <!-- <a class="login_after" href="#">로그아웃<i class="fas fa-sort-down ml5px"></i></a> -->
                         <a href="#">회원가입</a>
@@ -333,94 +302,224 @@
             </div>
         </aside>
         <!--} aside-->
-        
-        <!--order_result_wrap {-->
-        <div class="order_result_wrap">
-            <div class="result_contents dw_1200px p_contents pt3per">
-                <div class="result_title mb30px">
-                    <h2 class="f24">주문상세내역</h2>
-                </div>
 
-                <section class="rc_top">
-                    <div class="sub_title">
-                        <h3 class="f18">주문상품</h3>
-                    </div>
+        <!--mb_reg_wrap {-->
+        <div class="mb_reg_wrap">
+            <div class="mrf_contents dw_1200px mt50px">
+                <form action="" class="mrf_form">
+                    <section class="mrf_top contents_border t_center">
+                        <h2 class="f24 mb20px">회원정보수정</h2>
+                        <!--회원가입일때 추가변경해주세요-->
+                        <!-- <h2 class="f24">회원가입</h2> -->
+                        <!-- 회원정보변경 페이지 일 때만 적용해주세요 -->
+                        <p class="f12 f_color_red">변경하실 정보를 기입하여 주십시오</p>
+                    </section>
 
-                    <div class="rct_top">
-                        <p>NO.2019032915432525 <span>( 주문날짜: 20200701 )</span></p>
-                    </div>
-                    
-                    <div class="rct_bottom mt10px">
-                        <a class="t_center w20 rctb_left" href="../product/product_view.html"><img class="w50" src="../images/product2.png" alt="product image"></a>
+                    <style>
+                        /*mb_reg_form(회원가입, 회원정보수정)*/
+                        .wrap .mb_reg_wrap .mrf_contents { padding-bottom: 8vh; }
+                        .wrap .mb_reg_wrap .mrf_contents .contents_border { padding-bottom: 10px; }
+                        .wrap .mb_reg_wrap .mrf_contents  i { color: #f1758d; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_list div { float: left; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_middle { border-right: 1px solid #ddd; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_bottom { padding-left: 50px; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_bottom .bank_list .bank_number { float: left; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_bottom .bank_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+                        .wrap .mb_reg_wrap .mrf_contents .mrf_list div:last-child span input { width: 42%; }
+                        .wrap .mb_reg_wrap .mb_reg_btn { width: 100%; max-width: 160px; margin: 0 auto; }
+                        .wrap .mb_reg_wrap .mb_reg_btn div { float: left; }
+                        .wrap .mb_reg_wrap .mb_reg_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
+                        .wrap .mb_reg_wrap .mb_reg_btn div button { border: none; color: white; padding: 10px; }
                         
-                        <ul class="w50 pt20px rctb_center">
-                            <li class="over_hidden mb10px white_space word_break"><a href="" class="">상품명: 롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
-                            <li class="over_hidden mb10px"><a href="">가격: <span>12,0000</span>원</a></li>
-                            <li class="over_hidden"><a href="">수량: <span>1</span>개</a></li>
-                        </ul>
+                        @media(max-width:1200px) {
+                            /*mb_reg_form(회원가입, 회원정보수정)*/
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle div.mrf_email,.wrap .mb_reg_wrap .mrf_contents .mrf_middle div.mrf_address { float: none; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle div.mrf_email .mrfe_input ,.wrap .mb_reg_wrap .mrf_contents .mrf_middle div.mrf_address .mrfa_input { width: 100%; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle div.mrf_address .mrfa_input:first-child { margin-bottom: 10px; }
+                        }
+                        @media(max-width:992px) {
+                            /*mb_reg_form(회원가입, 회원정보수정)*/
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list div.mrfl_subject { width: 40%; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list div:last-child { width: 60%; }
+                            .wrap .mb_reg_wrap .addr_zip .btn_zip a { padding: 0; }
+                        }
+                        @media(max-width:768px) {
+                            /*mb_reg_form(회원가입, 회원정보수정)*/
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle { border-right: none; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list div.mrfl_subject { width: 30%; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list div:last-child { width: 70%; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_top h2 { font-size: 18px; font-weight: 600; margin-bottom: 15px; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle { font-size: 14px; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle .mrf_list:first-child.mb30px,.wrap .mb_reg_wrap .mrf_contents .mrf_bottom .mrf_title { margin-bottom: 20px; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_bottom { margin-top: 0; padding-left: 15px;  }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list h3 ,.wrap .mb_reg_wrap .mrf_contents .mrf_bottom h3 
+                            ,.wrap .mb_reg_wrap .mrf_contents .mrf_bottom .mrf_list .mrfl_subject{ font-size: 15px; }
+                            .wrap .mb_reg_wrap .addr_zip .btn_zip { padding: 3px 5px 5px 5px;  }
+                            .wrap .mb_reg_wrap .addr_zip .btn_zip a { font-size: 12px; }
+                            .wrap .mb_reg_wrap .mb_reg_btn div.mt40px { margin-top: 50px; }
+                            .wrap .mb_reg_wrap .mb_reg_btn div button { font-size: 12px; }
+                        }
+                        @media(max-width:600px) {
+                            /*mb_reg_form(회원가입, 회원정보수정)*/
+                            .wrap .mb_reg_wrap .mrf_contents { margin-top: 30px; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_middle,.wrap .mb_reg_wrap .mrf_contents .mrf_bottom { padding: 0; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_list div.mrfl_subject, .wrap .mb_reg_wrap .mrf_contents .mrf_bottom .mrf_list .mrfl_subject { font-size: 14px; }
+                            .wrap .mb_reg_wrap .mrf_contents .mrf_bottom .mrf_list div select ,.wrap .mb_reg_wrap .mrf_contents .mrf_bottom .mrf_list div input::placeholder { font-size: 13px; }
+                        }
+
+                    </style>
+
+                    <section class="mrf_middle mt20px col-xs-12 col-sm-6">
+                        <div class="mrf_list mb30px mrf_title">
+                            <h3 class="f18 fw_bold">기본정보</h3>
+                        </div>
+
+                        <div class="mrf_list mb15px">
+                            <div class="mrfl_subject w30 mb10px"><i class="fas fa-user-alt mr5px"></i>이름</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="mb_name" value="" maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="mrf_list mb15px">
+                            <div class="mrfl_subject w30 mb10px"><i class="fas fa-id-card-alt mr5px"></i>아이디</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="mb_id" value="" maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="mrf_list mb15px">
+                            <div class="mrfl_subject w30 mb10px"><i class="fas fa-unlock-alt mr5px"></i>비밀번호</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="mb_pw" value="" maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="mrf_list mb15px">
+                            <div class="mrfl_subject w30 mb10px word_break"><i class="fas fa-unlock-alt mr5px"></i>비밀번호 확인</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="mb_pw" value="" maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="mrf_list om_list mb15px mrf_email">
+                            <div class="mrfl_subject w30 om_title mb10px"><i class="fas fa-envelope mr5px"></i>이메일</div>
+                            <div class="w50 mrfe_input">
+                                <span class="">
+                                    <input type="text" name="mb_email" id="mb_email"  class="" value="" maxlength="100">
+                                </span>
+                                <span class="">@</span>
+
+                                <input type="text" name="mb_email02" id="mb_email02"  class="w50" disabled value="naver.com">
+                                <select name="" id="om_selbox" class="w50">
+                                    <option value="">naver.com</option>
+                                    <option value="">gmail.com</option>
+                                    <option value="">hanmail.net</option>
+                                    <option value="">nate.com</option>
+                                    <option value="">yahoo.com</option>
+                                    <option value="1">직접입력</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb20px addr_div mrf_address">
+                            <div class="mr15px mb10px"><i class="fas fa-map-marker-alt mr5px"></i>주소</div>
+                            <div>
+                                <div class="addr_wrap">
+                                    <div class="addr_zip mb10px">
+                                        <span class="input_area">
+                                            <input type="text" name="mb_zip" id="mb_zip" class="" value="" disabled="" >
+                                        </span>
+                                        
+                                        <span class="f14 btn_zip" id="btn_zip"><a href="#">우편번호찾기</a></span>
+                                    </div>
+
+                                    <div class="addr_detail">
+                                        <span class="input_area detail1 mr5px">
+                                            <input type="text" name="mb_addr_1" id="mb_addr_1" class="mrfa_input" placeholder="기본주소" >
+                                        </span>
+                                        
+                                        <span class="input_area detail2">
+                                            <input type="text" name="mb_addr_2" id="mb_addr_2" class="mrfa_input" placeholder="상세주소" maxlength="100">
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="mrf_bottom col-xs-12 col-sm-6 mt20px">
+                        <div class="mb30px mrf_title">
+                            <h3 class="f18 fw_bold">계좌정보</h3>
+                        </div>
+
+                        <div class="mrf_list mb15px">
+                            <div class="mrfl_subject w20 mb10px">예금주</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="bank_name" value="" maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="mrf_list bank_list mb15px">
+                            <div class="mrfl_subject w20 mb10px">은행명</div>
+                            <div class="w50">
+                                <select class="w100" id="om_selbox">
+                                    <option>은행명을 선택하세요</option>
+                                    <option>경남은행</option>
+                                    <option>광주은행</option>
+                                    <option>국민은행</option>
+                                    <option>기업은행</option>
+                                    <option>농협중앙회</option>
+                                    <option>농협회원조합</option>
+                                    <option>대구은행</option>
+                                    <option>도이치은행</option>
+                                    <option>부산은행</option>
+                                    <option>산업은행</option>
+                                    <option>상호저축은행</option>
+                                    <option>새마을금고</option>
+                                    <option>수협중앙회</option>
+                                    <option>신한금융투자</option>
+                                    <option>신한은행</option>
+                                    <option>신협중앙회</option>
+                                    <option>외환은행</option>
+                                    <option>우리은행</option>
+                                    <option>우체국</option>
+                                    <option>전북은행</option>
+                                    <option>제주은행</option>
+                                    <option>카카오뱅크</option>
+                                    <option>케이뱅크</option>
+                                    <option>하나은행</option>
+                                    <option>한국씨티은행</option>
+                                    <option>HSBC은행</option>
+                                    <option>SC제일은행</option>
+                                </select>
+                            </div>
+                        </div>
                         
-                        <ul class="w20 rctb_right">
-                            <li class="mb10px"><button class="f14 fw_bold">교환신청</button></li>
-                            <li class="mb10px"><button class="f14 fw_bold">반품신청</button></li>
-                            <li><button class="f14 fw_bold">결제취소</button></li>
-                        </ul> 
+                        <div class="mrf_list">
+                            <div class="mrfl_subject w20 mb10px">계좌번호</div>
+                            <div class="w50">
+                                <input type="text" class="w100" name="mb_name" id="mb_name" value="" maxlength="20" placeholder="-없이 입력해주세요.">
+                            </div>
+                        </div>
+
+                        
+                    </section>
+    
+                    <div class="mb_reg_btn t_center">
+                        <div class="mt40px"><button class="mr10px f14 gray_bg amend_button" onclick="button_event()">수정완료</button></div>
+                        <!--회원가입페이지에서는 추가변경바랍니다.-->
+                        <!-- <div><button class="mr10px f14 gray_bg amend_button">가입하기</button></div> -->
+                        <div class="mt40px"><button class="f14 red_bg" onclick="button_cancel()">취소하기</button></div>
                     </div>
-                </section>
-
-                <section class="rc_middle mtb20px">
-                    <div class="sub_title">
-                        <h3 class="f18">배송지정보</h3>
-                    </div>
-
-                    <div class="rcm_bottom padding_20px">
-                        <ul class="rcmb_left w10">
-                            <li class="mb10px">수령인</li>
-                            <li class="mb10px">연락처</li>
-                            <li class="mb10px">주소지</li>
-                            <li>배송메모</li>
-                        </ul>
-
-                        <ul class="rcmb_right">
-                            <li class="mb10px">조문주</li>
-                            <li class="mb10px">010-3039-7025</li>
-                            <li class="mb10px">인천광역시 남동구 구월동 인주대로 591번길 56 프라임캐슬 202호</li>
-                            <li>무인택배함에 보관해주세요.</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section class="rc_bottom">
-                    <div class="sub_title">
-                        <h3 class="f18">결제정보&nbsp;<span class="f16">(신용카드&nbsp;<span>일시불</span>)</span></h3>
-                    </div>
-                    
-                    <div class="rcb_bottom padding_20px">
-                        <ul class="w15">
-                            <li class="mb15px">총 상품금액</li>
-                            <li class="mb15px">배송비</li>
-                            <li class="mb15px">포인트 사용</li>
-                            <li class="f20 mt15px f_color_red fw_bold">총 결제 금액</li>
-                        </ul>
-
-                        <ul class="t_right">
-                            <li class="mb15px"><span>12,000</span>원</li>
-                            <li class="mb15px">(+)<span>2,500</span>원</li>
-                            <li class="mb15px">(-)<span>2,500</span>원</li>
-                            <li class="f20 mt15px f_color_red fw_bold">12,000원</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <div class="order_btn mb30px">
-                    <div class="t_center dw_1200px over_hidden"><a href=""><i class="fas fa-chevron-left mr5px"></i>이전페이지</a></div>
-                </div>
-
+                </form>
             </div>
         </div>
-        <!--} order_reult_wrap-->
+        <!--} mb_reg_wrap-->
 
         <!--footer {--> 
-        <footer class="">
+        <footer>
             <div class="footer_middle">
                 <div class="ftm_top">
                     <a href="#">회사소개</a>
