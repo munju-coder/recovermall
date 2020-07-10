@@ -394,7 +394,7 @@
                 <section class="mbc_bottom mb30px">
                     <ul class="over_visible">
                         <li class="t_right">총 주문금액 :</li>
-                        <li class="t_center">상품합계 <span class="only_p_price ">0</span> 원 + 배송비 <span class="etc_price" del_pr="3000">0</span> 원</li>
+                        <li class="t_center">상품합계 <span class="only_p_price">0</span> 원 + 배송비 <span class="etc_price" del_pr="3000">0</span> 원</li>
                         <li class="t_left over_visible">= <span class="total_price cart_sum_price">0</span>원</li>
                     </ul>
                 </section>
@@ -470,35 +470,39 @@
             
                 //plus btn event
                 $("#plus").click(function(){
+
+                    //클릭했을때 체크박스를 선택한다.
+                    var each_chk = $('.each_chk').prop(':checked', true);
                     
                     //  console.log('1');
                     sum_amount += 1;
                     $(".cnt_input").val(sum_amount);
                     sum_price = (product_price + option_price) * sum_amount;
-                    var $op =$(".only_p_price").text(COMMON.form.comma(sum_price));
+                    $(".only_p_price").text(COMMON.form.comma(sum_price));
 
-                    var each_chk = $('.each_chk').prop(':checked', true);
+                    if(sum_price > min_deliver)
+                    {
+                        $(".etc_price").text("0");
+                        $(".total_price").text(COMMON.form.comma(sum_price));
+                    }
+                    else
+                    {
+                        sum_price = sum_price + delivery_price;
+                        $(".etc_price").text(COMMON.form.comma(delivery_price));                        
+                        $(".total_price").text(COMMON.form.comma(sum_price));
+                    }
+
 
                     // console.log(min_deliver);
                     $(each_chk).each(function() {
-                        $('.each_chk').attr("checked", true); //수량을 올렸을때 각각의 인풋 체크해줌
-                        
+                        $('.each_chk').attr("checked", true); //수량을 올렸을때 각각의 인풋 체크해줌                        
                     });
-                    
-                    // var delivery_price = 3000; 
-                    // var min_deliver = 30000; 
-
-                    etc_price =$(".etc_price").text(COMMON.form.comma(delivery_price));
-                    cart_price = (product_price + option_price) * sum_amount;
-
-                    // console.log(sum_price);
-                    if(sum_price >= min_deliver) {    //상품이 3만원 이상이면 배송비 0원
-                        min_deliver = 0;
-                    }else if (sum_price < delivery_price) {
-                        etc_price = delivery_price;
-                    }
-                      
                 });
+
+
+                /*                
+                    1. 총 가격 구하기 
+                */                
 
                 //minus btn event
                 $("#minus").click(function(){
@@ -524,7 +528,6 @@
                 });
 
                 
-
             });
         </script>
         <!--footer {--> 

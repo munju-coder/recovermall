@@ -21,6 +21,7 @@
     <script src="../recovermall/js/swiper.min.js"></script>
     <!--js-->
     <script src="../recovermall/js/main.js"></script>
+    <script src="../recovermall/js/COMMON_geo.js"></script>
     <!--style sheet-->
     <link rel="stylesheet" href="../recovermall/css/import.css">
     <link rel="stylesheet" href="../recovermall/css/main.css">
@@ -48,6 +49,7 @@
     5. menu btn 클릭시 left_menu > left_slide banner 새로고침하면 월요일부터 나오지만 
     새로고침 안하면 월요일부터 나오지 않음, swiper option initialSlide: 5, 추가
     6. menu btn 클릭 시 bg delay 속도 확인해주세요. 
+    7. 모바일 배너 큰사이즈로 교체할것. 하단배너도
 -->
 
 <body>
@@ -75,69 +77,6 @@
             </ul>
             
         </aside>
-        <!-- <aside class="fixed_menu_btn">
-            <div><a href="javascript:;"><i class="fas fa-plus"></i></a></div>
-            <ul>
-                <li>2</li>
-                <li>2</li>
-                <li>2</li>
-                <li>2</li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon"></a></li>
-                <li><a href="javascript:;"><img src="../recovermall/images/m-iconmenu-07.png" alt="pink_goods2_icon"></a></li>
-            </ul>
-        </aside> -->
-        <!-- <aside class="">
-            <div class="nav_wrap">
-                <div>
-                    <img src="../recovermall/images/pink_fashion_icon.png" alt="pink_icon_fashion">
-                    <img src="../recovermall/images/white_fashion_icon.png" alt="white_icon_fashion">
-                    <a href="#"><p>패션</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_beauty_icon.png" alt="pink_icon_beauty">
-                    <img src="../recovermall/images/white_beauty_icon.png" alt="white_icon_beauty">
-                    <a href="#"><p>뷰티</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_home_appli.png" alt="pink_home_appli">
-                    <img src="../recovermall/images/white_home_appli.png" alt="white_home_appli">
-                    <a href="#"><p>생활가전</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_food_icon.png" alt="pink_food_icon">
-                    <img src="../recovermall/images/white_food_icon.png" alt="white_food_icon">
-                    <a href="#"><p> 식품</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_health_icon.png" alt="pink_health_icon">
-                    <img src="../recovermall/images/white_health_icon.png" alt="white_health_icon">
-                    <a href="#"><p>건강</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_inte_icon.png" alt="pink_inte_icon">
-                    <img src="../recovermall/images/white_inte_icon.png" alt="white_inte_icon">
-                    <a href="#"><p>인테리어</p></a>
-                </div>
-
-                <div>
-                    <img src="../recovermall/images/pink_goods_icon.png" alt="pink_goods_icon">
-                    <img src="../recovermall/images/white_goods_icon.png" alt="white_goods_icon">
-                    <a href="#"><p>잡화</p></a>
-                </div>
-
-            </div>
-        </aside> -->
 
         <!--header {-->
         <header>
@@ -190,7 +129,7 @@
                         <!--로그인 후 추가해주세요-->
                         <!-- <a class="login_after" href="#">로그아웃<i class="fas fa-sort-down ml5px"></i></a> -->
                         <a href="../recovermall/member/mb_reg_chk.html">회원가입</a>
-                        <a href="#">장바구니</a>
+                        <a href="../recovermall/member/mb_cart.html">장바구니</a>
                         <a href="#">고객센터</a>
                     </div>
 
@@ -257,7 +196,7 @@
                         <ul>
                             <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
                             <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
-                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="../recovermall/member/my_page.html" class="fw_bold f16">마이페이지</a></li>
                         </ul>
                     </div>
 
@@ -329,7 +268,7 @@
                             <ul class="t_left">
                                 <li class="mb5per f14"><a class="left_main_menu" href="../recovermall/member/my_page.html">마이페이지</a></li>
                                 <li class="mb5per f14"><a class="left_main_menu" href="../recovermall/member/mb_order_list.html">주문내역</a></li>
-                                <li class="mb5per f14"><a class="left_main_menu" href="#">주문배송조회</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="../recovermall/order/order_result.html">주문배송조회</a></li>
                                 <li class="mb5per f14"><a class="left_main_menu" href="../recovermall/board/info_list.html">공지사항</a></li>
                                 <li class="mb5per f14"><a class="left_main_menu" href="../recovermall/board/inquery_list.html">1:1문의</a></li>
                                 <li class="mb5per f14"><a class="left_main_menu" href="#">입금계좌안내</a></li>
@@ -339,16 +278,61 @@
                 </div>
                 <!--} catego_menu-->
             </div>
-        
         </aside>
         <!--} aside-->
+
+        <script>
+            $(document).ready( function(){
+
+                var IS_MOBILE = COMMON.basic.isMobile();
+                var width = $( window ).width();
+
+                /* if(IS_MOBILE == true){
+                    if( width < 768 ) {
+                        
+                        $(".main-container img").each(function(){
+                            var src = $(this).attr("src").split("/");
+                            $(this).attr("src", URL + "/images/" + "M_" + src[3]);
+                        });
+                    } else {
+
+                        $(".main-container img").each(function(){
+                            var src = $(this).attr("src").split('/');
+                            //console.log(src);
+
+                            // $(this).attr("src", URL + "/images/" + "m_" + src[4]);
+                        });
+                    }
+                } */
+
+                $( window ).resize(function() {
+                    var width = $( window ).width();
+                    if( width < 768 ) {
+                        $(".main-container img").each(function(){
+                            var src = $(this).attr("src").split("/");
+                            if(src[3].indexOf('M_') == -1)
+                            {
+                                $(this).attr("src", "../recovermall/images/" + "M_" + src[3]);
+                            }
+                        });
+                    } else {
+                        $(".main-container img").each(function(){
+                            var src = $(this).attr("src").split("/");
+                            src = src[3].replace("M_", "");
+                            $(this).attr("src", "../recovermall/images/" + src);
+                        });
+                    }
+                }); 
+
+            });
+        </script>
 
         <!--main_slide {-->
         <div class="main_slide main-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="../recovermall/images/main_slide1.png" alt="main_slide1"></div>
-                <div class="swiper-slide"><img src="../recovermall/images/main_banner2.png" alt="main_banner2"></div>
-                <div class="swiper-slide"><img src="../recovermall/images/main_banner3.png" alt="main_banner3"></div>
+                <div class="swiper-slide"><img src="../recovermall/images/main_banner1.jpg" alt="main_banner1"></div>
+                <div class="swiper-slide"><img src="../recovermall/images/main_banner2.jpg" alt="main_banner2"></div>
+                <div class="swiper-slide"><img src="../recovermall/images/main_banner3.jpg" alt="main_banner3"></div>
             </div>
         </div>
         <!--} main_slide-->

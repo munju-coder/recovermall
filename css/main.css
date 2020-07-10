@@ -289,20 +289,16 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap .board_contents_wrap .view_contents .vc_top div p:first-child { float: left; }
 .wrap .board_contents_wrap .view_contents .vc_top div::after { content: ''; display: block; overflow: hidden; clear: both; }
 .wrap .board_contents_wrap .view_contents .view_btn  { margin-bottom: 20vh; }
-.wrap .board_contents_wrap .view_contents .view_btn a { display: inline-block;  font-size: 13px; }
+.wrap .board_contents_wrap .view_contents .view_btn a { display: inline-block; border: 1px solid #ddd; background-color: #ddd; padding: 7px; }
 .wrap .board_contents_wrap .view_contents .vc_middle { margin: 5% 10px; }
 
 /*login*/
 .wrap .login_wrap { margin: 5% 0; }
 .wrap .login_wrap .login_contents { width: 100%; max-width: 430px; margin: 0 auto; }
-.wrap .login_wrap .login_contents .login_middle ul li input 
-{ font-size: 14px; width: 100%; border: none; border-bottom: 1px solid rgb(172, 172, 172); outline: none; color: rgb(148, 148, 148); }
-.wrap .login_wrap .login_contents .login_middle .lm_top li,
-.wrap .login_wrap .login_contents .login_middle .lm_middle li { float: left; }
-.wrap .login_wrap .login_contents .login_middle .lm_top::after,
-.wrap .login_wrap .login_contents .login_middle .lm_top::after { content: ''; display: block; overflow: hidden; clear: both; }
-.wrap .login_wrap .login_contents .login_middle .lm_top li:first-child,
-.wrap .login_wrap .login_contents .login_middle .lm_middle li:first-child { line-height: 27px; }
+.wrap .login_wrap .login_contents .login_middle ul li input { font-size: 14px; width: 100%; border: none; border-bottom: 1px solid rgb(172, 172, 172); outline: none; color: rgb(148, 148, 148); }
+.wrap .login_wrap .login_contents .login_middle .lm_top li,.wrap .login_wrap .login_contents .login_middle .lm_middle li { float: left; }
+.wrap .login_wrap .login_contents .login_middle .lm_top::after,.wrap .login_wrap .login_contents .login_middle .lm_top::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .login_wrap .login_contents .login_middle .lm_top li:first-child,.wrap .login_wrap .login_contents .login_middle .lm_middle li:first-child { line-height: 27px; }
 .wrap .login_wrap .login_contents .login_bottom div { width: 100%; background-color: #ddd; }
 .wrap .login_wrap .login_contents .login_bottom div button { border: none; padding: 20px; background-color: #ddd; }
 .wrap .login_wrap .login_contents .login_bottom input { margin-right: 10px; }
@@ -326,7 +322,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap footer .footer_bottom_wrap .footer_bottom .ftb_middle ul li:last-child { color: #575757; }
 
 /*product_view*/
-.product_wrap td,.product_wrap th,.product_wrap tr { border: 1px solid #ddd; }
+.product_wrap td,.product_wrap th,.product_wrap tr { border: 1px solid #ddd; padding-left:10px; }
 .product_wrap .p_contents .p_middle { padding: 30px 30px 50px 30px; }
 .product_wrap .p_contents .p_middle .p_left { float: left; width: 50%; }
 .product_wrap .p_contents .p_middle .p_left .main_img { width: 100%; }
@@ -356,8 +352,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:last-child { float: right; background-color: #ffb6bf; border: 1px solid #ffb6bf; width: 49%; padding: 3% 2%; }
 .product_wrap .p_contents .p_middle .pro_form .p_right .p_btn div:first-child {  float: left; border: 1px solid #ddd; width: 49%; padding: 3% 2%; }
 .wrap .p_contents .p_bottom .cmb_tab ul li { float: left; width: 33.3%; }
-.wrap .p_contents .p_bottom .cmb_tab ul li a
-{ display: block; height: 60px; background-color: #f7f7f7; border: 1px solid #cdcdcd; font-size: 17px; color: #666; line-height: 58px; text-align: center; }
+.wrap .p_contents .p_bottom .cmb_tab ul li a { display: block; height: 60px; background-color: #f7f7f7; border: 1px solid #cdcdcd; font-size: 17px; color: #666; line-height: 58px; text-align: center; }
 .wrap .p_contents .p_bottom .cmb_tab ul li:not(:last-child) a { border-right: none; }
 .wrap .p_contents .p_bottom .cmb_tab ul li a.menu_active { background-color: #6b7279ba; color: white; }
 .wrap .p_contents .p_bottom .cmb_contents { display: none; }
@@ -369,7 +364,7 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 
 /*product_list*/
 .wrap .product_wrap .p_list_middle div ul li a img { width: 100%; object-fit: scale-down; height: 25vh; }
-.wrap .product_wrap .p_list_middle div ul li:last-child a { color: rgb(101, 101, 101); }
+.wrap .product_wrap .p_list_middle div ul li:last-child a { color: #f1758d; }
 
 /*order*/
 .wrap .order_wrap section { padding: 10px; }
@@ -418,9 +413,29 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button { border: none; padding: 10px 15px; }
 .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right li:last-child button:hover { background-color: red; }
 .wrap .order_result_wrap .result_contents .rc_top .rct_bottom .rctb_right button:hover { transition: .5s; color: white; background-color: #2f9fff; }
-
 .wrap .order_result_wrap .result_contents .sub_title { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
 .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom ul { float: left; }
 .wrap .order_result_wrap .result_contents .rc_middle .rcm_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
 .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom ul { float: left;}
 .wrap .order_result_wrap .result_contents .rc_bottom .rcb_bottom::after { content: ''; display: block; overflow: hidden; clear: both; }
+
+/*mb_order_list*/
+.wrap .order_list_wrap .order_list_contents .ol_middle { margin-bottom: 20vh; }
+.wrap .order_list_wrap .order_list_contents .ol_middle .olm_top { border-top: 1px solid #ddd; margin-top: 10px; }
+.wrap .order_result_wrap .result_contents .ol_middle .olm_bottom { border-bottom: 1px solid #ddd; padding-bottom: 20px; }
+
+/*mb_reg_form(회원가입, 회원정보수정)*/
+.wrap .mb_reg_wrap .mrf_contents { padding-bottom: 8vh; }
+.wrap .mb_reg_wrap .mrf_contents .contents_border { padding-bottom: 10px; }
+.wrap .mb_reg_wrap .mrf_contents  i { color: #f1758d; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_list div { float: left; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_middle { border-right: 1px solid #ddd; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_bottom { padding-left: 50px; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_bottom .bank_list .bank_number { float: left; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_bottom .bank_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_reg_wrap .mrf_contents .mrf_list div:last-child span input { width: 42%; }
+.wrap .mb_reg_wrap .mb_reg_btn { width: 100%; max-width: 160px; margin: 0 auto; }
+.wrap .mb_reg_wrap .mb_reg_btn div { float: left; }
+.wrap .mb_reg_wrap .mb_reg_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_reg_wrap .mb_reg_btn div button { border: none; color: white; padding: 10px; }
