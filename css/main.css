@@ -424,6 +424,33 @@ body { font-family: 'Noto Sans KR', sans-serif; }
 .wrap .order_list_wrap .order_list_contents .ol_middle .olm_top { border-top: 1px solid #ddd; margin-top: 10px; }
 .wrap .order_result_wrap .result_contents .ol_middle .olm_bottom { border-bottom: 1px solid #ddd; padding-bottom: 20px; }
 
+/*mb_cart*/
+.wrap .mb_cart_wrap .mb_cart_contents { position: relative; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { border: none; padding: 10px; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button:hover { background-color: rgb(88, 88, 88); color: white; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div { float: left; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top { border-bottom: 1px solid #ddd; padding: 10px 0; border-top: 1px solid #ddd; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_input input { float: left; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_button input { height: 14px; display: block; font-size: 10px; border: none; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .close_i { position: absolute; top: 50%; right: 0; font-size: 22px; }
+.wrap .mb_cart_wrap .mb_cart_contents .bottom_btn { width: 100%; max-width: 223px; margin: 0 auto; margin-bottom: 20vh; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child div { float: left; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom { border-bottom: 1px solid #ddd; padding: 10px 0; border-top: 1px solid #ddd; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:first-child { width: 100px; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:nth-child(2) { width: 270px; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:last-child { width: 100px; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li { float: left; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: left; border: 1px solid #ddd; padding: 10px 15px;  }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { background-color: rgb(163, 163, 163); }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:last-child { background-color: red; }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div a { color: white; }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 10px; }
+.wrap .mb_cart_wrap .mb_cart_contents .cart_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
+.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_pro div input { float: left; }
+
 /*mb_reg_form(회원가입, 회원정보수정)*/
 .wrap .mb_reg_wrap .mrf_contents { padding-bottom: 8vh; }
 .wrap .mb_reg_wrap .mrf_contents .contents_border { padding-bottom: 10px; }

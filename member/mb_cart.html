@@ -325,72 +325,7 @@
                     </div>
                     
                 </section>
-                <style>
-                    /*mb_cart*/
-                    .wrap .mb_cart_wrap .mb_cart_contents { position: relative; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { border: none; padding: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button:hover { background-color: rgb(88, 88, 88); color: white; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top { border-bottom: 1px solid #ddd; padding: 10px 0; border-top: 1px solid #ddd; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_input input { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .count_box .count_button input { height: 14px; display: block; font-size: 10px; border: none; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .close_i { position: absolute; top: 50%; right: 0; font-size: 22px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .bottom_btn { width: 100%; max-width: 223px; margin: 0 auto; margin-bottom: 20vh; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child div { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_table:first-child::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom { border-bottom: 1px solid #ddd; padding-bottom: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:first-child { width: 100px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:nth-child(2) { width: 270px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:last-child { width: 100px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li { float: left; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: left; border: 1px solid #ddd; padding: 10px 15px;  }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { background-color: rgb(163, 163, 163); }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:last-child { background-color: red; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div a { color: white; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 10px; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .cart_btn::after { content: ''; display: block; overflow: hidden; clear: both; }
-                    .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_pro div input { float: left; }
-
-                    @media(max-width:992px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_table .count_input input { width: 60%; }
-                    }
-                    @media(max-width:768px){
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li ,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_pro div:last-child ul li a
-                        ,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div,.wrap .mb_cart_wrap .mb_cart_contents .cart_btn div a { font-size: 13px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div:first-child { margin-right: 0; margin-bottom: 5px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .cart_btn div { float: none; padding: 10px 15px 15px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_pro,.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_list { width: 40%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_bottom .cart_count { width: 20%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_point { text-align: right; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_price { width: 25%; }
-                    }
-                    @media(max-width:600px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { font-size: 13px; padding: 8px 12px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .bottom_btn { max-width: 100%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:first-child { width: 70px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:nth-child(2) { width: 185px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_bottom ul li:last-child { width: 65px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .close_i { font-size: 16px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .pro_info { width: 40%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list > div:first-child img { display: none; }
-
-                    }
-                    @media(max-width:400px) {
-                        /*mb_cart*/
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle div:first-child button { font-size: 12px; padding: 7px 9px; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_point { width: 25%; }
-                        .wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_top .pro_info_price { width: 20%; }
-
-                    }
-
-
-                </style>
+            
                 <section class="mbc_bottom mb30px">
                     <ul class="over_visible">
                         <li class="t_right">총 주문금액 :</li>
@@ -480,51 +415,46 @@
                     sum_price = (product_price + option_price) * sum_amount;
                     $(".only_p_price").text(COMMON.form.comma(sum_price));
 
-                    if(sum_price > min_deliver)
-                    {
+                    if(sum_price > min_deliver){
                         $(".etc_price").text("0");
                         $(".total_price").text(COMMON.form.comma(sum_price));
                     }
-                    else
-                    {
+                    else{
                         sum_price = sum_price + delivery_price;
                         $(".etc_price").text(COMMON.form.comma(delivery_price));                        
                         $(".total_price").text(COMMON.form.comma(sum_price));
+
+                        console.log(sum_price);
                     }
-
-
                     // console.log(min_deliver);
                     $(each_chk).each(function() {
                         $('.each_chk').attr("checked", true); //수량을 올렸을때 각각의 인풋 체크해줌                        
                     });
-                });
-
-
-                /*                
-                    1. 총 가격 구하기 
-                */                
+                });           
 
                 //minus btn event
                 $("#minus").click(function(){
                     sum_amount -= 1;
                     
-                    if(sum_amount >= product_amount)
-                    {
+                    if(sum_amount >= product_amount){
                         $(".cnt_input").val(sum_amount);
-                        sum_price = sum_price - (product_price + option_price);
+                        
+                        sum_price = sum_price - (product_price + option_price);                        
+
                         $(".only_p_price").text(COMMON.form.comma(sum_price));
-                    }
-                    else
-                    {
+                        $(".total_price").text(COMMON.form.comma(sum_price));
+                    }else{
+                        sum_price = sum_price - delivery_price;
                         $(".cnt_input").val(product_amount);
                         sum_amount = product_amount;
                         alert("최소 구매수량 1개입니다.");
                     }
-                    
+                    sum_price = (product_price + option_price) * sum_amount;
+                    total_price = sum_price - delivery_price;                    
                 });
 
                 $('.delete_btn').click( function(){
-                    $('.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_table').hide();
+                    $('.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_table,.delete_btn').hide();
                 });
 
                 
