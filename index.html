@@ -310,8 +310,7 @@
                     if( width < 768 ) {
                         $(".main-container img").each(function(){
                             var src = $(this).attr("src").split("/");
-                            if(src[3].indexOf('M_') == -1)
-                            {
+                            if(src[3].indexOf('M_') == -1){
                                 $(this).attr("src", "../recovermall/images/" + "M_" + src[3]);
                             }
                         });
@@ -323,6 +322,24 @@
                         });
                     }
                 }); 
+
+                $(window).resize( function(){
+                    var width = $( window ).width();
+                    
+                    if( width < 768 ){
+                        
+                        var footerBanner_src  = $('.footer_top img').attr("src").split('/');
+                        console.log(footerBanner_src);
+                        if(footerBanner_src[3].indexOf('M_') == -1) {
+                            $('.footer_top img').attr("src", "../recovermall/images/" + "M_" + footerBanner_src[3]);
+                        }
+                    }else{
+                        var footerBanner_src  = $('.footer_top img').attr("src").split('/');
+                        footerBanner_src = footerBanner_src[3].replace("M_", "");
+                        $('.footer_top img').attr("src", "../recovermall/images/" + footerBanner_src);
+                    
+                    }
+                });
 
             });
         </script>
@@ -606,7 +623,7 @@
                                     </div>
                                     
                                     <div class="cbmb_right">
-                                        <a class="" href="javasctipt:;"><i class="fas fa-shopping-cart"></i>장바구니</a>
+                                        <a class="" href="../recovermall/member/mb_cart.html"><i class="fas fa-shopping-cart"></i>장바구니</a>
                                     </div>
                                 </div>
                             </div>
