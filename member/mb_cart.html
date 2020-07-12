@@ -357,6 +357,15 @@
                 var sum_amount = product_amount; //총수량 = 상품수량
                 var option_price = 0;
 
+                
+
+                if(product_amount > 1)
+                {
+                    product_amount = 1;
+                    sum_amount = 1;
+                    $(".cnt_input").val(1);
+                }
+
                 $('#pd_all_input').click( function(){
                     // console.log('a');
                     var chk = $(this).is(":checked");
@@ -423,8 +432,6 @@
                         sum_price = sum_price + delivery_price;
                         $(".etc_price").text(COMMON.form.comma(delivery_price));                        
                         $(".total_price").text(COMMON.form.comma(sum_price));
-
-                        console.log(sum_price);
                     }
                     // console.log(min_deliver);
                     $(each_chk).each(function() {
@@ -438,23 +445,46 @@
                     
                     if(sum_amount >= product_amount){
                         $(".cnt_input").val(sum_amount);
-                        
-                        sum_price = sum_price - (product_price + option_price);                        
-
-                        $(".only_p_price").text(COMMON.form.comma(sum_price));
-                        $(".total_price").text(COMMON.form.comma(sum_price));
-                    }else{
-                        sum_price = sum_price - delivery_price;
+                        sum_price = sum_price - (product_price + option_price);
+                    }
+                    else
+                    {
                         $(".cnt_input").val(product_amount);
+                        $(".etc_price").text(COMMON.form.comma(delivery_price));
                         sum_amount = product_amount;
                         alert("최소 구매수량 1개입니다.");
                     }
+
                     sum_price = (product_price + option_price) * sum_amount;
-                    total_price = sum_price - delivery_price;                    
+
+                    if(sum_price > min_deliver){
+                        sum_price = sum_price - delivery_price;
+                        $(".etc_price").text("0");
+                        $(".total_price").text(COMMON.form.comma(sum_price));
+                    }
+                    else{
+                        $(".etc_price").text(COMMON.form.comma(delivery_price));
+                        sum_price = sum_price + delivery_price;
+                        $(".only_p_price").text(COMMON.form.comma(sum_price - delivery_price));
+                        $(".total_price").text(COMMON.form.comma(sum_price));
+                    }
+                    
                 });
 
                 $('.delete_btn').click( function(){
-                    $('.wrap .mb_cart_wrap .mb_cart_contents .mbc_middle .cart_list .cart_table,.delete_btn').hide();
+
+                    //가격 초기화 함.
+                    $(".total_price, .only_p_price, .etc_price").text(0);
+
+                    //이전 형제 요소 삭제
+                    $(this).prev().remove();
+                    //자기 자신 삭제
+                    $(this).remove();
+                    
+                    //mbc_bottom의 높이값을 강제로 추가함.
+                    $(".mbc_bottom").css("margin-top", "100px");
+
+                    //ajax 처리해주세요.
                 });
 
                 
