@@ -78,10 +78,26 @@
             
         </aside>
 
+        <style>
+            .wrap header .header_top .banner_bg { 
+                background-color: 
+                /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f738a4+0,ffcd44+100 */
+                background: #f738a4; /* Old browsers */
+                background: -moz-linear-gradient(45deg,  #f738a4 0%, #ffcd44 100%); /* FF3.6-15 */
+                background: -webkit-linear-gradient(45deg,  #f738a4 0%,#ffcd44 100%); /* Chrome10-25,Safari5.1-6 */
+                background: linear-gradient(45deg,  #f738a4 0%,#ffcd44 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f738a4', endColorstr='#ffcd44',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+                width: 100%; 
+                height: 56px;
+             } 
+        </style>
+
         <!--header {-->
         <header>
             <div class="header_top">
-                <img class="top_banner" src="../recovermall/images/top_banner.png" alt="top banner">
+                <!-- <img class="top_banner" src="../recovermall/images/top_banner.png" alt="top banner"> -->
+                <div class="banner_bg"></div>
+                <p><em>리커버몰 투데이 상품특가보러가기</em></p>
                 <a href="#"><p class="f12 white_color">오늘하루보지않기</p></a>
                 <a href="#"><img src="../recovermall/images/top_banner_closeBTN.png" alt="top_closeBTN"></a>
             </div>

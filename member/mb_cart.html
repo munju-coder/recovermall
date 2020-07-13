@@ -522,9 +522,7 @@
 
                         $(".total_price").text(sum_p);
                         $('.only_p_price').text(sum_p);
-
                         
-
                         //배송비 비교해서 3만원 이상일때는 0원, 이하일때는 3천원을 넣어준다.
                         if(sum_p > min_deliver){
                             $(".etc_price").text("0");
@@ -545,17 +543,18 @@
                 $('.minus').each( function(i){
                     $(this).click( function(){
                         // console.log(i);
+                        
                         var cnt_input = parseInt($(".cnt_input").eq(i).val()); 
-                        // console.log(cnt_input);
-
+                        
                         var sum_amount1 = cnt_input - 1;
-                        $(".cnt_input").eq(i).val(sum_amount1)
+                        $(".cnt_input").eq(i).val(sum_amount1);
 
                         // console.log(cnt_input);
                         sum_minus[i] = sum_amount1;
 
                         total_price = arr_product_price[i] * sum_minus[i];
 
+                        
                         $(".cart_sum_price").text(total_price);
 
                         // console.log(sum_amount);
@@ -565,16 +564,19 @@
 
                         //클릭에 해당하는 체크박스를 체크해준다.
                         $(".each_chk").eq(i).prop("checked",true);
+                        
+                        //수량비교해서 0보다클때만 적용됨
+                        if(total_price >= product_amount){
+                            $(".cnt_input").val(sum_p);
+                            sum_price = sum_price - (product_price + option_price);
+                        }else {
+                            $(".cnt_input").val(product_amount);
+                            $(".etc_price").text(COMMON.form.comma(delivery_price));
+                            total_price = product_amount;
+                            alert("최소 구매수량 1개입니다.");
+                        }
 
-                        // if(sum_amount >= product_amount){
-                        //     $(".cnt_input").val(sum_amount);
-                        //     sum_price = sum_price - (product_price + option_price);
-                        // }else {
-                        //     $(".cnt_input").val(product_amount);
-                        //     $(".etc_price").text(COMMON.form.comma(delivery_price));
-                        //     sum_amount = product_amount;
-                        //     alert("최소 구매수량 1개입니다.");
-                        // }
+                        
 
                     });
                 });
