@@ -21,6 +21,7 @@ input,select,button { outline: none; }
 .f_color_red { color: red; }
 .contents_border { border-bottom : 1px solid #ddd; padding-bottom: 20px; }
 input, select { outline: none; }
+
 /*text-align*/
 .t_left { text-align: left; }
 .t_center { text-align: center; }
