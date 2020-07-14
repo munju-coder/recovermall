@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>REVOBERMALL</title>
+        <!--jquery-->
+        <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+        <script src="../js/jquery.easing.1.3.js"></script>
+        <script src="../js/jquery.transit.min.js"></script>
+        <!--bootstrap-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!--font Awesome-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <!--goolge webfont-->
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+        <!-- swiper slide -->
+        <link rel="stylesheet" href="../css/swiper.css">
+        <!-- <link rel="stylesheet" href="../recovermall/css/swiper.min.css"> -->
+        <script src="../js/swiper.min.js"></script>
+        <!--js-->
+        <script src="../js/main.js"></script>
+        <script src="../js/COMMON_geo.js"></script>
+        <!--style sheet-->
+        <link rel="stylesheet" href="../css/import.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/responsive.css">
+        <!--favicon-->
+        <link rel="apple-touch-icon" sizes="57x57" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="http://recovershop.co.kr/plugin/openGN5/img/favicon/favicon-16x16.png">
+    </head>
+<body>
+    <!--wrap {-->
+    <div class="wrap">
+        <!--menu click bg call-->
+        <div class="menu_bg"></div>
+        <!--fixed_top_btn-->
+        <aside class="fixed_top_btn">
+            <a href="javascript:;"><img src="../images/fixed_top_btn.png" alt="fixed_top_btn icon"></a>
+        </aside>
+
+        <aside class="fixed_menu_btn">
+            <div class="f18 fw_bold"><a href="javascript:;">Menu</a></div>
+            <ul>
+                <li><a href="javascript:;"><img src="../images/pink_fashion_icon.png" alt="pink_icon_fashion"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_beauty_icon.png" alt="pink_icon_beauty"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_home_appli.png" alt="pink_home_appli"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_food_icon.png" alt="pink_food_icon"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_health_icon.png" alt="pink_health_icon"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_inte_icon.png" alt="pink_inte_icon"></a></li>
+                <li><a href="javascript:;"><img src="../images/pink_goods_icon.png" alt="pink_goods_icon"></a></li>
+                <li><a href="javascript:;"><img src="../images/m-iconmenu-07.png" alt="pink_goods2_icon"></a></li>
+            </ul>
+        </aside>
+
+        <!--header {-->
+        <header>
+            <div class="header_top">
+                <img class="top_banner" src="../images/top_banner.png" alt="top banner">
+                <a href="#"><p class="f12 white_color">오늘하루보지않기</p></a>
+                <a href="#"><img src="../images/top_banner_closeBTN.png" alt="top_closeBTN"></a>
+            </div>
+
+            <div class="header_middle dw_1200px ptb30px">
+                <!--Mobile search toggle-->
+                <div class="M_search_box">
+                    <div class="Msb_top mb30px">
+                        <a href="#"><img src="../images/M_search_icon.png" alt="mobile search icon"><span class="ml10px f24">SEARCH</span></a>
+                        <a class="Msb_top_close" href="#"><img src="../images/M_close_btn.png" alt="mobile close button"></a>
+                    </div>
+                    
+                    <form action="" class="Msb_middle">
+                        <input type="text" placeholder="상품을 검색해보세요.">
+                        <button class="outline_none">검색</button>
+                    </form>
+                </div>
+
+                <div class="hd_left t_left">
+                    <form action="http://naver.com">
+                        <div class="search_input" id="search_input">
+                            <input type="text" class="search_box">
+                        </div>
+
+                        <div class="search_button" id="search_button">
+                            <button type="submit" id="sch_submit" class="cursor outline_none">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+
+                        <div class="M_menu_icon">
+                            <a href="#"><img src="../images/M_menu_icon.png" alt="mobile menu icon"></a>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="hd_middle t_center">
+                    <h1><a href="../index.html"><img src="../images/recovermall_logo.png" alt="recovermall_logo"></a></h1>
+                </div>
+            
+                <div class="hd_right t_right">
+                    <div class="hdr_wrap">
+                        <!--로그인 전-->
+                        <a class="login_before" href="../login/login.html">로그인</a>
+                        <!--로그인 후 추가해주세요-->
+                        <!-- <a class="login_after" href="#">로그아웃<i class="fas fa-sort-down ml5px"></i></a> -->
+                        <a href="#">회원가입</a>
+                        <a href="#">장바구니</a>
+                        <a href="#">고객센터</a>
+                    </div>
+
+                    <!--Mobile header icon-->
+                    <div class="M_hdr_wrap">
+                        <a class="M_search_a mr10px" href="#"><img src="../images/M_search_icon.png" alt="search icon"></a>
+                        <a href="#"><img src="../images/cart_icon_img2.png" alt="cart icon"></a>
+                    </div>
+
+                    <div class="t_left mt20px login_after_contents">
+                        <a class="mr10px" href="#"><span class="mr5px">1,000</span><i class="fas fa-won-sign"></i></a>
+                        <a class="mr10px" href="#"><span class="mr5px">20,000</span><i class="fas fa-coins"></i></a>
+                        <a class="mr10px" href="#"><span class="mr5px">4,578,000</span><i class="fas fa-share-alt"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header_bottom_wrap">
+                <div class="header_bottom dw_1200px">
+                    <div class="main_menu_icon">
+                        <a href="#"><img src="../images/all.png" alt="menu_icon"></a>                           
+                    </div>
+
+                    <div class="main_menu-container">
+                        <div class="header_menu swiper-wrapper">
+                            <div class="mt5px swiper-slide"><a href="#">투데이특가</a></div>
+                            <div class="mt5px swiper-slide"><a href="#">핫 딜</a></div>
+                            <div class="mt5px swiper-slide"><a href="#">여름생활가전</a></div>
+                            <div class="mt5px swiper-slide"><a href="#">건강검진이벤트</a></div>
+                            <div class="mt5px swiper-slide"><a href="#">리커버랭킹</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!--} header-->
+
+        <!--aside {-->
+        <aside class="left_menu_wrap">
+            <div class="left_logo t_left ptb10px">
+                <img src="../images/aside_logo2.png" alt="aside_logo">
+                <div class="close_btn cursor"><a href="#"><i class="fas fa-times"></i></a></div>
+            </div>
+
+            <div class="left_menu">
+                <div class="left_menu-container">
+                    <div class="aside_banner swiper-wrapper">
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner1.png" alt="aside_banner1"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner2.png" alt="aside_banner2"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner3.png" alt="aside_banner3"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner4.png" alt="aside_banner4"></a></div>
+                        <div class="swiper-slide"><a href="javascript:;"><img src="../images/aside_banner5.png" alt="aside_banner5"></a></div>
+                    </div>
+                </div>
+
+                <div class="left_login_box over_hidden">
+                    <div class="llb_left t_center"><a href="#"><i class="mr5px fas fa-sign-in-alt"></i>로그인</a></div>
+                    <div class="llb_right t_center"><a href="#"><i class="mr5px fas fa-file-signature"></i>회원가입</a></div>
+                </div>
+
+                <!--catego_menu {-->
+                <div class="catego_menu">
+                    <div class="left_tab_subject">
+                        <ul>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor catego_active current" tab_name="left_tab1"><a href="javascript:;" class="fw_bold f16">카테고리</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab2"><a href="javascript:;" class="fw_bold f16">프로모션</a></li>
+                            <li class="t_center col-sm-4 col-xs-4 left_tablinks f14 cursor" tab_name="left_tab3"><a href="javascript:;" class="fw_bold f16">마이페이지</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="cate_gnb">
+                        <div class="left_tab_contents left_tab_active left_tab current" id="left_tab1">
+                            <ul class="t_left">
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">패션</a>
+                                    
+                                    <ul class="left_sub_menu">
+                                        <li><a href="#">-의류</a></li>
+                                        <li><a href="#">-액세서리</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">뷰티</a>
+                                </li>
+                                
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">식품</a>
+                                    
+                                    <ul class="left_sub_menu">
+                                        <li><a href="#">-농수산</a></li>
+                                        <li><a href="#">-축산</a></li>
+                                        <li><a href="#">-가공식품</a></li>
+                                        <li><a href="#">-반찬류</a></li>
+                                        <li><a href="#">-음료</a></li>
+                                    </ul>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">건강</a>
+                                </li>
+                                
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">생활용품</a>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">인테리어</a>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">생활가전</a>
+                                </li>
+
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">잡화</a>
+                                </li>
+                                
+                                <li class="mb5per f14">
+                                    <a class="left_main_menu" href="javascript:;">기타</a>
+                                </li>
+                            </ul>
+                        </div>
+                    
+                        <div class="left_tab" id="left_tab2">
+                            <ul class="t_left">
+                                <li><a class="left_main_menu" href="#">투데이특가</a></li>
+                                <li><a class="left_main_menu" href="#">타임세일</a></li>
+                                <li><a class="left_main_menu" href="#">여름생활가전</a></li>
+                                <li><a class="left_main_menu" href="#">선착순이벤트</a></li>
+                                <li><a class="left_main_menu" href="#">리커버랭킹</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="left_tab" id="left_tab3">
+                            <ul class="t_left">
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">마이페이지</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">주문내역</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">주문배송조회</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">공지사항</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">1:1문의</a></li>
+                                <li class="mb5per f14"><a class="left_main_menu" href="#">입금계좌안내</a></li>
+                            </ul>
+                        </div>
+                    </div>  
+                </div>
+                <!--} catego_menu-->
+            </div>
+        </aside>
+        <!--} aside-->
+
+        <div class="mb_cart_wrap">
+            <div class="mb_cart_contents p_contents dw_1200px pt3per">
+                <section class="mbc_top contents_border">
+                    <h2 class="f24">장바구니</h2>
+                </section>
+                <p class="f13 mt10px">주문하실 상품을 선택해주세요.</p>
+                
+                <section class="mbc_middle">
+                    <div class="t_right">
+                        <button class="f14 all_delete">전체삭제</button>
+                     </div>
+
+                    <div class="cart_list cart_top mt10px">
+                        <div class="w5 pl10px"><input type="checkbox" id="pd_all_input" name="pr_price"></div>
+                        <div class="w45 pro_info_list t_center">상품정보</div>
+                        <div class="w10 pro_info_count t_left">수량</div>
+                        <div class="w20 pro_info_point t_center">적립포인트</div>
+                        <div class="w20 pro_info_price t_center">가격</div>
+                    </div> 
+
+                    <div class="cart_product_box">
+                        <div class="cart_list cart_bottom margin_10px">
+                            <div class="cart_table w50 cart_pro">
+                                <div class="w30">
+                                    <input type="checkbox" name="chk[]" pd_price="12000" amount="1" class="each_chk" >
+                                    <a href=""><img class="w100" src="../images/product2.png" alt="product image"></a>
+                                </div>
+                                
+                                <div class="w50">
+                                    <ul class="mtb10px">
+                                        <li class="mb10px"><a href="" class="f14 white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w10 count_box mtb10px t_center cart_count">
+                                <div class="count_input">
+                                    <input type="text" id="cnt" class="cnt_input outline_none w40" value="1">
+                                </div>
+    
+                                <div class="count_button">
+                                    <input type="button" class="outline_none mb3px plus" value="▲">
+                                    <input type="button" class="outline_none minus" value="▼">
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w20 t_center mtb10px cart_point" ><span>1,000</span>P</div>
+                            <div class="cart_table w20 t_center mtb10px cart_price" >
+                                <span class="product_price">10,000</span>원
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart_product_box">
+                        <div class="cart_list cart_bottom margin_10px">
+                            <div class="cart_table w50 cart_pro">
+                                <div class="w30">
+                                    <input type="checkbox" name="chk[]" pd_price="15000" amount="1" class="each_chk" >
+                                    <a href="#"><img class="w100" src="../images/product2.png" alt="product image"></a>
+                                </div>
+                                
+                                <div class="w50">
+                                    <ul class="mtb10px">
+                                        <li class="mb10px"><a href="" class="f14 white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w10 count_box mtb10px t_center cart_count">
+                                <div class="count_input">
+                                    <input type="text" id="cnt" class="cnt_input outline_none w40" value="1">
+                                </div>
+    
+                                <div class="count_button">
+                                    <input type="button" class="outline_none mb3px plus" value="▲">
+                                    <input type="button" class="outline_none minus" value="▼">
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w20 t_center mtb10px cart_point" ><span>1,000</span>P</div>
+                            <div class="cart_table w20 t_center mtb10px cart_price" >
+                                <span class="product_price">20,000</span>원
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cart_product_box">
+                        <div class="cart_list cart_bottom margin_10px">
+                            <div class="cart_table w50 cart_pro">
+                                <div class="w30">
+                                    <input type="checkbox" name="chk[]" pd_price="10000" amount="1" class="each_chk" >
+                                    <a href="#"><img class="w100" src="../images/product2.png" alt="product image"></a>
+                                </div>
+                                
+                                <div class="w50">
+                                    <ul class="mtb10px">
+                                        <li class="mb10px"><a href="" class="f14 white_space word_break">롯데 360˚ 입체회전 에어써큘레이터 CM-CF770</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w10 count_box mtb10px t_center cart_count">
+                                <div class="count_input">
+                                    <input type="text" id="cnt" class="cnt_input outline_none w40" value="1">
+                                </div>
+    
+                                <div class="count_button">
+                                    <input type="button" class="outline_none mb3px plus" value="▲">
+                                    <input type="button" class="outline_none minus" value="▼">
+                                </div>
+                            </div>
+    
+                            <div class="cart_table w20 t_center mtb10px cart_point" ><span>1,000</span>P</div>
+                            <div class="cart_table w20 t_center mtb10px cart_price" >
+                                <span class="product_price">30,000</span>원
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            
+                <section class="mbc_bottom mb30px">
+                    <ul class="over_visible">
+                        <li class="t_right">총 주문금액 :</li>
+                        <li class="t_center">상품합계 <span class="only_p_price">0</span> 원 + 배송비 <span class="etc_price" del_pr="3000">0</span> 원</li>
+                        <li class="t_left over_visible">= <span class="total_price cart_sum_price">0</span>원</li>
+                    </ul>
+                </section>
+
+                <div class="cart_btn t_center bottom_btn">                                                                                                              
+                    <div><a href="#">쇼핑계속하기</a></div>
+                    <div><a href="#">주문하기</a></div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready( function(){
+
+                var toatl_price = 0;
+
+                var pd_seq = [];
+                var amount = [];
+                var chkBox = [];
+                var product_price = [];
+                var each_price = [];
+
+                var each_product_price = 0;
+                var deliveryPrice = 3000;
+                var deliveryChkPrice = 29999;
+
+
+                //cnt input init 1
+                $(".cnt_input").val(1);
+
+                //init checkbox false
+                $("input:checkbox").prop("checked" ,false);
+
+                $('#pd_all_input').click(function(){
+
+                    //all init
+                    pd_seq = [];
+                    amount = [];
+                    chkBox = [];
+                    product_price = [];
+                    total_price = 0;
+                    each_product_price = 0;
+                                
+                    if($("#pd_all_input").prop("checked")) 
+                    {
+                        $("input:checkbox[name='chk[]']").prop("checked",true);
+
+                        $("input:checkbox[name='chk[]']").each(function(i){
+                            
+                            product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                            amount[i] = parseInt(COMMON.form.str_num($(".cnt_input").eq(i).val()));
+
+                            each_product_price += (product_price[i] * amount[i]);
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+
+                        });
+                    }
+                    else 
+                    {
+                        pd_seq = [];
+                        amount = [];
+                        chkBox = [];
+                        product_price = [];
+                        total_price = 0;
+                        each_product_price = 0;
+
+                        $("input:checkbox[name='chk[]']").prop("checked",false);
+                        $(".only_p_price, .etc_price, .total_price").text(COMMON.form.comma(total_price));
+                    }
+                    
+                });
+                
+                //each
+                $("input:checkbox[name='chk[]']").each(function(i){
+                    $(this).click(function(){
+
+                        total_price = 0;
+                        //all chk init
+                        $("#pd_all_input").prop("checked" ,false);
+
+
+                        chkBox[i] = $(this).is(":checked");
+
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] = parseInt(COMMON.form.str_num($(".cnt_input").eq(i).val()));
+
+                        product_price[i] = product_price[i] * amount[i];
+
+                        /* var each_pd_seq = $(this).attr("pd_seq");
+                        var each_amount = $(this).attr("amount"); */
+
+                        if(chkBox[i] == true)
+                        {                
+                            /* pd_seq.push(each_pd_seq);
+                            chk_amount.push(each_amount); */
+                            each_product_price += product_price[i];
+                        }
+                        else
+                        {
+                            each_product_price -= product_price[i];
+                            /* pd_seq.splice(i);
+                            chk_amount.splice(i); */
+                            
+                        }
+
+                        $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                        if(each_product_price > deliveryChkPrice)
+                        {
+                            total_price = each_product_price;
+                            $(".etc_price").text(COMMON.form.comma(0));
+                        }
+                        else
+                        {
+                            if(chkBox[i] == true)
+                            {
+                                total_price = each_product_price;
+                                if(total_price > deliveryChkPrice)
+                                {
+                                    total_price -= deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(0));
+                                }
+                                else
+                                {
+                                    total_price += deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                                }
+
+                                console.log(total_price);
+                            }
+                            else
+                            {
+                                total_price = each_product_price;
+                                if(total_price > deliveryChkPrice)
+                                {
+                                    total_price -= deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(0));
+                                }
+                                else
+                                {
+                                    if(total_price != 0)
+                                    {
+                                        total_price += deliveryPrice;
+                                    }
+                                    
+                                    $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                                }
+                                console.log(total_price);
+                            }
+
+                            if(total_price == 0)
+                            {
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            
+                            
+                        }
+
+                        $(".total_price").text(COMMON.form.comma(total_price));
+
+                    });
+                });
+
+
+
+                $(".plus").each(function(i){
+                    $(this).click(function(){
+
+                        total_price = 0;
+                        each_price[i] = 0;
+                        each_product_price = 0;
+                        //checkbox checked true
+                        $(".each_chk").eq(i).prop("checked", true);
+
+                        //amount plus
+                        amount[i] = parseInt($(".cnt_input").eq(i).val());
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] += 1;
+                        $(".cnt_input").eq(i).val(amount[i]);
+
+                        each_price[i] = (product_price[i] * amount[i]);
+
+                        for(var k = 0; k < each_price.length; k++)
+                        {
+                            if(each_price[k] == "undefined" || each_price[k] == null)
+                            {
+                                each_price[k] = 0;
+                            }
+                            
+                            each_product_price += each_price[k];
+                        }
+
+                        //each_product_price += each_price[i];
+
+                        $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                        if(each_product_price > deliveryChkPrice)
+                        {
+                            total_price = each_product_price;
+                            $(".etc_price").text(COMMON.form.comma(0));
+                        }
+                        else
+                        {
+                            total_price = each_product_price + deliveryPrice;
+                            $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                        }
+
+
+                        $(".total_price").text(COMMON.form.comma(total_price));
+
+                    });
+                });
+
+                $(".minus").each(function(i){
+                    $(this).click(function(){
+
+                        total_price = 0;
+                        each_price[i] = 0;
+                        each_product_price = 0;
+                        //checkbox checked true
+                        $(".each_chk").eq(i).prop("checked", true);
+
+                        //amount plus
+                        amount[i] = parseInt($(".cnt_input").eq(i).val());
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] -= 1;
+
+                        if(amount[i] >= 1)
+                        {
+                            $(".cnt_input").eq(i).val(amount[i]);
+
+                            each_price[i] = (product_price[i] * amount[i]);
+
+                            for(var k = 0; k < each_price.length; k++)
+                            {
+                                if(each_price[k] == "undefined" || each_price[k] == null)
+                                {
+                                    each_price[k] = 0;
+                                }
+                                
+                                each_product_price += each_price[k];
+                            }
+
+                            //each_product_price += each_price[i];
+
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+                        }
+                        else
+                        {
+                            amount[i] = 1;
+                            $(".cnt_input").eq(i).val(amount[i]);
+
+                            each_price[i] = (product_price[i] * amount[i]);
+
+                            for(var k = 0; k < each_price.length; k++)
+                            {
+                                if(each_price[k] == "undefined" || each_price[k] == null)
+                                {
+                                    each_price[k] = 0;
+                                }
+                                
+                                each_product_price += each_price[k];
+                            }
+
+                            //each_product_price += each_price[i];
+
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+                            alert("최소구매 수량은 1개 입니다.");
+                        }
+                        
+
+                    });
+                });
+                
+            });
+        </script>
+        <!--footer {--> 
+        <footer class="">
+            <div class="footer_middle">
+                <div class="ftm_top">
+                    <a href="#">회사소개</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보처리방침</a>
+                    <a href="#">입점상담</a>
+                </div>
+            </div>
+
+            <div class="footer_bottom_wrap">
+                <div class="footer_bottom dw_1200px">
+                    <div class="ftb_left t_left w20">
+                        <a href="../index.html"><img src="../images/footer_logo.png" alt="footer_logo"></a>
+                    </div>
+                    
+                    <div class="ftb_middle w50">
+                        <ul class="word_break">
+                            <li class="mb5px"><strong class="fw_bold">주식회사 예원엠엔디</strong></li>
+                            <li class="mb5px">주소 : 경기도 광명시 오리로길 619번길 11 (하안동 232번지) 예원이케이빌딩</li>
+                            <li class="mb5px">사업자 등록번호 : 835-87-00673 대표 : 박정임  팩스 : 02-897-8952 </li>
+                            <li class="mb5px">개인정보 보호책임자 : 김영민 부가통신사업신고번호 : 제2017-경기광명-0300호</li>
+                            <li class="mb5px">Copyright © 2018 주식회사 예원엠앤디. All Rights Reserved.</li>                       
+                        </ul>
+                    </div>
+
+                    <div class="ftb_right t_right w30">
+                        <ul>
+                            <li class="mb10px f20"><i class="fas fa-headphones mr5px"></i>고객센터</li>
+                            <li class="fw_bold mb5px f18">02-2616-8952</li>
+                            <li class="mb5px">월-금 am 9:00 - pm 06:00</li>
+                            <li class="mb5px">점심시간 : am 12:00 - pm 01:00</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!--} footer-->
+    </div>
+    <!--} wrap-->
+</body>
+</html>
