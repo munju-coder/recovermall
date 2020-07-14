@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="../css/swiper.css">
         <!-- <link rel="stylesheet" href="../recovermall/css/swiper.min.css"> -->
         <script src="../js/swiper.min.js"></script>
+        <script src="../js/COMMON_geo.js"></script>
         <!--js-->
         <script src="../js/main.js"></script>
         <script src="../js/COMMON_geo.js"></script>
@@ -233,6 +234,13 @@
                 object.value = object.value.slice(0, object.maxLength);
             }
         }
+
+        //daum 우편번호 찾기 ( ka2kao api )
+        $("#btn_zip a").click(function(){
+            console.log('1');
+            var devide = $(this).attr("id");
+            COMMON.kakao.DaumPostcode(devide);
+        });
         
 
             
@@ -604,7 +612,7 @@
                                                 <input type="text" name="mb_zip" id="mb_zip" class="disabled" value="" disabled="" >
                                             </span>
                                             
-                                            <span class="f14 btn_zip" id="btn_zip"><a href="#">우편번호찾기</a></span>
+                                            <span class="f14 btn_zip" id="btn_zip"><a href="javascript:;">우편번호찾기</a></span>
                                         </div>
 
                                         <div class="addr_detail">
