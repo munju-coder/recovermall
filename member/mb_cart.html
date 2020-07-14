@@ -373,368 +373,307 @@
         <script>
             $(document).ready( function(){
 
-                var total_price = 0; //총가격 초기화
-                var each_price = new Array(); //각각 가격 배열
-                var product_price = new Array(); //상품가격 배열
-                var amount = new Array(); // 수량 배열
-                var checkbox = new Array(); //체크박스 배열
+                var toatl_price = 0;
 
-                var delivery_chk_price = 30000;
-                var delivery_price = 3000;
+                var pd_seq = [];
+                var amount = [];
+                var chkBox = [];
+                var product_price = [];
+                var each_price = [];
 
-                //input box 수량 초기화
-                $('.cnt_input').val(1);
+                var each_product_price = 0;
+                var deliveryPrice = 3000;
+                var deliveryChkPrice = 29999;
 
-                //체크박스 초기화
-                // checkbox[i].eq(i).is(":checked",false);
 
-                $('.product_price').each( function(i){
-                    product_price[i] = parseInt(COMMON.form.str_num($(this).text()));
+                //cnt input init 1
+                $(".cnt_input").val(1);
+
+                //init checkbox false
+                $("input:checkbox").prop("checked" ,false);
+
+                $('#pd_all_input').click(function(){
+
+                    //all init
+                    pd_seq = [];
+                    amount = [];
+                    chkBox = [];
+                    product_price = [];
+                    total_price = 0;
+                    each_product_price = 0;
+                                
+                    if($("#pd_all_input").prop("checked")) 
+                    {
+                        $("input:checkbox[name='chk[]']").prop("checked",true);
+
+                        $("input:checkbox[name='chk[]']").each(function(i){
+                            
+                            product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                            amount[i] = parseInt(COMMON.form.str_num($(".cnt_input").eq(i).val()));
+
+                            each_product_price += (product_price[i] * amount[i]);
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+
+                        });
+                    }
+                    else 
+                    {
+                        pd_seq = [];
+                        amount = [];
+                        chkBox = [];
+                        product_price = [];
+                        total_price = 0;
+                        each_product_price = 0;
+
+                        $("input:checkbox[name='chk[]']").prop("checked",false);
+                        $(".only_p_price, .etc_price, .total_price").text(COMMON.form.comma(total_price));
+                    }
+                    
                 });
                 
-                $('.cnt_input').each( function(i){
-                    amount[i] = parseInt(COMMON.form.str_num($(this).val()));
-                });
-
-                // checkbox[i] = $('.each_chk').eq(i).prop(':checked', true);
-
-                $('.plus').each( function(i){
-                    $(this).click( function(){
-                        console.log('a');
-                        total_price = 0; 
-                        amount[i] = parseInt($('.cnt_input').eq(i).val());
-                        
-                        amount[i] += 1;
-                        $('.cnt_input').eq(i).val(COMMON.form.comma(amount[i]));
-
-                        // console.log(product_price.length);
-
-                        for( var j = 0; j < product_price.length; j++){
-                            each_price[j] = product_price[j] * parseInt($('.cnt_input').eq(j).val());
-                            total_price += each_price[j];
-                        }
-
-                        $('.only_p_price').text(COMMON.form.comma(total_price));
-
-                        if(total_price > delivery_chk_price) {
-                            $('.etc_price').text(0);
-                            total_price += parseInt(COMMON.form.str_num($('.etc_price').text()));
-                        } else {
-                            $('.etc_price').text(delivery_price);
-                            total_price += parseInt(COMMON.form.str_num($('.etc_price').text()));
-                        }
-
-                        $('.cart_sum_price').text(total_price);
-
-                    });
-                });
-                 
-
-                $(".minus").each(function(i){                    
+                //each
+                $("input:checkbox[name='chk[]']").each(function(i){
                     $(this).click(function(){
 
                         total_price = 0;
-                        amount[i] = parseInt($('.cnt_input').eq(i).val());
+                        //all chk init
+                        $("#pd_all_input").prop("checked" ,false);
 
-                        //input 박스에 값 넣기
-                        amount[i] -= 1;
 
-                        if(amount[i] > 0){
-                            $(".cnt_input").eq(i).val(COMMON.form.comma(amount[i]));
+                        chkBox[i] = $(this).is(":checked");
 
-                            for(var j = 0; j < product_price.length; j++) {                            
-                                each_price[j] = product_price[j] * parseInt($('.cnt_input').eq(j).val());
-                                total_price += each_price[j];
-                            }
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] = parseInt(COMMON.form.str_num($(".cnt_input").eq(i).val()));
 
-                            $('.only_p_price').text(COMMON.form.comma(total_price));
+                        product_price[i] = product_price[i] * amount[i];
 
-                            if(total_price > delivery_chk_price) {
-                                $('.etc_price').text(0);
-                                total_price += parseInt(COMMON.form.str_num($('.etc_price').text()));
-                            } else {
-                                $('.etc_price').text(delivery_price);
-                                total_price += parseInt(COMMON.form.str_num($('.etc_price').text()));
-                            }
-                            $('.cart_sum_price').text(total_price);
+                        /* var each_pd_seq = $(this).attr("pd_seq");
+                        var each_amount = $(this).attr("amount"); */
 
-                        }else {
-                            amount[i] = 1;
-                            parseInt($('.cnt_input').eq(j).val(amount[i]));
-                            alert("최소 구매수량은 1개 입니다.");
+                        if(chkBox[i] == true)
+                        {                
+                            /* pd_seq.push(each_pd_seq);
+                            chk_amount.push(each_amount); */
+                            each_product_price += product_price[i];
+                        }
+                        else
+                        {
+                            each_product_price -= product_price[i];
+                            /* pd_seq.splice(i);
+                            chk_amount.splice(i); */
+                            
                         }
 
-                        // $(".each_chk").eq(i).prop("checked",true);
-                        
+                        $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                        if(each_product_price > deliveryChkPrice)
+                        {
+                            total_price = each_product_price;
+                            $(".etc_price").text(COMMON.form.comma(0));
+                        }
+                        else
+                        {
+                            if(chkBox[i] == true)
+                            {
+                                total_price = each_product_price;
+                                if(total_price > deliveryChkPrice)
+                                {
+                                    total_price -= deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(0));
+                                }
+                                else
+                                {
+                                    total_price += deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                                }
+
+                                console.log(total_price);
+                            }
+                            else
+                            {
+                                total_price = each_product_price;
+                                if(total_price > deliveryChkPrice)
+                                {
+                                    total_price -= deliveryPrice;
+                                    $(".etc_price").text(COMMON.form.comma(0));
+                                }
+                                else
+                                {
+                                    if(total_price != 0)
+                                    {
+                                        total_price += deliveryPrice;
+                                    }
+                                    
+                                    $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                                }
+                                console.log(total_price);
+                            }
+
+                            if(total_price == 0)
+                            {
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            
+                            
+                        }
+
+                        $(".total_price").text(COMMON.form.comma(total_price));
+
                     });
                 });
 
-                // //global variable
-                // var product_price = Number(COMMON.form.str_num($(".product_price").text())); //상품가격                            
-                // var only_p_price = Number(COMMON.form.str_num($(".only_p_price").text())); //상품가격
-                // var product_amount = Number(COMMON.form.str_num($(".cnt_input").val())); //상품수량
-                // var total_price = Number(COMMON.form.str_num($('.total_price').text())); //상품가격 + 배송비 = 총 금액가격
-                
-                
 
-                // var sum_price = 0;               //총 더한 가격 변수
-                // var sum_amount = product_amount; //총수량 = 상품수량
-                // var option_price = 0;
 
-                // if(product_amount > 1){
-                //     product_amount = 1;
-                //     sum_amount = 1;
-                //     $(".cnt_input").val(1);
-                // }
-                // var arr_product_price = new Array();
+                $(".plus").each(function(i){
+                    $(this).click(function(){
 
-                // $(".product_price").each(function(i){
-                //     arr_product_price[i] = Number(COMMON.form.str_num($(this).text()));
-                // });
+                        total_price = 0;
+                        each_price[i] = 0;
+                        each_product_price = 0;
+                        //checkbox checked true
+                        $(".each_chk").eq(i).prop("checked", true);
 
-                // // console.log(arr_product_price);
+                        //amount plus
+                        amount[i] = parseInt($(".cnt_input").eq(i).val());
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] += 1;
+                        $(".cnt_input").eq(i).val(amount[i]);
 
-                $('#pd_all_input').click( function(){
-                    var chk = $(this).is(":checked");
-                    var subUnchk = $('.each_chk').prop(':checked', true);
+                        each_price[i] = (product_price[i] * amount[i]);
 
-                    if(chk == true) {
-                        $(".cart_pro input").prop('checked', true);
+                        for(var k = 0; k < each_price.length; k++)
+                        {
+                            if(each_price[k] == "undefined" || each_price[k] == null)
+                            {
+                                each_price[k] = 0;
+                            }
+                            
+                            each_product_price += each_price[k];
+                        }
 
-                        $(".each_chk").each(function(){ 
-                            var each_price = Number($(this).attr("pd_price")); 
-                            sum_price = sum_price + each_price; 
-                        });  
+                        //each_product_price += each_price[i];
 
-                        $("#cart_sum_price").text(COMMON.form.comma(sum_price));
-                        
-                    }else {
-                        $(".cart_pro input").prop('checked', false);
-                        sum_price = 0;
-                        $("#cart_sum_price").text(COMMON.form.comma(sum_price));
-                    }
-                    
-                    if(chk == true && subUnchk == false){
-                        console.log('1');
-                        $('.each_chk').each(function(){
-                            var each_price2 = Number($(this).attr("pd_price"));
-                            sum_price = sum_price - each_price2;
-                        });
-                    }
-      
+                        $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                        if(each_product_price > deliveryChkPrice)
+                        {
+                            total_price = each_product_price;
+                            $(".etc_price").text(COMMON.form.comma(0));
+                        }
+                        else
+                        {
+                            total_price = each_product_price + deliveryPrice;
+                            $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                        }
+
+
+                        $(".total_price").text(COMMON.form.comma(total_price));
+
+                    });
                 });
 
-                // $('.each_chk, .pd_all_input').click( function(){
-                //     $(".cnt_input").val(sum_amount);
-                //     sum_price = (product_price + option_price) * sum_amount;
-                //     $(".only_p_price").text(COMMON.form.comma(sum_price));
-                                        
-                //     if(sum_price > min_deliver){
-                //         sum_price = sum_price - delivery_price;
-                //         $(".etc_price").text("0");
-                //         $(".total_price").text(COMMON.form.comma(sum_price));
-                //     }else {
-                //         $(".etc_price").text(COMMON.form.comma(delivery_price));
-                //         sum_price = sum_price + delivery_price;
-                //         $(".only_p_price").text(COMMON.form.comma(sum_price - delivery_price));
-                //         $(".total_price").text(COMMON.form.comma(sum_price));
-                //     }
+                $(".minus").each(function(i){
+                    $(this).click(function(){
 
-                //     var each_chk = $('.each_chk').is(":checked");
-                //     var chk = $('.each_chk').is(":checked");
+                        total_price = 0;
+                        each_price[i] = 0;
+                        each_product_price = 0;
+                        //checkbox checked true
+                        $(".each_chk").eq(i).prop("checked", true);
 
-                //     console.log(each_chk);
+                        //amount plus
+                        amount[i] = parseInt($(".cnt_input").eq(i).val());
+                        product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
+                        amount[i] -= 1;
 
-                //     if(each_chk == false && chk == false){
-                //         console.log('1');
-                //         $(".total_price, .only_p_price, .etc_price").text(0);
-                //     }
+                        if(amount[i] >= 1)
+                        {
+                            $(".cnt_input").eq(i).val(amount[i]);
 
-                // });
-            
-                //plus btn event
-                /* $("#plus").click(function(){
+                            each_price[i] = (product_price[i] * amount[i]);
 
-                    //클릭했을때 체크박스를 선택한다.
-                    //var each_chk = $('.each_chk').prop(':checked', true);
-                    
-                    //  console.log('1');
-                    sum_amount += 1;
-                    $(".cnt_input").val(sum_amount);
-                    sum_price = (product_price + option_price) * sum_amount;
-                    $(".only_p_price").text(COMMON.form.comma(sum_price));
+                            for(var k = 0; k < each_price.length; k++)
+                            {
+                                if(each_price[k] == "undefined" || each_price[k] == null)
+                                {
+                                    each_price[k] = 0;
+                                }
+                                
+                                each_product_price += each_price[k];
+                            }
 
-                    if(sum_price > min_deliver){
-                        $(".etc_price").text("0");
-                        $(".total_price").text(COMMON.form.comma(sum_price));
-                    }else{
-                        sum_price = sum_price + delivery_price;
-                        $(".etc_price").text(COMMON.form.comma(delivery_price));                        
-                        $(".total_price").text(COMMON.form.comma(sum_price));
-                    }
-                    
+                            //each_product_price += each_price[i];
 
-                    $(this).each(function(i){
-                        $("input:checkbox[name='chk[]']").eq(i).prop("checked",true);
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+                        }
+                        else
+                        {
+                            amount[i] = 1;
+                            $(".cnt_input").eq(i).val(amount[i]);
+
+                            each_price[i] = (product_price[i] * amount[i]);
+
+                            for(var k = 0; k < each_price.length; k++)
+                            {
+                                if(each_price[k] == "undefined" || each_price[k] == null)
+                                {
+                                    each_price[k] = 0;
+                                }
+                                
+                                each_product_price += each_price[k];
+                            }
+
+                            //each_product_price += each_price[i];
+
+                            $(".only_p_price").text(COMMON.form.comma(each_product_price));
+
+                            if(each_product_price > deliveryChkPrice)
+                            {
+                                total_price = each_product_price;
+                                $(".etc_price").text(COMMON.form.comma(0));
+                            }
+                            else
+                            {
+                                total_price = each_product_price + deliveryPrice;
+                                $(".etc_price").text(COMMON.form.comma(deliveryPrice));
+                            }
+
+
+                            $(".total_price").text(COMMON.form.comma(total_price));
+                            alert("최소구매 수량은 1개 입니다.");
+                        }
+                        
+
                     });
-                    
-                    //console.log($(this).parents().find(".each_chk"));
-
-                    console.log(each_chk);
-                    $('.each_chk').each(function(i) {
-
-                        //console.log(i);
-                        $(this).eq(i).attr("checked", true); //수량을 올렸을때 각각의 인풋 체크해줌                        
-                    });
-                });  */
-                
-                // var sum_amount = new Array();
-                // var total_price = new Array();
-                // var product_price = new Array(); 
-                // var delivery_price = 3000; //배송비가격 3만원 이상일때만 추가되는 변수
-                // var min_deliver = 30000; //상품가격 3만원 이상인지 이하인지 알아보는 변수
-                
-                // $(".plus").each(function(i){
-                //     $(this).click(function(){
-                //         //console.log(i);
-                //         var cnt_input = parseInt($(".cnt_input").eq(i).val());
-                //         var sum_amount1 = cnt_input + 1;
-                //         $(".cnt_input").eq(i).val(sum_amount1)
-
-                //         sum_amount[i] = sum_amount1;
-                //         total_price[i] = arr_product_price[i] * sum_amount[i];
-                        
-                //         //클릭에 해당하는 체크박스를 체크해준다.
-                //         $(".each_chk").eq(i).prop("checked",true);
-
-                //         //총가격 for문으로 돌려서 값을 넣어준다.
-                //         var sum_p = 0;
-                //         for(var j = 0; j < total_price.length; j++){
-                //             sum_p = sum_p + total_price[j];
-                //         }
-
-                //         console.log(sum_p);
-
-                //         $(".total_price").text(sum_p);
-                //         $('.only_p_price').text(sum_p);
-                        
-                //         //배송비 비교해서 3만원 이상일때는 0원, 이하일때는 3천원을 넣어준다.
-                //         if(sum_p > min_deliver){
-                //             $(".etc_price").text("0");
-                //             sum_p = sum_p - delivery_price; 
-                //             $(".total_price").text(COMMON.form.comma(total_price));
-                //         }else{
-                //             sum_price = sum_p + delivery_price;
-                //             $(".etc_price").text(COMMON.form.comma(delivery_price));                        
-                //             $(".total_price").text(COMMON.form.comma(sum_price));
-                //         }
-                        
-
-                //     });
-                // });
-
-                // var chk_input = new Array;
-                // var sum_minus = new Array();
-                // $('.minus').each( function(i){
-                //     $(this).click( function(){
-                //         // console.log(i);
-                        
-                //         var cnt_input = parseInt($(".cnt_input").eq(i).val()); 
-                        
-                //         var sum_amount1 = cnt_input - 1;
-                //         $(".cnt_input").eq(i).val(sum_amount1);
-
-                //         // console.log(cnt_input);
-                //         sum_minus[i] = sum_amount1;
-
-                //         total_price = arr_product_price[i] * sum_minus[i];
-
-                        
-                //         $(".cart_sum_price").text(total_price);
-
-                //         // console.log(sum_amount);
-                //         $(this).each(function(i){
-                //             $("input:checkbox[name='chk[]']").eq(i).prop("checked",true);
-                //         });
-
-                //         //클릭에 해당하는 체크박스를 체크해준다.
-                //         $(".each_chk").eq(i).prop("checked",true);
-                        
-                //         //수량비교해서 0보다클때만 적용됨
-                //         if(total_price >= product_amount){
-                //             $(".cnt_input").val(sum_p);
-                //             sum_price = sum_price - (product_price + option_price);
-                //         }else {
-                //             $(".cnt_input").val(product_amount);
-                //             $(".etc_price").text(COMMON.form.comma(delivery_price));
-                //             total_price = product_amount;
-                //             alert("최소 구매수량 1개입니다.");
-                //         }
-
-                        
-
-                //     });
-                // });
-
-                // $(".minus").click(function(){
-                //     sum_amount -= 1;
-                    
-                //     if(sum_amount >= product_amount){
-                //         $(".cnt_input").val(sum_amount);
-                //         sum_price = sum_price - (product_price + option_price);
-                //     }else {
-                //         $(".cnt_input").val(product_amount);
-                //         $(".etc_price").text(COMMON.form.comma(delivery_price));
-                //         sum_amount = product_amount;
-                //         alert("최소 구매수량 1개입니다.");
-                //     }
-
-                //     sum_price = (product_price + option_price) * sum_amount;
-
-                //     if(sum_price > min_deliver){
-                //         sum_price = sum_price - delivery_price;
-                //         $(".etc_price").text("0");
-                //         $(".total_price").text(COMMON.form.comma(sum_price));
-                //     } else{
-                //         $(".etc_price").text(COMMON.form.comma(delivery_price));
-                //         sum_price = sum_price + delivery_price;
-                //         $(".only_p_price").text(COMMON.form.comma(sum_price - delivery_price));
-                //         $(".total_price").text(COMMON.form.comma(sum_price));
-                //     }
-                    
-                // });
-
-                // $('.delete_btn_1').click( function(){
-
-                //     //가격 초기화 함.
-                //     $(".total_price, .only_p_price, .etc_price").text(0);
-
-                //     //이전 형제 요소 삭제
-                //     $(this).prev().remove();
-                //     //자기 자신 삭제
-                //     $(this).remove();
-                    
-                //     //mbc_bottom의 높이값을 강제로 추가함.
-                //     $(".mbc_bottom").css("margin-top", "100px");
-
-                //     //ajax 처리해주세요.
-                // });
-                
-                // $('delete_btn_2').click( function(){
-                //     //가격 초기화 함.
-                //     $(".total_price_2, .only_p_price_2, .etc_price_@").text(0);
-
-                //     //이전 형제 요소 삭제
-                //     $(this).prev().remove();
-                //     //자기 자신 삭제
-                //     $(this).remove();
-                    
-                //     //mbc_bottom의 높이값을 강제로 추가함.
-                //     $(".mbc_bottom").css("margin-top", "100px");
-
-                //     //ajax 처리해주세요.
-                // });
-
+                });
                 
             });
         </script>
