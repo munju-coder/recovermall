@@ -405,7 +405,7 @@
 
         <script>
             $(document).ready( function(){
-
+                //문주메롱
                 var toatl_price = 0;
 
                 var pd_seq = [];
@@ -473,6 +473,7 @@
                         amount = [];
                         chkBox = [];
                         product_price = [];
+                        each_price = [];
                         total_price = 0;
                         each_product_price = 0;
 
@@ -630,13 +631,14 @@
                         each_product_price = 0;
                         //checkbox checked true
                         $(".each_chk").eq(i).prop("checked", true);
+                        chkBox[i] = $(".each_chk").eq(i).is(":checked");
 
                         //amount plus
                         amount[i] = parseInt($(".cnt_input").eq(i).val());
                         product_price[i] = parseInt(COMMON.form.str_num($(".product_price").eq(i).text()));
                         amount[i] -= 1;
 
-                        if(amount[i] >= 1)
+                        if(amount[i] > 0)
                         {
                             $(".cnt_input").eq(i).val(amount[i]);
 
@@ -676,7 +678,7 @@
 
                             each_price[i] = (product_price[i] * amount[i]);
 
-                            for(var k = 0; k < each_price.length; k++)
+                            for(var k = 0; k < chkBox.length; k++)
                             {
                                 if(each_price[k] == "undefined" || each_price[k] == null)
                                 {
