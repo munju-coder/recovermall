@@ -498,7 +498,9 @@
                             /* pd_seq.push(each_pd_seq);
                             chk_amount.push(each_amount); */
                             each_product_price += each_price[i];
-                        } else {
+                        }
+                        else
+                        {
                             each_product_price -= each_price[i];
                             each_price[i] = 0;
                             /* pd_seq.splice(i);
@@ -521,7 +523,9 @@
                                     total_price += deliveryPrice;
                                     $(".etc_price").text(COMMON.form.comma(deliveryPrice));
                                 }
-                            } else {
+                            }
+                            else
+                            {
                                 total_price = each_product_price;
                                 if(total_price > deliveryChkPrice){
                                     total_price -= deliveryPrice;
@@ -563,10 +567,13 @@
 
                         each_price[i] = (product_price[i] * amount[i]);
 
-                        console.log(chkBox);
+                        console.log(chkBox.length);
 
-                        for(var k = 0; k < chkBox.length; k++){
-                            if(each_price[k] == "undefined" || each_price[k] == null){
+                        for(var k = 0; k < chkBox.length; k++)
+                        {
+                            console.log(each_price[k]);
+                            if(each_price[k] == "undefined" || each_price[k] == null)
+                            {
                                 each_price[k] = 0;
                             }
                             each_product_price += each_price[k];
